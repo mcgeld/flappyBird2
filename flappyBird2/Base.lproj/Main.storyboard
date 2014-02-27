@@ -42,8 +42,8 @@
                                 <rect key="frame" x="117" y="404" width="86" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7B4-uk-aEs">
-                                <rect key="frame" x="250" y="150" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying1.png" translatesAutoresizingMaskIntoConstraints="NO" id="7B4-uk-aEs">
+                                <rect key="frame" x="133" y="136" width="63" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -54,6 +54,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="background1" destination="rGx-R8-eKx" id="Wey-4S-6jX"/>
+                        <outlet property="birdPicture" destination="7B4-uk-aEs" id="fWW-aw-idv"/>
                         <outlet property="goButton" destination="IxN-tQ-qIB" id="VmC-bA-XLU"/>
                         <outlet property="ground1" destination="1pB-00-sgn" id="SV3-hw-p63"/>
                         <outlet property="ground2" destination="rwo-zN-oSB" id="yF2-jq-4kS"/>
@@ -71,8 +72,7 @@
     </scenes>
     <resources>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
-        <image name="flappyBirdDaytime.png" width="288" height="511"/>
-        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
+        <image name="flappyBirdFlying1.png" width="17" height="12"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
     </resources>
