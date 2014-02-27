@@ -10,14 +10,19 @@
 
 @interface ViewController : UIViewController
 {
-    int x;
-    int y;
-    BOOL go;
     NSTimer * timer;
+    BOOL go;
+    float groundX;
+    float groundY;
+    BOOL startButtonDown;
+    NSMutableArray * birdPics;
+    int birdPicNum;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
-@property (weak, nonatomic) IBOutlet UIImageView *background2;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
+@property (weak, nonatomic) IBOutlet UIImageView *ground2;
+@property (weak, nonatomic) IBOutlet UIImageView *ground1;
+@property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
 - (IBAction)goPressed:(id)sender;
 
 

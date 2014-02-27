@@ -22,6 +22,12 @@
 		7F4F211318BEB753002675F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F211118BEB753002675F6 /* InfoPlist.strings */; };
 		7F4F211518BEB753002675F6 /* flappyBird2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F211418BEB753002675F6 /* flappyBird2Tests.m */; };
 		7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F211E18BEC43D002675F6 /* flappyBirdDaytime.png */; };
+		7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212218BF1A4B002675F6 /* flappyBirdGroundWide.png */; };
+		7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212418BF36B5002675F6 /* flappyBirdStartButtonDown.png */; };
+		7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212618BF36BE002675F6 /* flappyBirdStartButtonUp.png */; };
+		7F4F212918BF9C60002675F6 /* flappyBirdFlying1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */; };
+		7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */; };
+		7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		7F4F211218BEB753002675F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F4F211418BEB753002675F6 /* flappyBird2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flappyBird2Tests.m; sourceTree = "<group>"; };
 		7F4F211E18BEC43D002675F6 /* flappyBirdDaytime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdDaytime.png; sourceTree = "<group>"; };
+		7F4F212218BF1A4B002675F6 /* flappyBirdGroundWide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdGroundWide.png; sourceTree = "<group>"; };
+		7F4F212418BF36B5002675F6 /* flappyBirdStartButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdStartButtonDown.png; sourceTree = "<group>"; };
+		7F4F212618BF36BE002675F6 /* flappyBirdStartButtonUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdStartButtonUp.png; sourceTree = "<group>"; };
+		7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying1.png; sourceTree = "<group>"; };
+		7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying2.png; sourceTree = "<group>"; };
+		7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +140,12 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */,
+				7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */,
+				7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */,
+				7F4F212618BF36BE002675F6 /* flappyBirdStartButtonUp.png */,
+				7F4F212418BF36B5002675F6 /* flappyBirdStartButtonDown.png */,
+				7F4F212218BF1A4B002675F6 /* flappyBirdGroundWide.png */,
 				7F4F211E18BEC43D002675F6 /* flappyBirdDaytime.png */,
 				7F4F20F118BEB753002675F6 /* flappyBird2-Info.plist */,
 				7F4F20F218BEB753002675F6 /* InfoPlist.strings */,
@@ -232,9 +250,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F210218BEB753002675F6 /* Images.xcassets in Resources */,
+				7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */,
 				7F4F20F418BEB753002675F6 /* InfoPlist.strings in Resources */,
 				7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */,
+				7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */,
+				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
+				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
+				7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */,
+				7F4F212918BF9C60002675F6 /* flappyBirdFlying1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

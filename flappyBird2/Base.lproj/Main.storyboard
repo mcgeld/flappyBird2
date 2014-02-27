@@ -20,12 +20,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdDaytime.png" translatesAutoresizingMaskIntoConstraints="NO" id="qRJ-fT-a6o">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="1pB-00-sgn">
+                                <rect key="frame" x="0.0" y="454" width="320" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwo-zN-oSB">
+                                <rect key="frame" x="44" y="454" width="320" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-tQ-qIB">
-                                <rect key="frame" x="137" y="466" width="46" height="30"/>
+                                <rect key="frame" x="137" y="496" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,6 +38,14 @@
                                     <action selector="goPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="snB-SX-Gba"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdStartButtonUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="l9r-jF-sG3">
+                                <rect key="frame" x="117" y="404" width="86" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7B4-uk-aEs">
+                                <rect key="frame" x="250" y="150" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -42,8 +54,10 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="background1" destination="rGx-R8-eKx" id="Wey-4S-6jX"/>
-                        <outlet property="background2" destination="qRJ-fT-a6o" id="xJp-CZ-bVt"/>
                         <outlet property="goButton" destination="IxN-tQ-qIB" id="VmC-bA-XLU"/>
+                        <outlet property="ground1" destination="1pB-00-sgn" id="SV3-hw-p63"/>
+                        <outlet property="ground2" destination="rwo-zN-oSB" id="yF2-jq-4kS"/>
+                        <outlet property="startButtonImage" destination="l9r-jF-sG3" id="E4H-2f-u1W"/>
                     </connections>
                 </viewController>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flappyBirdDaytime.png" id="vEO-QM-gcx">
@@ -57,6 +71,10 @@
     </scenes>
     <resources>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
+        <image name="flappyBirdDaytime.png" width="288" height="511"/>
+        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
+        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
+        <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
