@@ -31,6 +31,10 @@
     [birdPics addObject:@"flappyBirdFlying3.png"];
     birdPicNum = 0;
     wingsGoingUp = NO;
+    birdY = _birdPicture.frame.origin.y;
+    gravityOn = NO;
+    gravityConstant = 0.22;
+    birdAccel = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +90,17 @@
     }
 }
 
+-(void)updateGravity
+{
+    [UIView animateWithDuration:0.01
+            animations:^(void)
+            {
+                _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y - birdAccel, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
+            }
+            completion:^(BOOL finished){}];
+    birdAccel -= gravityConstant;
+}
+
 - (IBAction)goPressed:(id)sender
 {
     if(!go)
@@ -107,6 +122,22 @@
     }
 }
 
+- (IBAction)gravityPressed:(id)sender
+{
+    if(!gravityOn)
+    {
+        NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
+        gravityTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:Nil repeats:YES];
+        [theRunLoop addTimer:gravityTimer forMode:NSDefaultRunLoopMode];
+        gravityOn = YES;
+    }
+    else
+    {
+        [gravityTimer invalidate];
+        gravityOn = NO;
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch * curTouch = [touches anyObject];
@@ -115,6 +146,10 @@
     {
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = YES;
+    }
+    else
+    {
+        birdAccel = 6;
     }
 }
 
