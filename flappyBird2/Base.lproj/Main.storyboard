@@ -66,6 +66,10 @@
                                     <segue destination="WGF-TL-rAh" kind="modal" id="ysZ-8J-xRx"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMy-fd-ZQH">
+                                <rect key="frame" x="140" y="79" width="41" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -75,6 +79,7 @@
                     <connections>
                         <outlet property="background1" destination="rGx-R8-eKx" id="Wey-4S-6jX"/>
                         <outlet property="birdPicture" destination="7B4-uk-aEs" id="fWW-aw-idv"/>
+                        <outlet property="coinPicture" destination="qMy-fd-ZQH" id="raW-gX-7ag"/>
                         <outlet property="goButton" destination="IxN-tQ-qIB" id="VmC-bA-XLU"/>
                         <outlet property="ground1" destination="1pB-00-sgn" id="SV3-hw-p63"/>
                         <outlet property="ground2" destination="rwo-zN-oSB" id="yF2-jq-4kS"/>
@@ -178,9 +183,7 @@
     <resources>
         <image name="bottomTube.png" width="52" height="321"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
-        <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdFlying1.png" width="17" height="12"/>
-        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
     </resources>

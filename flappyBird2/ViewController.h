@@ -13,6 +13,7 @@
     NSTimer * groundTimer;
     NSTimer * birdFlapTimer;
     NSTimer * gravityTimer;
+    NSTimer * coinTimer;
     BOOL go;
     float groundX;
     float groundY;
@@ -31,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
 @property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)gravityPressed:(id)sender;
 

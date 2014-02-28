@@ -113,11 +113,8 @@
 {
     if(!go)
     {
-        NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
-        groundTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
-        birdFlapTimer = [NSTimer timerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
-        [theRunLoop addTimer:groundTimer forMode:NSDefaultRunLoopMode];
-        [theRunLoop addTimer:birdFlapTimer forMode:NSDefaultRunLoopMode];
+        groundTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
+        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
         go = YES;
         [_goButton setTitle:@"Stop!" forState:UIControlStateNormal];
     }
