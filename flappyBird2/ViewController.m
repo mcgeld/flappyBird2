@@ -98,7 +98,15 @@
                 _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y - birdAccel, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
             }
             completion:^(BOOL finished){}];
-    birdAccel -= gravityConstant;
+    if(_birdPicture.frame.origin.y > self.view.frame.size.height / 2)
+    {
+        birdAccel += gravityConstant;
+    }
+    else
+    {
+        birdAccel -= gravityConstant;
+    }
+    
 }
 
 - (IBAction)goPressed:(id)sender
