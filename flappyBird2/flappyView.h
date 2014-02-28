@@ -1,18 +1,26 @@
 //
-//  gameView.h
+//  flappyView.h
 //  flappyBird2
 //
-//  Created by Brittny Wright on 2/27/14.
+//  Created by Brittny Wright on 2/28/14.
 //  Copyright (c) 2014 Malcolm Geldmacher. All rights reserved.
 //
 
-int widthOfViewController=320;
-
 #import <UIKit/UIKit.h>
 
-@interface gameView : UIViewController
+@interface flappyView : UIViewController
 {
-   
+    int sizeBetweenTubes;
+    int tubeSpeed;
+    int widthOfViewController;
+    bool startTubeOne;
+    bool startTubeTwo;
+    int tubeWidth;
+    int tubeHeight;
+    int tubeBottomY;
+    int tubeBottomX;
+    int tubeTopX;
+    int tubeTopY;
     NSTimer * tubeTimer;
     NSTimer * groundTimer;
     NSTimer * birdFlapTimer;
@@ -28,9 +36,7 @@ int widthOfViewController=320;
     float gravityConstant;
     float birdAccel;
     BOOL gravityOn;
-    int tubeSpeed;
 }
-
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 @property (weak, nonatomic) IBOutlet UIImageView *ground2;
@@ -39,15 +45,9 @@ int widthOfViewController=320;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)gravityPressed:(id)sender;
-
-
-
-@property (strong, nonatomic) IBOutlet UIImageView *tubeBottomImage;
-
-@property (strong, nonatomic) IBOutlet UIImageView *tubeBottomImage1;
-
-
-
-
+@property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage;
+@property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage1;
+@property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage;
+@property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage1;
 
 @end
