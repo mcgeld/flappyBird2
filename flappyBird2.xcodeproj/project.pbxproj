@@ -28,6 +28,9 @@
 		7F4F212918BF9C60002675F6 /* flappyBirdFlying1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */; };
 		7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */; };
 		7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */; };
+		ADC3F9F518C008630011D68A /* gameView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3F9F418C008630011D68A /* gameView.m */; };
+		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
+		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,10 @@
 		7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying1.png; sourceTree = "<group>"; };
 		7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying2.png; sourceTree = "<group>"; };
 		7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying3.png; sourceTree = "<group>"; };
+		ADC3F9F318C008630011D68A /* gameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameView.h; sourceTree = "<group>"; };
+		ADC3F9F418C008630011D68A /* gameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameView.m; sourceTree = "<group>"; };
+		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
+		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +136,8 @@
 				7F4F20F818BEB753002675F6 /* AppDelegate.h */,
 				7F4F20F918BEB753002675F6 /* AppDelegate.m */,
 				7F4F20FB18BEB753002675F6 /* Main.storyboard */,
+				ADC3F9F318C008630011D68A /* gameView.h */,
+				ADC3F9F418C008630011D68A /* gameView.m */,
 				7F4F20FE18BEB753002675F6 /* ViewController.h */,
 				7F4F20FF18BEB753002675F6 /* ViewController.m */,
 				7F4F210118BEB753002675F6 /* Images.xcassets */,
@@ -140,6 +149,8 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ADC3F9FA18C031AC0011D68A /* bottomTube.png */,
+				ADC3F9FB18C031AC0011D68A /* topTube.png */,
 				7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */,
 				7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */,
 				7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */,
@@ -250,10 +261,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F210218BEB753002675F6 /* Images.xcassets in Resources */,
+				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
 				7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */,
 				7F4F20F418BEB753002675F6 /* InfoPlist.strings in Resources */,
 				7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */,
 				7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */,
+				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
@@ -279,6 +292,7 @@
 			files = (
 				7F4F210018BEB753002675F6 /* ViewController.m in Sources */,
 				7F4F20FA18BEB753002675F6 /* AppDelegate.m in Sources */,
+				ADC3F9F518C008630011D68A /* gameView.m in Sources */,
 				7F4F20F618BEB753002675F6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +502,7 @@
 				7F4F211A18BEB753002675F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F4F211B18BEB753002675F6 /* Build configuration list for PBXNativeTarget "flappyBird2Tests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +511,7 @@
 				7F4F211D18BEB753002675F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -56,6 +56,16 @@
                                     <action selector="gravityPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gfz-1B-DrX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewq-yp-MxX">
+                                <rect key="frame" x="254" y="518" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next->">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="WGF-TL-rAh" kind="modal" id="ysZ-8J-xRx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -77,10 +87,96 @@
                 </imageView>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261" y="44"/>
+            <point key="canvasLocation" x="98" y="15"/>
+        </scene>
+        <!--Game View-->
+        <scene sceneID="vIT-5v-fUn">
+            <objects>
+                <viewController id="WGF-TL-rAh" customClass="gameView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BKW-2G-hKC"/>
+                        <viewControllerLayoutGuide type="bottom" id="glT-oa-FEi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mh4-Xj-45k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdDaytime.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zha-ye-3iP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="kYA-Mk-4G2">
+                                <rect key="frame" x="0.0" y="454" width="320" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-7x-p8B">
+                                <rect key="frame" x="44" y="454" width="320" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzq-8M-Kev">
+                                <rect key="frame" x="137" y="496" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goPressed:" destination="WGF-TL-rAh" eventType="touchUpInside" id="XsM-Gf-3aV"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdStartButtonUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="lr0-0l-VIc">
+                                <rect key="frame" x="117" y="404" width="86" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying1.png" translatesAutoresizingMaskIntoConstraints="NO" id="f3O-zX-anS">
+                                <rect key="frame" x="133" y="136" width="63" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RP9-tq-DLl">
+                                <rect key="frame" x="131" y="534" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Gravity">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gravityPressed:" destination="WGF-TL-rAh" eventType="touchUpInside" id="Iw4-GM-yBU"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-dP-534">
+                                <rect key="frame" x="261" y="197" width="59" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="KLL-Mv-CRR">
+                                <rect key="frame" x="261" y="197" width="59" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="background1" destination="Zha-ye-3iP" id="jJV-ju-eaK"/>
+                        <outlet property="birdPicture" destination="f3O-zX-anS" id="zIf-rv-bBg"/>
+                        <outlet property="goButton" destination="Wzq-8M-Kev" id="zza-oG-aeB"/>
+                        <outlet property="ground1" destination="kYA-Mk-4G2" id="Y18-0j-LT8"/>
+                        <outlet property="ground2" destination="4ek-7x-p8B" id="e9b-iL-43u"/>
+                        <outlet property="startButtonImage" destination="lr0-0l-VIc" id="Ssl-Ib-qG7"/>
+                        <outlet property="tubeBottomImage" destination="NXI-dP-534" id="803-KB-Liv"/>
+                        <outlet property="tubeBottomImage1" destination="KLL-Mv-CRR" id="Efa-fX-rwp"/>
+                    </connections>
+                </viewController>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flappyBirdDaytime.png" id="4kw-fL-1Vk">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdr-ao-ITN" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="648" y="15"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bottomTube.png" width="52" height="321"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdFlying1.png" width="17" height="12"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>
