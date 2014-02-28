@@ -1,37 +1,43 @@
 //
-//  gameView.m
+//  flappyView.m
 //  flappyBird2
 //
-//  Created by Brittny Wright on 2/27/14.
+//  Created by Brittny Wright on 2/28/14.
 //  Copyright (c) 2014 Malcolm Geldmacher. All rights reserved.
 //
 
+#import "flappyView.h"
 
- bool startTubeOne=YES;
-bool startTubeTwo=NO;
-int tubeWidth=59;
-int tubeHeight=256;
-int tubeBottomY=325;
-int tubeBottomX=350;
-
-#import "gameView.h"
-
-@implementation gameView
-
-
-
+@implementation flappyView
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    sizeBetweenTubes=128;
+    widthOfViewController=320;
+    startTubeOne=YES;
+    startTubeTwo=NO;
+    tubeWidth=59;
+    tubeHeight=256;
+    tubeBottomY=321;
+    tubeBottomX=350;
+    tubeTopX=350;
+    tubeTopY=-107;
+    tubeSpeed=-1;
+    
+    
+    
+   
+    _tubeBottomImage.hidden=YES;
+    _tubeBottomImage1.hidden=YES;
+    
+    _tubeTopImage.hidden=YES;
+    _tubeTopImage1.hidden=YES;
+    
+    //_tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
+    //_tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
-
-    _tubeBottomImage=[[UIImageView alloc] init];
-    _tubeBottomImage1=[[UIImageView alloc] init];
-    
-    _tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
-    _tubeBottomImage1.center=CGPointMake(tubeBottomX, tubeBottomY);
-    
-    
     _background1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     _ground1.frame = CGRectMake(0, self.view.frame.size.height - _ground1.frame.size.height, _ground1.frame.size.width, _ground1.frame.size.height);
     _ground2.frame = CGRectMake(self.view.frame.size.width, self.view.frame.size.height - _ground2.frame.size.height, _ground2.frame.size.width, _ground2.frame.size.height);
@@ -49,8 +55,6 @@ int tubeBottomX=350;
     gravityOn = NO;
     gravityConstant = 0.22;
     birdAccel = 0;
-    
-    tubeSpeed=-1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,13 +77,6 @@ int tubeBottomX=350;
     {
         groundX = 0;
     }
-    
-    
-    
-
-    
-    
-    
 }
 
 -(void)updateFlaps
@@ -125,65 +122,102 @@ int tubeBottomX=350;
 }
 
 
-
-
 -(void)updateTube
 {
-   // NSLog(@"%f",_tubeBottomImage.);
     
-
-    if(_tubeBottomImage.center.y<(_tubeBottomImage.frame.size.width/2))
+    int random=(arc4random()%238)*-1;
+    
+    
+    //IF first tube is halfway off the screen
+    if(_tubeBottomImage.frame.origin.x<0)
     {
+        
         startTubeTwo=YES;
+  
+      
     }
-    if(_tubeBottomImage1.center.y<(_tubeBottomImage1.frame.size.width/2))
+    //if second image is halfway off the screen
+    if(_tubeBottomImage1.frame.origin.x<0)
     {
         startTubeOne=YES;
     }
     
-    if(_tubeBottomImage.center.y<(_tubeBottomImage.frame.size.width*-1))
+    
+    //if first tube finishes start second and put first back to original spot
+    if(_tubeBottomImage.center.x<(_tubeBottomImage.frame.size.width*-1))
     {
         startTubeOne=NO;
-        _tubeBottomImage.center=CGPointMake(tubeBottomX, tubeBottomY);
+        
+         _tubeTopImage.frame=CGRectMake(tubeTopX, random, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
+        
+         _tubeBottomImage.frame=CGRectMake(tubeBottomX, (random+sizeBetweenTubes+_tubeBottomImage.frame.size.height), _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
+        
+        
         
     }
     
-    if(_tubeBottomImage1.center.y<(_tubeBottomImage1.frame.size.width*-1))
+    
+     //if second tube finishes start first and put second back to original spot
+   if(_tubeBottomImage1.center.x<(_tubeBottomImage1.frame.size.width*-1))
     {
         startTubeTwo=NO;
-        _tubeBottomImage1.center=CGPointMake(tubeBottomX, tubeBottomY);
+         _tubeTopImage1.frame=CGRectMake(tubeTopX, random, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
         
-    }
+    _tubeBottomImage1.frame=CGRectMake(tubeBottomX, (random+sizeBetweenTubes+_tubeBottomImage1.frame.size.height), _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+        
+   }
     
     
+    //Movement of the tubes
     if(startTubeOne==YES)
     {
-        _tubeBottomImage.center = CGPointMake(_tubeBottomImage.center.x+tubeSpeed, _tubeBottomImage.center.y);
-    
+        _tubeBottomImage.frame = CGRectMake(_tubeBottomImage.frame.origin.x+tubeSpeed, _tubeBottomImage.frame.origin.y, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
+        
+        _tubeTopImage.frame = CGRectMake(_tubeTopImage.frame.origin.x+tubeSpeed, _tubeTopImage.frame.origin.y, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
+        
     }
     
     if(startTubeTwo==YES)
     {
-       _tubeBottomImage1.center = CGPointMake(_tubeBottomImage1.center.x+tubeSpeed, _tubeBottomImage1.center.y);
+ _tubeBottomImage1.frame = CGRectMake(_tubeBottomImage1.frame.origin.x+tubeSpeed, _tubeBottomImage1.frame.origin.y, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+        
+    _tubeTopImage1.frame = CGRectMake(_tubeTopImage1.frame.origin.x+tubeSpeed, _tubeTopImage1.frame.origin.y, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
         
     }
     
     
     
     
-  
-  
     
     
-
-  
+    
+    
+    
+    
     
 }
+
 
 - (IBAction)goPressed:(id)sender
 {
     if(!go)
     {
+        
+        
+        _tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
+        _tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+        _tubeTopImage.frame=CGRectMake(tubeTopX, tubeTopY, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
+        _tubeTopImage1.frame=CGRectMake(tubeTopX, tubeTopY, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
+        _tubeBottomImage1.hidden=NO;
+        _tubeBottomImage.hidden=NO;
+        _tubeTopImage1.hidden=NO;
+        _tubeTopImage.hidden=NO;
+        
+        
+        
+        
+        tubeTimer=[NSTimer scheduledTimerWithTimeInterval:.01 target:(self) selector:@selector(updateTube) userInfo:nil repeats:YES];
+        
         NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
         groundTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
         birdFlapTimer = [NSTimer timerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
@@ -191,10 +225,6 @@ int tubeBottomX=350;
         [theRunLoop addTimer:birdFlapTimer forMode:NSDefaultRunLoopMode];
         go = YES;
         [_goButton setTitle:@"Stop!" forState:UIControlStateNormal];
-        //tube timer
-        tubeTimer=[NSTimer scheduledTimerWithTimeInterval:.02 target:(self) selector:@selector(updateTube) userInfo:nil repeats:YES];
-       
-        
     }
     else
     {
