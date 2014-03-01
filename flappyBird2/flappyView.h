@@ -10,6 +10,7 @@
 
 @interface flappyView : UIViewController
 {
+    int random;
     int sizeBetweenTubes;
     int tubeSpeed;
     int widthOfViewController;

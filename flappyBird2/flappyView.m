@@ -23,7 +23,7 @@
     tubeTopX=350;
     tubeTopY=-107;
     tubeSpeed=-1;
-    
+    random=150;
     
     
    
@@ -61,6 +61,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    [gravityTimer invalidate];
+    [tubeTimer invalidate];
 }
 
 -(void)updateGround
@@ -125,7 +128,11 @@
 -(void)updateTube
 {
     
-    int random=(arc4random()%238)*-1;
+    
+    if(_tubeBottomImage.frame.origin.x<100)
+    {
+        random=(arc4random()%238)*-1;
+    }
     
     
     //IF first tube is halfway off the screen
