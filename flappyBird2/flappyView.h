@@ -10,6 +10,8 @@
 
 @interface flappyView : UIViewController
 {
+    
+    NSMutableArray * collisionObjectsArray;
     int random;
     int sizeBetweenTubes;
     int tubeSpeed;

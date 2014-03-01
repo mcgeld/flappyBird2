@@ -25,6 +25,8 @@
     tubeSpeed=-1;
     random=150;
     
+    collisionObjectsArray=[[NSMutableArray alloc] init];
+    
     
    
     _tubeBottomImage.hidden=YES;
@@ -33,8 +35,17 @@
     _tubeTopImage.hidden=YES;
     _tubeTopImage1.hidden=YES;
     
+    [collisionObjectsArray addObject:_tubeBottomImage];
+    [collisionObjectsArray addObject:_tubeBottomImage1];
+    [collisionObjectsArray addObject:_tubeTopImage];
+    [collisionObjectsArray addObject:_tubeTopImage1];
+    [collisionObjectsArray addObject:_ground1];
+    [collisionObjectsArray addObject:_ground2];
+    
     //_tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
     //_tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+    
+    
     
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -127,6 +138,21 @@
 
 -(void)updateTube
 {
+    
+    //collision checking
+    for(int i=0; i<[collisionObjectsArray count]; i++)
+    {
+        UIImageView *Bird=collisionObjectsArray[i];
+        
+        if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+        {
+        
+            [self gameOver];
+        }
+        
+    }
+    
+    
     
     
     if(_tubeBottomImage.frame.origin.x<100)
@@ -300,4 +326,21 @@
         startButtonDown = YES;
     }
 }
+
+
+
+
+-(void)gameOver
+{
+    [gravityTimer invalidate];
+    
+    [groundTimer invalidate];
+    [tubeTimer invalidate];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+
+
 @end
