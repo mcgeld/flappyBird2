@@ -321,6 +321,8 @@
     {
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = NO;
+        [self goPressed:event];
+        [self gravityPressed:event];
     }
 }
 

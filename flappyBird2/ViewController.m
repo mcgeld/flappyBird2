@@ -178,14 +178,14 @@
 {
     if(!gravityOn)
     {
-        NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
-        gravityTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:Nil repeats:YES];
-        [theRunLoop addTimer:gravityTimer forMode:NSDefaultRunLoopMode];
+        //NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
+        //gravityTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:Nil repeats:YES];
+        //theRunLoop addTimer:gravityTimer forMode:NSDefaultRunLoopMode];
         gravityOn = YES;
     }
     else
     {
-        [gravityTimer invalidate];
+        //[gravityTimer invalidate];
         gravityOn = NO;
     }
 }
@@ -213,6 +213,8 @@
     {
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = NO;
+        [self goPressed:event];
+        [self gravityPressed:event];
     }
 }
 
