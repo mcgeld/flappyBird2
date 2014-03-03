@@ -21,6 +21,7 @@
     int tubeBottomX;
     int tubeTopX;
     int tubeTopY;
+    NSTimer * gameLoopTimer;
     NSTimer * tubeTimer;
     NSTimer * groundTimer;
     NSTimer * birdFlapTimer;
@@ -36,6 +37,7 @@
     float gravityConstant;
     float birdAccel;
     BOOL gravityOn;
+    int timerCount;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;

@@ -30,11 +30,27 @@
     [birdPics addObject:@"flappyBirdFlying2.png"];
     [birdPics addObject:@"flappyBirdFlying3.png"];
     birdPicNum = 0;
+    coinPics = [[NSMutableArray alloc]init];
+    [coinPics addObject:@"flappyBirdCoin1.png"];
+    [coinPics addObject:@"flappyBirdCoin2.png"];
+    [coinPics addObject:@"flappyBirdCoin3.png"];
+    [coinPics addObject:@"flappyBirdCoin4.png"];
+    [coinPics addObject:@"flappyBirdCoin5.png"];
+    [coinPics addObject:@"flappyBirdCoin6.png"];
+    [coinPics addObject:@"flappyBirdCoin7.png"];
+    [coinPics addObject:@"flappyBirdCoin8.png"];
+    [coinPics addObject:@"flappyBirdCoin9.png"];
+    [coinPics addObject:@"flappyBirdCoin10.png"];
     wingsGoingUp = NO;
     birdY = _birdPicture.frame.origin.y;
     gravityOn = NO;
     gravityConstant = 0.22;
     birdAccel = 0;
+    timerCount = 0;
+    _coinPicture.frame = CGRectMake(_coinPicture.frame.origin.x, _coinPicture.frame.origin.y, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
+    UIImage * coinImage = [UIImage imageNamed:coinPics[0]];
+    _coinPicture.image = coinImage;
+    coinPicNum = 1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,7 +77,7 @@
 
 -(void)updateFlaps
 {
-    [UIView animateWithDuration:0.01
+    [UIView animateWithDuration:0.1
             animations:^(void)
             {
                 _birdPicture.image = [UIImage imageNamed:birdPics[birdPicNum]];
@@ -109,19 +125,48 @@
     
 }
 
+-(void)updateCoins
+{
+    [UIView animateWithDuration:0.1 animations:^(void){
+        UIImage * newImage = [UIImage imageNamed:coinPics[coinPicNum]];
+        _coinPicture.image = newImage;
+     }completion:^(BOOL finished){}];
+    coinPicNum += 1;
+    NSLog([NSString stringWithFormat:@"%d", coinPicNum]);
+    if(coinPicNum == [coinPics count])
+    {
+        coinPicNum = 0;
+    }
+}
+
+-(void)gameLoop
+{
+    if(timerCount == 10)
+    {
+        [self updateFlaps];
+        [self updateCoins];
+        timerCount = 0;
+    }
+    [self updateGravity];
+    [self updateGround];
+    timerCount += 1;
+}
+
 - (IBAction)goPressed:(id)sender
 {
     if(!go)
     {
-        groundTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
-        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
+        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+        //groundTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
+        //birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
         go = YES;
         [_goButton setTitle:@"Stop!" forState:UIControlStateNormal];
     }
     else
     {
-        [groundTimer invalidate];
-        [birdFlapTimer invalidate];
+        //[groundTimer invalidate];
+        //[birdFlapTimer invalidate];
+        [gameLoopTimer invalidate];
         go = NO;
         [_goButton setTitle:@"Go!" forState:UIControlStateNormal];
     }

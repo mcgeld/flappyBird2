@@ -28,6 +28,16 @@
 		7F4F212918BF9C60002675F6 /* flappyBirdFlying1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */; };
 		7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */; };
 		7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */; };
+		7FB3BBB318C1BF01001B558D /* flappyBirdCoin8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBA918C1BF01001B558D /* flappyBirdCoin8.png */; };
+		7FB3BBB418C1BF01001B558D /* flappyBirdCoin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBAA18C1BF01001B558D /* flappyBirdCoin7.png */; };
+		7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBAB18C1BF01001B558D /* flappyBirdCoin6.png */; };
+		7FB3BBB618C1BF01001B558D /* flappyBirdCoin5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBAC18C1BF01001B558D /* flappyBirdCoin5.png */; };
+		7FB3BBB718C1BF01001B558D /* flappyBirdCoin4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBAD18C1BF01001B558D /* flappyBirdCoin4.png */; };
+		7FB3BBB818C1BF01001B558D /* flappyBirdCoin3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBAE18C1BF01001B558D /* flappyBirdCoin3.png */; };
+		7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBAF18C1BF01001B558D /* flappyBirdCoin2.png */; };
+		7FB3BBBA18C1BF01001B558D /* flappyBirdCoin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB018C1BF01001B558D /* flappyBirdCoin1.png */; };
+		7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */; };
+		7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -70,6 +80,16 @@
 		7F4F212818BF9C60002675F6 /* flappyBirdFlying1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying1.png; sourceTree = "<group>"; };
 		7F4F212A18BF9C6D002675F6 /* flappyBirdFlying2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying2.png; sourceTree = "<group>"; };
 		7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdFlying3.png; sourceTree = "<group>"; };
+		7FB3BBA918C1BF01001B558D /* flappyBirdCoin8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin8.png; sourceTree = "<group>"; };
+		7FB3BBAA18C1BF01001B558D /* flappyBirdCoin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin7.png; sourceTree = "<group>"; };
+		7FB3BBAB18C1BF01001B558D /* flappyBirdCoin6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin6.png; sourceTree = "<group>"; };
+		7FB3BBAC18C1BF01001B558D /* flappyBirdCoin5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin5.png; sourceTree = "<group>"; };
+		7FB3BBAD18C1BF01001B558D /* flappyBirdCoin4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin4.png; sourceTree = "<group>"; };
+		7FB3BBAE18C1BF01001B558D /* flappyBirdCoin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin3.png; sourceTree = "<group>"; };
+		7FB3BBAF18C1BF01001B558D /* flappyBirdCoin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin2.png; sourceTree = "<group>"; };
+		7FB3BBB018C1BF01001B558D /* flappyBirdCoin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin1.png; sourceTree = "<group>"; };
+		7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin9.png; sourceTree = "<group>"; };
+		7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin10.png; sourceTree = "<group>"; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -149,6 +169,16 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FB3BBA918C1BF01001B558D /* flappyBirdCoin8.png */,
+				7FB3BBAA18C1BF01001B558D /* flappyBirdCoin7.png */,
+				7FB3BBAB18C1BF01001B558D /* flappyBirdCoin6.png */,
+				7FB3BBAC18C1BF01001B558D /* flappyBirdCoin5.png */,
+				7FB3BBAD18C1BF01001B558D /* flappyBirdCoin4.png */,
+				7FB3BBAE18C1BF01001B558D /* flappyBirdCoin3.png */,
+				7FB3BBAF18C1BF01001B558D /* flappyBirdCoin2.png */,
+				7FB3BBB018C1BF01001B558D /* flappyBirdCoin1.png */,
+				7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */,
+				7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */,
 				ADC3F9FA18C031AC0011D68A /* bottomTube.png */,
 				ADC3F9FB18C031AC0011D68A /* topTube.png */,
 				7F4F212C18BF9C75002675F6 /* flappyBirdFlying3.png */,
@@ -261,16 +291,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F210218BEB753002675F6 /* Images.xcassets in Resources */,
+				7FB3BBB618C1BF01001B558D /* flappyBirdCoin5.png in Resources */,
+				7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */,
 				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
+				7FB3BBB818C1BF01001B558D /* flappyBirdCoin3.png in Resources */,
 				7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */,
+				7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */,
 				7F4F20F418BEB753002675F6 /* InfoPlist.strings in Resources */,
 				7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */,
 				7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */,
+				7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */,
+				7FB3BBBA18C1BF01001B558D /* flappyBirdCoin1.png in Resources */,
+				7FB3BBB718C1BF01001B558D /* flappyBirdCoin4.png in Resources */,
 				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
+				7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
 				7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */,
+				7FB3BBB418C1BF01001B558D /* flappyBirdCoin7.png in Resources */,
+				7FB3BBB318C1BF01001B558D /* flappyBirdCoin8.png in Resources */,
 				7F4F212918BF9C60002675F6 /* flappyBirdFlying1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

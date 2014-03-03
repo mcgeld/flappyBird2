@@ -197,12 +197,25 @@
     
 }
 
+-(void)gameLoop
+{
+    [self updateTube];
+    [self updateGround];
+    if(timerCount == 10)
+    {
+        [self updateFlaps];
+        timerCount = 0;
+    }
+    [self updateGravity];
+    timerCount += 1;
+}
+
 
 - (IBAction)goPressed:(id)sender
 {
     if(!go)
     {
-        
+        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
         
         _tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
         _tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
@@ -216,13 +229,13 @@
         
         
         
-        tubeTimer=[NSTimer scheduledTimerWithTimeInterval:.01 target:(self) selector:@selector(updateTube) userInfo:nil repeats:YES];
+        //tubeTimer=[NSTimer scheduledTimerWithTimeInterval:.01 target:(self) selector:@selector(updateTube) userInfo:nil repeats:YES];
         
-        NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
-        groundTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
-        birdFlapTimer = [NSTimer timerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
-        [theRunLoop addTimer:groundTimer forMode:NSDefaultRunLoopMode];
-        [theRunLoop addTimer:birdFlapTimer forMode:NSDefaultRunLoopMode];
+        //NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
+        //groundTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
+        //birdFlapTimer = [NSTimer timerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
+        //[theRunLoop addTimer:groundTimer forMode:NSDefaultRunLoopMode];
+        //[theRunLoop addTimer:birdFlapTimer forMode:NSDefaultRunLoopMode];
         go = YES;
         [_goButton setTitle:@"Stop!" forState:UIControlStateNormal];
     }
@@ -240,14 +253,14 @@
 {
     if(!gravityOn)
     {
-        NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
-        gravityTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:Nil repeats:YES];
-        [theRunLoop addTimer:gravityTimer forMode:NSDefaultRunLoopMode];
+        //NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
+        //gravityTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:Nil repeats:YES];
+        //[theRunLoop addTimer:gravityTimer forMode:NSDefaultRunLoopMode];
         gravityOn = YES;
     }
     else
     {
-        [gravityTimer invalidate];
+        //[gravityTimer invalidate];
         gravityOn = NO;
     }
 }
