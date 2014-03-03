@@ -134,7 +134,7 @@
         _coinPicture.image = newImage;
      }completion:^(BOOL finished){}];
     coinPicNum += 1;
-    NSLog([NSString stringWithFormat:@"%d", coinPicNum]);
+    //NSLog([NSString stringWithFormat:@"%d", coinPicNum]);
     if(coinPicNum == [coinPics count])
     {
         coinPicNum = 0;
