@@ -232,6 +232,20 @@
         birdAccel -= gravityConstant;
 }
 
+-(void)updateCoins
+{
+    [UIView animateWithDuration:0.1 animations:^(void){
+        UIImage * newImage = [UIImage imageNamed:coinPics[coinPicNum]];
+        _coinPicture.image = newImage;
+    }completion:^(BOOL finished){}];
+    coinPicNum += 1;
+    //NSLog([NSString stringWithFormat:@"%d", coinPicNum]);
+    if(coinPicNum == [coinPics count])
+    {
+        coinPicNum = 0;
+    }
+}
+
 
 -(void)updateTube
 {
@@ -244,7 +258,7 @@
         if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
         {
         
-            [self gameOver];
+           // [self gameOver];
         }
         
     }
@@ -252,9 +266,10 @@
     
     
     
-    if(_tubeBottomImage.frame.origin.x<100)
+    if(_tubeBottomImage.frame.origin.x<10||_tubeBottomImage1.frame.origin.x<10)
     {
         random=(arc4random()%238)*-1;
+        coinRand=(arc4random()%396);  //above the ground
     }
     
     
@@ -315,16 +330,33 @@
         
     }
     
+
+}
+
+
+
+
+
+-(void)updateCoinMovement
+{
+    if(coinsBegan==NO)
+    {
+        if(_tubeBottomImage.center.x<160) // 160== half way acroos the screen
+        {
+            coinsBegan=YES;
+        }
+    }
     
+    if(coinsBegan==YES)
+    {
+        _coinPicture.frame=CGRectMake(_coinPicture.frame.origin.x+coinSpeed, _coinPicture.frame.origin.y, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
+    }
+    if(_coinPicture.frame.origin.x<_coinPicture.frame.size.width*-1)
+    {
+        _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
+        
 }
 
 
@@ -335,6 +367,11 @@
     if(!go)
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+        
+        
+        _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
+        _coinPicture.hidden=NO;
+        
         
         _tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
         _tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);

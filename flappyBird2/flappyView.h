@@ -70,5 +70,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage1;
+@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
+
 
 @end
