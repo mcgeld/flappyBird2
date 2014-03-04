@@ -10,15 +10,20 @@
 
 @interface ViewController : UIViewController
 {
+    NSTimer * gameLoopTimer;
     NSTimer * groundTimer;
     NSTimer * birdFlapTimer;
     NSTimer * gravityTimer;
+    NSTimer * coinTimer;
+    int timerCount;
     BOOL go;
     float groundX;
     float groundY;
     BOOL startButtonDown;
     NSMutableArray * birdPics;
     int birdPicNum;
+    NSMutableArray * coinPics;
+    int coinPicNum;
     BOOL wingsGoingUp;
     float birdY;
     float gravityConstant;
@@ -31,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
 @property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)gravityPressed:(id)sender;
 
