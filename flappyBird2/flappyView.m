@@ -9,13 +9,41 @@
 #import "flappyView.h"
 
 @implementation flappyView
+/******************OVERVIEW*********************
+"flappyView" is the view controller that handles the actual game play of the game. It handles everything about game play and is the main part of the game.
+ **********************************************/
+
+
+/***********************************************
+ INITIALIZATION -- BEGIN
+***********************************************/
+
+
+/****************viewDidLoad********************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Called when the view loads. Handles most of the initialization needed for the game. Then  proceeds to the rest of the code.
+ **********************************************/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    sizeBetweenTubes=128;
+    [self setUpTubes];
+    [self setUpCollisionObjects];
+    [self setUpBackground];
+    [self setUpBird];
+    [self setUpGravity];
+    go = NO;
+}
+
+/****************setUpTubes**********************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Initializes and sets constants for tubes.
+ ***********************************************/
+-(void)setUpTubes
+{
     widthOfViewController=320;
-    startTubeOne=YES;
-    startTubeTwo=NO;
+    sizeBetweenTubes=128;
     tubeWidth=59;
     tubeHeight=256;
     tubeBottomY=321;
@@ -24,16 +52,24 @@
     tubeTopY=-107;
     tubeSpeed=-1;
     random=150;
+    startTubeOne=YES;
+    startTubeTwo=NO;
     
-    collisionObjectsArray=[[NSMutableArray alloc] init];
-    
-    
-   
     _tubeBottomImage.hidden=YES;
     _tubeBottomImage1.hidden=YES;
     
     _tubeTopImage.hidden=YES;
     _tubeTopImage1.hidden=YES;
+}
+
+/*************setUpCollisionObjects*************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Initializes and adds objects to a collision array for detecting collisions.
+ **********************************************/
+-(void)setUpCollisionObjects
+{
+    collisionObjectsArray=[[NSMutableArray alloc] init];
     
     [collisionObjectsArray addObject:_tubeBottomImage];
     [collisionObjectsArray addObject:_tubeBottomImage1];
@@ -41,32 +77,66 @@
     [collisionObjectsArray addObject:_tubeTopImage1];
     [collisionObjectsArray addObject:_ground1];
     [collisionObjectsArray addObject:_ground2];
-    
-    //_tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
-    //_tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
-    
-    
-    
-    
-	// Do any additional setup after loading the view, typically from a nib.
+}
+
+/*****************setUpBackground****************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Sets up and initializes both the static background and the moving foreground
+ ***********************************************/
+-(void)setUpBackground
+{
     _background1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
     _ground1.frame = CGRectMake(0, self.view.frame.size.height - _ground1.frame.size.height, _ground1.frame.size.width, _ground1.frame.size.height);
     _ground2.frame = CGRectMake(self.view.frame.size.width, self.view.frame.size.height - _ground2.frame.size.height, _ground2.frame.size.width, _ground2.frame.size.height);
-    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    go = NO;
-    groundX = 0;
+    
     groundY = self.view.frame.size.height - _ground1.frame.size.height;
+    groundX = 0;
+}
+
+/******************setUpBird**********************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Sets up and initializes the bird view, the bird images array, and all the variables associated with the bird
+ ************************************************/
+-(void)setUpBird
+{
+    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
+    
     birdPics = [[NSMutableArray alloc]init];
     [birdPics addObject:@"flappyBirdFlying1.png"];
     [birdPics addObject:@"flappyBirdFlying2.png"];
     [birdPics addObject:@"flappyBirdFlying3.png"];
-    birdPicNum = 0;
-    wingsGoingUp = NO;
+    
     birdY = _birdPicture.frame.origin.y;
-    gravityOn = NO;
-    gravityConstant = 0.22;
+    birdPicNum = 0;
     birdAccel = 0;
+    wingsGoingUp = NO;
+    dead = NO;
 }
+
+/*********************setUpGravity****************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Initializes the variables associated with the gravity of the game
+ ************************************************/
+-(void)setUpGravity
+{
+    gravityConstant = 0.22;
+    gravityOn = NO;
+}
+
+
+/*************************************************
+ INITIALIZATION -- END
+ ************************************************/
+
+
+
+/*************************************************
+ DEFAULTS -- BEGIN
+ ************************************************/
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,6 +145,33 @@
     
     [gravityTimer invalidate];
     [tubeTimer invalidate];
+}
+
+/*************************************************
+ DEFAULTS -- END
+ ************************************************/
+
+/*************************************************
+ GAME -- BEGIN
+ ************************************************/
+
+/****************gameLoop*************************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: The main loop of the game. Checks states of all situations, performs actions and updates states of all objects and views
+ ************************************************/
+-(void)gameLoop
+{
+    [self updateTube];
+    [self updateGround];
+    [self updateGravity];
+    if(timerCount == 10)
+    {
+        [self updateFlaps];
+        timerCount = 0;
+    }
+    //increase timerCount for updates not synchronous with gameLoop
+    timerCount += 1;
 }
 
 -(void)updateGround
@@ -132,7 +229,7 @@
          _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y - birdAccel, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
      }
                      completion:^(BOOL finished){}];
-    birdAccel -= gravityConstant;
+        birdAccel -= gravityConstant;
 }
 
 
@@ -230,18 +327,7 @@
     
 }
 
--(void)gameLoop
-{
-    [self updateTube];
-    [self updateGround];
-    if(timerCount == 10)
-    {
-        [self updateFlaps];
-        timerCount = 0;
-    }
-    [self updateGravity];
-    timerCount += 1;
-}
+
 
 
 - (IBAction)goPressed:(id)sender
@@ -342,8 +428,27 @@
     }
 }
 
+-(void)makeBirdFall
+{
+    [UIView animateWithDuration:0.01
+            animations:^(void)
+            {
+                _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, birdFall, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
+            }
+            completion:^(BOOL finished){}];
+    if(_birdPicture.frame.origin.y + _birdPicture.frame.size.height >= _ground1.frame.origin.y)
+    {
+        [self finish];
+    }
+    birdFall -= birdAccel;
+}
 
-
+-(void)dropBird
+{
+    birdFall = _birdPicture.frame.origin.y;
+    birdAccel = -5;
+    fallTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(makeBirdFall) userInfo:nil repeats:YES];
+}
 
 -(void)gameOver
 {
@@ -351,8 +456,15 @@
     
     [groundTimer invalidate];
     [tubeTimer invalidate];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [gameLoopTimer invalidate];
     
+    [self dropBird];
+}
+
+-(void)finish
+{
+    [fallTimer invalidate];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

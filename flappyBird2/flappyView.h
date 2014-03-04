@@ -10,37 +10,53 @@
 
 @interface flappyView : UIViewController
 {
-    
-    NSMutableArray * collisionObjectsArray;
+    //Tube Variables
     int random;
-    int sizeBetweenTubes;
+    int tubeTopX;
+    int tubeTopY;
     int tubeSpeed;
-    int widthOfViewController;
-    bool startTubeOne;
-    bool startTubeTwo;
     int tubeWidth;
     int tubeHeight;
     int tubeBottomY;
     int tubeBottomX;
-    int tubeTopX;
-    int tubeTopY;
-    NSTimer * gameLoopTimer;
-    NSTimer * tubeTimer;
-    NSTimer * groundTimer;
-    NSTimer * birdFlapTimer;
-    NSTimer * gravityTimer;
-    BOOL go;
+    int sizeBetweenTubes;
+    int widthOfViewController;
+    bool startTubeOne;
+    bool startTubeTwo;
+    
+    //Collision Variables
+    NSMutableArray * collisionObjectsArray;
+    
+    //Background Variables
     float groundX;
     float groundY;
-    BOOL startButtonDown;
+    
+    //Bird Variables
     NSMutableArray * birdPics;
+    int birdFall;
     int birdPicNum;
-    BOOL wingsGoingUp;
     float birdY;
-    float gravityConstant;
     float birdAccel;
+    BOOL dead;
+    BOOL wingsGoingUp;
+    
+    //Gravity Variables
+    float gravityConstant;
     BOOL gravityOn;
+    
+    //Timer Variables
+    NSTimer * tubeTimer;
+    NSTimer * fallTimer;
+    NSTimer * groundTimer;
+    NSTimer * gravityTimer;
+    NSTimer * birdFlapTimer;
+    NSTimer * gameLoopTimer;
     int timerCount;
+    
+    //Miscellaneous Variables
+    BOOL go;
+    BOOL startButtonDown;
+    
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
