@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -169,6 +169,10 @@
                                 <rect key="frame" x="249" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-Qz-lOv">
+                                <rect key="frame" x="154" y="211" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -178,6 +182,7 @@
                     <connections>
                         <outlet property="background1" destination="Ilf-wJ-33a" id="iE7-jL-GfT"/>
                         <outlet property="birdPicture" destination="gwu-oz-6Fg" id="oFJ-QM-5bd"/>
+                        <outlet property="coinPicture" destination="7JL-Qz-lOv" id="bU8-ca-zbU"/>
                         <outlet property="goButton" destination="MTQ-te-TEw" id="nMh-hq-dRL"/>
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
@@ -199,20 +204,10 @@
     </scenes>
     <resources>
         <image name="bottomTube.png" width="52" height="321"/>
-        <image name="bottomTube.png" width="52" height="321"/>
-        <image name="flappyBirdDaytime.png" width="288" height="511"/>
-        <image name="flappyBirdDaytime.png" width="288" height="511"/>
-        <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdFlying1.png" width="17" height="12"/>
-        <image name="flappyBirdFlying1.png" width="17" height="12"/>
-        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
-        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
-        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
-        <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
-        <image name="topTube.png" width="52" height="321"/>
         <image name="topTube.png" width="52" height="321"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -10,7 +10,7 @@
 
 @interface flappyView : UIViewController
 {
-    
+    NSMutableArray *coinPics;
     NSMutableArray * collisionObjectsArray;
     int random;
     int sizeBetweenTubes;
@@ -41,6 +41,10 @@
     float birdAccel;
     BOOL gravityOn;
     int timerCount;
+    int coinPicNum;
+    int coinRand;
+    bool coinsBegan;
+    int coinSpeed;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
@@ -54,5 +58,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage1;
+@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
+
 
 @end
