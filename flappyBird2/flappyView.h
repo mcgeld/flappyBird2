@@ -53,9 +53,17 @@
     NSTimer * gameLoopTimer;
     int timerCount;
     
+    //Coin Variables
+    NSMutableArray *coinPics;
+    int coinRand;
+    int coinSpeed;
+    int coinPicNum;
+    bool coinsBegan;
+    
     //Miscellaneous Variables
     BOOL go;
     BOOL startButtonDown;
+    
     
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
