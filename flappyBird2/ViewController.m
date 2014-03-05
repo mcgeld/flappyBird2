@@ -41,6 +41,9 @@
     [coinPics addObject:@"flappyBirdCoin8.png"];
     [coinPics addObject:@"flappyBirdCoin9.png"];
     [coinPics addObject:@"flappyBirdCoin10.png"];
+    coinPicNum = 1;
+    UIImage * coinImage = [UIImage imageNamed:coinPics[0]];
+    _coinPicture.image = coinImage;
     wingsGoingUp = NO;
     birdY = _birdPicture.frame.origin.y;
     gravityOn = NO;
@@ -48,9 +51,8 @@
     birdAccel = 0;
     timerCount = 0;
     _coinPicture.frame = CGRectMake(_coinPicture.frame.origin.x, _coinPicture.frame.origin.y, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
-    UIImage * coinImage = [UIImage imageNamed:coinPics[0]];
-    _coinPicture.image = coinImage;
-    coinPicNum = 1;
+ 
+    
 }
 
 - (void)didReceiveMemoryWarning

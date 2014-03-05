@@ -169,8 +169,12 @@
                                 <rect key="frame" x="249" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-Qz-lOv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-Qz-lOv">
                                 <rect key="frame" x="154" y="211" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="BQs-Q9-upT">
+                                <rect key="frame" x="154" y="269" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -183,6 +187,7 @@
                         <outlet property="background1" destination="Ilf-wJ-33a" id="iE7-jL-GfT"/>
                         <outlet property="birdPicture" destination="gwu-oz-6Fg" id="oFJ-QM-5bd"/>
                         <outlet property="coinPicture" destination="7JL-Qz-lOv" id="bU8-ca-zbU"/>
+                        <outlet property="coinPicture1" destination="BQs-Q9-upT" id="Oy9-0j-nKv"/>
                         <outlet property="goButton" destination="MTQ-te-TEw" id="nMh-hq-dRL"/>
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
@@ -204,6 +209,7 @@
     </scenes>
     <resources>
         <image name="bottomTube.png" width="52" height="321"/>
+        <image name="flappyBirdCoin10.png" width="40" height="40"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdFlying1.png" width="17" height="12"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>

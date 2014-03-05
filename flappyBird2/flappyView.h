@@ -59,6 +59,8 @@
     int coinSpeed;
     int coinPicNum;
     bool coinsBegan;
+    bool startCoinOne;
+    bool startCoinTwo;
     
     //Miscellaneous Variables
     BOOL go;
@@ -80,5 +82,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
 
+@property (weak, nonatomic) IBOutlet UIImageView *coinPicture1;
 
 @end
