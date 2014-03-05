@@ -35,7 +35,7 @@
     [self setUpCoins];
     go = NO;
 }
-/****************setUpTubes**********************
+/****************setUpCoins**********************
  PARAMS: NONE
  RETURNS: NONE
  DESCRIPTION: Initializes and sets constants for coins.
@@ -43,6 +43,9 @@
 -(void)setUpCoins
 {
     coinPics = [[NSMutableArray alloc]init];
+    coinCollisionArray=[[NSMutableArray alloc] init];
+    [coinCollisionArray addObject:_coinPicture];
+    [coinCollisionArray addObject:_coinPicture1];
     [coinPics addObject:@"flappyBirdCoin1.png"];
     [coinPics addObject:@"flappyBirdCoin2.png"];
     [coinPics addObject:@"flappyBirdCoin3.png"];
@@ -64,6 +67,9 @@
     startCoinOne=NO;
     startCoinTwo=NO;
     coinsBegan=NO;
+    coinCounter=0;
+    _coinCountLabel.text=@"0";
+    coinWasHit=NO;
  
 }
 
@@ -199,7 +205,7 @@
     [self updateGround];
     [self updateGravity];
     [self updateCoinMovement];
-
+    [self collisionChecking];
     if(timerCount == 10)
     {
         [self updateFlaps];
@@ -210,6 +216,44 @@
     timerCount += 1;
 }
 
+/****************CollisionChecking*************************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Checks for any collisions involving the bird picture. I.E.(coins, death objects)
+ ************************************************/
+-(void)collisionChecking
+{
+    //collision checking
+    for(int i=0; i<[collisionObjectsArray count]; i++)
+    {
+        UIImageView *Bird=collisionObjectsArray[i];
+        
+        if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+        {
+            
+            // [self gameOver];
+        }
+        
+    }
+    
+    //If the bird hits any coins.
+    
+if(coinWasHit==NO)
+{
+    for (int j=0; j<[coinCollisionArray count]; j++) {
+        UIImageView *coinPicture=coinCollisionArray[j];
+        if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
+        {
+            coinCounter+=1;
+
+            _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
+            coinWasHit=YES;
+        }
+        
+    }
+}
+    
+}
 -(void)updateGround
 {
     [UIView animateWithDuration:0.01
@@ -291,19 +335,7 @@
 -(void)updateTube
 {
     
-    //collision checking
-    for(int i=0; i<[collisionObjectsArray count]; i++)
-    {
-        UIImageView *Bird=collisionObjectsArray[i];
-        
-        if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
-        {
-        
-           // [self gameOver];
-        }
-        
-    }
-    
+ 
     
     
     
@@ -377,7 +409,7 @@
 
 
 
-/**********************************************
+/******************UpdateCoinMovement***********
  PARAMS: NONE
  RETURNS: NONE
  DESCRIPTION: Updates coin movement across the screen.
@@ -418,11 +450,13 @@
    
     if(_coinPicture.frame.origin.x<_coinPicture.frame.size.width*-1)
     {
+        coinWasHit=NO;
         startCoinOne=NO;
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
     }
     if(_coinPicture1.frame.origin.x<_coinPicture1.frame.size.width*-1)
     {
+        coinWasHit=NO;
         startCoinTwo=NO;
         _coinPicture1.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
     }

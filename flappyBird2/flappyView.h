@@ -55,12 +55,15 @@
     
     //Coin Variables
     NSMutableArray *coinPics;
+    NSMutableArray *coinCollisionArray;
     int coinRand;
     int coinSpeed;
     int coinPicNum;
     bool coinsBegan;
     bool startCoinOne;
     bool startCoinTwo;
+    int coinCounter;
+    bool coinWasHit;
     
     //Miscellaneous Variables
     BOOL go;
@@ -76,12 +79,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)gravityPressed:(id)sender;
+
+//Tube Properties
 @property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage1;
-@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
 
+//Coin Properties
+@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *coinPicture1;
+@property (weak, nonatomic) IBOutlet UILabel *coinCountLabel;
+
+
 
 @end
