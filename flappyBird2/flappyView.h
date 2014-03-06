@@ -23,6 +23,8 @@
     int widthOfViewController;
     bool startTubeOne;
     bool startTubeTwo;
+    int tubeCounter;
+   
     
     //Collision Variables
     NSMutableArray * collisionObjectsArray;
@@ -72,19 +74,20 @@
     
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
-@property (weak, nonatomic) IBOutlet UIButton *goButton;
+
 @property (weak, nonatomic) IBOutlet UIImageView *ground2;
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
 @property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
-- (IBAction)goPressed:(id)sender;
-- (IBAction)gravityPressed:(id)sender;
+
+
 
 //Tube Properties
 @property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeBottomImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage;
 @property (weak, nonatomic) IBOutlet UIImageView *tubeTopImage1;
+@property (weak, nonatomic) IBOutlet UILabel *tubeCountLabel;
 
 //Coin Properties
 @property (weak, nonatomic) IBOutlet UIImageView *coinPicture;

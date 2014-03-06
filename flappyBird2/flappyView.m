@@ -99,6 +99,10 @@
     
     _tubeTopImage.hidden=YES;
     _tubeTopImage1.hidden=YES;
+    _tubeCountLabel.text=@"0";
+    tubeCounter=0;
+ 
+
 }
 
 /*************setUpCollisionObjects*************
@@ -162,7 +166,7 @@
  ************************************************/
 -(void)setUpGravity
 {
-    gravityConstant = 0.22;
+    gravityConstant = 0.15;
     gravityOn = NO;
 }
 
@@ -206,6 +210,7 @@
     [self updateGravity];
     [self updateCoinMovement];
     [self collisionChecking];
+    [self updateRandomNumbers];
     if(timerCount == 10)
     {
         [self updateFlaps];
@@ -214,6 +219,22 @@
     }
     //increase timerCount for updates not synchronous with gameLoop
     timerCount += 1;
+}
+
+
+/****************UpdateRandomNumbers******************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Updates the random numbers used for tubes and coins
+ ************************************************/
+-(void)updateRandomNumbers
+{
+    
+    if(_tubeBottomImage.frame.origin.x<10||_tubeBottomImage1.frame.origin.x<10)
+    {
+        random=(arc4random()%238)*-1;
+        coinRand=(arc4random()%396);  //above the ground
+    }
 }
 
 /****************CollisionChecking*************************
@@ -231,27 +252,27 @@
         if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
         {
             
-            // [self gameOver];
+             [self gameOver];
         }
         
     }
     
     //If the bird hits any coins.
     
-if(coinWasHit==NO)
-{
-    for (int j=0; j<[coinCollisionArray count]; j++) {
-        UIImageView *coinPicture=coinCollisionArray[j];
-        if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
-        {
-            coinCounter+=1;
+    if(coinWasHit==NO)
+    {
+        for (int j=0; j<[coinCollisionArray count]; j++) {
+            UIImageView *coinPicture=coinCollisionArray[j];
+            if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
+            {
+                coinCounter+=1;
 
-            _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
+                _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
             coinWasHit=YES;
-        }
+            }
         
+        }
     }
-}
     
 }
 -(void)updateGround
@@ -330,7 +351,7 @@ if(coinWasHit==NO)
 /****************UpdateTubes**********************
  PARAMS: NONE
  RETURNS: NONE
- DESCRIPTION: Updates the tubes movment. Checks for collisions. And initiates the random numbers used.
+ DESCRIPTION: Updates the tubes movment. Checks for collisions. And updates the tube label counter.
  ***********************************************/
 -(void)updateTube
 {
@@ -338,12 +359,7 @@ if(coinWasHit==NO)
  
     
     
-    
-    if(_tubeBottomImage.frame.origin.x<10||_tubeBottomImage1.frame.origin.x<10)
-    {
-        random=(arc4random()%238)*-1;
-        coinRand=(arc4random()%396);  //above the ground
-    }
+    _tubeCountLabel.text=[NSString stringWithFormat:@"%d",tubeCounter];
     
     
     //IF first tube is halfway off the screen
@@ -420,10 +436,21 @@ if(coinWasHit==NO)
     
         if(_tubeBottomImage.frame.origin.x<160) // 160== half way acroos the screen
         {
-            
             startCoinOne=YES;
+         
         }
-    
+        if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
+        {
+            tubeCounter+=1;
+      
+        
+        }
+        if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
+        {
+            tubeCounter+=1;
+        
+        
+        }
     
    
     
@@ -448,13 +475,13 @@ if(coinWasHit==NO)
         startCoinOne=YES;
     }
    
-    if(_coinPicture.frame.origin.x<_coinPicture.frame.size.width*-1)
+    if(_coinPicture.frame.origin.x<(_coinPicture.frame.size.width*-1))
     {
         coinWasHit=NO;
         startCoinOne=NO;
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
     }
-    if(_coinPicture1.frame.origin.x<_coinPicture1.frame.size.width*-1)
+    if(_coinPicture1.frame.origin.x<(_coinPicture1.frame.size.width*-1))
     {
         coinWasHit=NO;
         startCoinTwo=NO;
@@ -467,7 +494,7 @@ if(coinWasHit==NO)
 
 
 
-- (IBAction)goPressed:(id)sender
+- (void)goPressed
 {
     if(!go)
     {
@@ -499,7 +526,7 @@ if(coinWasHit==NO)
         //[theRunLoop addTimer:groundTimer forMode:NSDefaultRunLoopMode];
         //[theRunLoop addTimer:birdFlapTimer forMode:NSDefaultRunLoopMode];
         go = YES;
-        [_goButton setTitle:@"Stop!" forState:UIControlStateNormal];
+        
     }
     else
     {
@@ -507,25 +534,11 @@ if(coinWasHit==NO)
         [groundTimer invalidate];
         [birdFlapTimer invalidate];
         go = NO;
-        [_goButton setTitle:@"Go!" forState:UIControlStateNormal];
+        
     }
 }
 
-- (IBAction)gravityPressed:(id)sender
-{
-    if(!gravityOn)
-    {
-        //NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
-        //gravityTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:Nil repeats:YES];
-        //[theRunLoop addTimer:gravityTimer forMode:NSDefaultRunLoopMode];
-        gravityOn = YES;
-    }
-    else
-    {
-        //[gravityTimer invalidate];
-        gravityOn = NO;
-    }
-}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -538,7 +551,7 @@ if(coinWasHit==NO)
     }
     else
     {
-        birdAccel = 6;
+        birdAccel = 4;
     }
 }
 
@@ -548,10 +561,11 @@ if(coinWasHit==NO)
     CGPoint curTouchPoint = [curTouch locationInView:self.view];
     if(startButtonDown && CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
     {
+        _startButtonImage.hidden=YES;
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = NO;
-        [self goPressed:event];
-        [self gravityPressed:event];
+        [self goPressed];
+      //  [self gravityPressed:event];
     }
 }
 
@@ -595,6 +609,7 @@ if(coinWasHit==NO)
 
 -(void)gameOver
 {
+    
     [gravityTimer invalidate];
     
     [groundTimer invalidate];

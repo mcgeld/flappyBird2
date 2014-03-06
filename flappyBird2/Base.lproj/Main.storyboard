@@ -126,16 +126,6 @@
                                 <rect key="frame" x="44" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTQ-te-TEw">
-                                <rect key="frame" x="137" y="496" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goPressed:" destination="bIU-bI-iiZ" eventType="touchUpInside" id="f0w-y4-sRW"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdStartButtonUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-gq-21s">
                                 <rect key="frame" x="117" y="404" width="86" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,16 +134,6 @@
                                 <rect key="frame" x="133" y="136" width="41" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-U4-UYp">
-                                <rect key="frame" x="131" y="534" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Gravity">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="gravityPressed:" destination="bIU-bI-iiZ" eventType="touchUpInside" id="oXe-oz-IU8"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24w-v9-bhF">
                                 <rect key="frame" x="254" y="518" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -178,18 +158,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="yNN-Rf-4Kz">
-                                <rect key="frame" x="5" y="496" width="25" height="25"/>
+                                <rect key="frame" x="0.0" y="496" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a4-Q4-KSj">
-                                <rect key="frame" x="30" y="498" width="12" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="coins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzV-iY-UYg">
+                                <rect key="frame" x="34" y="498" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="coins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzV-iY-UYg">
-                                <rect key="frame" x="50" y="498" width="41" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="cgR-tp-g2B">
+                                <rect key="frame" x="0.0" y="529" width="25" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tubes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYb-g6-KwZ">
+                                <rect key="frame" x="33" y="536" width="43" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -206,12 +189,12 @@
                         <outlet property="coinCountLabel" destination="OzV-iY-UYg" id="BXh-bA-XRJ"/>
                         <outlet property="coinPicture" destination="7JL-Qz-lOv" id="bU8-ca-zbU"/>
                         <outlet property="coinPicture1" destination="BQs-Q9-upT" id="Oy9-0j-nKv"/>
-                        <outlet property="goButton" destination="MTQ-te-TEw" id="nMh-hq-dRL"/>
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
                         <outlet property="startButtonImage" destination="V8y-gq-21s" id="nMG-59-n2t"/>
                         <outlet property="tubeBottomImage" destination="Dxm-Li-uoA" id="bWy-cH-OTe"/>
                         <outlet property="tubeBottomImage1" destination="UP5-VS-104" id="AdK-ZL-6gL"/>
+                        <outlet property="tubeCountLabel" destination="JYb-g6-KwZ" id="0p5-0D-tC3"/>
                         <outlet property="tubeTopImage" destination="bgH-9R-DOg" id="qJx-DD-dcT"/>
                         <outlet property="tubeTopImage1" destination="YIQ-YR-9aX" id="74j-gE-spJ"/>
                     </connections>
