@@ -230,7 +230,7 @@
 -(void)updateRandomNumbers
 {
     
-    if(_tubeBottomImage.frame.origin.x<10||_tubeBottomImage1.frame.origin.x<10)
+    if(_tubeBottomImage.frame.origin.x<2||_tubeBottomImage1.frame.origin.x<2)
     {
         random=(arc4random()%238)*-1;
         coinRand=(arc4random()%396);  //above the ground
