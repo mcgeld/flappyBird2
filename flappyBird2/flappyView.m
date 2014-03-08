@@ -266,7 +266,7 @@
             if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
             {
                 coinCounter+=1;
-
+                coinPicture.hidden=YES;
                 _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
             coinWasHit=YES;
             }
@@ -477,12 +477,14 @@
    
     if(_coinPicture.frame.origin.x<(_coinPicture.frame.size.width*-1))
     {
+        _coinPicture.hidden=NO;
         coinWasHit=NO;
         startCoinOne=NO;
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
     }
     if(_coinPicture1.frame.origin.x<(_coinPicture1.frame.size.width*-1))
     {
+        _coinPicture1.hidden=NO;
         coinWasHit=NO;
         startCoinTwo=NO;
         _coinPicture1.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
