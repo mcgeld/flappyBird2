@@ -26,6 +26,7 @@
  **********************************************/
 - (void)viewDidLoad
 {
+   
     [super viewDidLoad];
     [self setUpTubes];
     [self setUpCollisionObjects];
@@ -166,7 +167,7 @@
  ************************************************/
 -(void)setUpGravity
 {
-    gravityConstant = 0.15;
+    gravityConstant = 0.17;
     gravityOn = NO;
 }
 
@@ -500,7 +501,7 @@
 {
     if(!go)
     {
-        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
         
         
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
@@ -517,7 +518,7 @@
         _tubeTopImage1.hidden=NO;
         _tubeTopImage.hidden=NO;
         
-        
+        _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
         
         
         //tubeTimer=[NSTimer scheduledTimerWithTimeInterval:.01 target:(self) selector:@selector(updateTube) userInfo:nil repeats:YES];
@@ -544,6 +545,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+
     UITouch * curTouch = [touches anyObject];
     CGPoint curTouchPoint = [curTouch locationInView:self.view];
     if(CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
@@ -553,7 +555,7 @@
     }
     else
     {
-        birdAccel = 4;
+        birdAccel = 4.7;
     }
 }
 
@@ -618,11 +620,14 @@
     [tubeTimer invalidate];
     [gameLoopTimer invalidate];
     
-    [self dropBird];
+    sleep(1.9);
+    //[self dropBird];
+    [self finish];
 }
 
 -(void)finish
 {
+    
     [fallTimer invalidate];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

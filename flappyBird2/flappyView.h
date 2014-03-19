@@ -10,6 +10,9 @@
 
 @interface flappyView : UIViewController
 {
+
+    
+    
     //Tube Variables
     int random;
     int tubeTopX;
