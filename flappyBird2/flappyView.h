@@ -31,6 +31,7 @@
     
     //Collision Variables
     NSMutableArray * collisionObjectsArray;
+    NSMutableArray * deadCollisionObjectsArray;
     
     //Background Variables
     float groundX;
@@ -40,10 +41,12 @@
     NSMutableArray * birdPics;
     int birdFall;
     int birdPicNum;
+    int birdAccelMax;
     float birdY;
     float birdAccel;
     BOOL dead;
     BOOL wingsGoingUp;
+    BOOL done;
     
     //Gravity Variables
     float gravityConstant;

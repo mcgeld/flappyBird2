@@ -121,6 +121,10 @@
     [collisionObjectsArray addObject:_tubeTopImage1];
     [collisionObjectsArray addObject:_ground1];
     [collisionObjectsArray addObject:_ground2];
+    
+    deadCollisionObjectsArray = [[NSMutableArray alloc]init];
+    [deadCollisionObjectsArray addObject:_ground1];
+    [deadCollisionObjectsArray addObject:_ground2];
 }
 
 /*****************setUpBackground****************
@@ -156,6 +160,7 @@
     birdY = _birdPicture.frame.origin.y;
     birdPicNum = 0;
     birdAccel = 0;
+    birdAccelMax = -10;
     wingsGoingUp = NO;
     dead = NO;
 }
@@ -206,20 +211,34 @@
  ************************************************/
 -(void)gameLoop
 {
-    [self updateTube];
-    [self updateGround];
-    [self updateGravity];
-    [self updateCoinMovement];
-    [self collisionChecking];
-    [self updateRandomNumbers];
-    if(timerCount == 10)
+    if(!dead)
     {
-        [self updateFlaps];
-        [self updateCoins];
-        timerCount = 0;
+        [self updateTube];
+        [self updateGround];
+        [self updateGravity];
+        [self updateCoinMovement];
+        [self collisionChecking];
+        [self updateRandomNumbers];
+        if(timerCount == 10)
+        {
+            [self updateFlaps];
+            [self updateCoins];
+            timerCount = 0;
+        }
+        //increase timerCount for updates not synchronous with gameLoop
     }
-    //increase timerCount for updates not synchronous with gameLoop
+    else
+    {
+        [self updateGravity];
+        [self collisionChecking];
+        if(timerCount == 10)
+        {
+            [self updateCoins];
+            timerCount = 0;
+        }
+    }
     timerCount += 1;
+
 }
 
 
@@ -246,32 +265,48 @@
 -(void)collisionChecking
 {
     //collision checking
-    for(int i=0; i<[collisionObjectsArray count]; i++)
+    if(!dead)
     {
-        UIImageView *Bird=collisionObjectsArray[i];
-        
-        if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+        for(int i=0; i<[collisionObjectsArray count]; i++)
         {
-            
-             [self gameOver];
-        }
+            UIImageView *Bird=collisionObjectsArray[i];
         
-    }
+            if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+            {
+                dead = YES;
+                birdAccel = 0;
+                //[self gameOver];
+            }
+        }
     
     //If the bird hits any coins.
     
-    if(coinWasHit==NO)
-    {
-        for (int j=0; j<[coinCollisionArray count]; j++) {
-            UIImageView *coinPicture=coinCollisionArray[j];
-            if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
-            {
-                coinCounter+=1;
-                coinPicture.hidden=YES;
-                _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
-            coinWasHit=YES;
+        if(coinWasHit==NO)
+        {
+            for (int j=0; j<[coinCollisionArray count]; j++) {
+                UIImageView *coinPicture=coinCollisionArray[j];
+                if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
+                {
+                    coinCounter+=1;
+                    coinPicture.hidden=YES;
+                    _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
+                    coinWasHit=YES;
+                }
             }
-        
+        }
+    }
+    else
+    {
+        for(int i=0; i<[deadCollisionObjectsArray count]; i++)
+        {
+            UIImageView *object=deadCollisionObjectsArray[i];
+            
+            if(CGRectIntersectsRect(_birdPicture.frame, object.frame ))
+            {
+                done = YES;
+                birdAccel = 0;
+                [self gameOver];
+            }
         }
     }
     
@@ -325,13 +360,30 @@
 
 -(void)updateGravity
 {
-    [UIView animateWithDuration:0.01
+    if(_birdPicture.frame.origin.y <= 0)
+    {
+        birdAccel = 0;
+        [UIView animateWithDuration:0.01
+                         animations:^(void)
+         {
+             _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, 1, _birdPicture.frame.size.width, _birdPicture.frame.size.height)   ;
+         }
+                         completion:^(BOOL finished){}];
+    }
+    else
+    {
+        [UIView animateWithDuration:0.01
                      animations:^(void)
-     {
-         _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y - birdAccel, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
-     }
+         {
+             _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y - birdAccel, _birdPicture.frame.size.width, _birdPicture.frame.size.height)   ;
+         }
                      completion:^(BOOL finished){}];
-        birdAccel -= gravityConstant;
+    }
+    birdAccel -= gravityConstant;
+    if(birdAccel < birdAccelMax)
+    {
+        birdAccel = birdAccelMax;
+    }
 }
 
 -(void)updateCoins
@@ -545,31 +597,36 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-
-    UITouch * curTouch = [touches anyObject];
-    CGPoint curTouchPoint = [curTouch locationInView:self.view];
-    if(CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
+    if(!dead)
     {
+        UITouch * curTouch = [touches anyObject];
+        CGPoint curTouchPoint = [curTouch locationInView:self.view];
+        if(CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
+        {
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = YES;
-    }
-    else
-    {
-        birdAccel = 4.7;
+        }
+        else
+        {
+            birdAccel = 4.7;
+        }
     }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch * curTouch = [touches anyObject];
-    CGPoint curTouchPoint = [curTouch locationInView:self.view];
-    if(startButtonDown && CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
+    if(!dead)
     {
-        _startButtonImage.hidden=YES;
-        [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
-        startButtonDown = NO;
-        [self goPressed];
-      //  [self gravityPressed:event];
+        UITouch * curTouch = [touches anyObject];
+        CGPoint curTouchPoint = [curTouch locationInView:self.view];
+        if(startButtonDown && CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
+        {
+            _startButtonImage.hidden=YES;
+            [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
+            startButtonDown = NO;
+            [self goPressed];
+            //  [self gravityPressed:event];
+        }
     }
 }
 
@@ -607,18 +664,20 @@
 -(void)dropBird
 {
     birdFall = _birdPicture.frame.origin.y;
-    birdAccel = -5;
-    fallTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(makeBirdFall) userInfo:nil repeats:YES];
+    fallTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:nil repeats:YES];
 }
 
 -(void)gameOver
 {
-    
     [gravityTimer invalidate];
-    
     [groundTimer invalidate];
     [tubeTimer invalidate];
     [gameLoopTimer invalidate];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:2];
+    _birdPicture.center=CGPointMake(_birdPicture.center.x, _birdPicture.center.y);
+    _birdPicture.transform = CGAffineTransformMakeRotation(234 * (M_PI / 180));
+    [UIView commitAnimations];
     
     sleep(1.9);
     //[self dropBird];
@@ -627,7 +686,6 @@
 
 -(void)finish
 {
-    
     [fallTimer invalidate];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
