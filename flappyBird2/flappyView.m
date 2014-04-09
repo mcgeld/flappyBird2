@@ -579,14 +579,6 @@
         
         _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
         
-        
-        //tubeTimer=[NSTimer scheduledTimerWithTimeInterval:.01 target:(self) selector:@selector(updateTube) userInfo:nil repeats:YES];
-        
-        //NSRunLoop * theRunLoop = [NSRunLoop currentRunLoop];
-        //groundTimer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(updateGround) userInfo:Nil repeats:YES];
-        //birdFlapTimer = [NSTimer timerWithTimeInterval:0.10 target:self selector:@selector(updateFlaps) userInfo:Nil repeats:YES];
-        //[theRunLoop addTimer:groundTimer forMode:NSDefaultRunLoopMode];
-        //[theRunLoop addTimer:birdFlapTimer forMode:NSDefaultRunLoopMode];
         go = YES;
         
     }
