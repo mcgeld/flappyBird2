@@ -77,6 +77,10 @@
     BOOL go;
     BOOL startButtonDown;
     
+    //Multiplier Variables
+    int multRand;
+    
+    
     
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
@@ -85,6 +89,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
 @property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *scoreboard;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okButtonImage;
+- (IBAction)okButton:(id)sender;
+
 
 
 

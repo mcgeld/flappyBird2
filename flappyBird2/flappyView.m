@@ -35,6 +35,9 @@
     [self setUpGravity];
     [self setUpCoins];
     go = NO;
+    _scoreboard.hidden = YES;
+    _scoreLabel.hidden = YES;
+    _okButtonImage.hidden = YES;
 }
 /****************setUpCoins**********************
  PARAMS: NONE
@@ -74,6 +77,10 @@
  
 }
 
+-(void)setUpMultiplier
+{
+    
+}
 
 /****************setUpTubes**********************
  PARAMS: NONE
@@ -305,7 +312,7 @@
             {
                 done = YES;
                 birdAccel = 0;
-                [self gameOver];
+                [self showScore];
             }
         }
     }
@@ -678,10 +685,21 @@
     _birdPicture.center=CGPointMake(_birdPicture.center.x, _birdPicture.center.y);
     _birdPicture.transform = CGAffineTransformMakeRotation(234 * (M_PI / 180));
     [UIView commitAnimations];
-    
     sleep(1.9);
     //[self dropBird];
     [self finish];
+}
+
+-(void)showScore
+{
+    NSString * tubeCountStr = [NSString stringWithFormat:@"%d", tubeCounter];
+    NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
+    _scoreLabel.text = tubeCountStr;
+    _scoreboard.hidden = NO;
+    _scoreLabel.hidden = NO;
+    _okButtonImage.hidden = NO;
+    
+    
 }
 
 -(void)finish
@@ -690,7 +708,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
-
+- (IBAction)okButton:(id)sender
+{
+    if(_okButtonImage.hidden == NO)
+        [self finish];
+}
 @end
