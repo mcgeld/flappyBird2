@@ -73,6 +73,15 @@
     int coinCounter;
     bool coinWasHit;
     
+    //Powerups variables
+    NSMutableArray *powerupsCollisionArray;
+    int powerupRand;
+    int powerupSpeed;
+    bool powerupsBegan;
+    bool startPowerupOne;
+    bool startPowerupTwo;
+    bool powerupWasHit;
+    
     //Miscellaneous Variables
     BOOL go;
     BOOL startButtonDown;
@@ -92,6 +101,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *scoreboard;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButtonImage;
+@property (weak, nonatomic) IBOutlet UIImageView *powerUpImage;
 - (IBAction)okButton:(id)sender;
 
 
