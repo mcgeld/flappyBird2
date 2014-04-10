@@ -335,6 +335,7 @@
     }
     else
     {
+        
         for(int i=0; i<[deadCollisionObjectsArray count]; i++)
         {
             UIImageView *object=deadCollisionObjectsArray[i];
