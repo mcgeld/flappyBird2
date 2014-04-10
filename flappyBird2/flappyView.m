@@ -34,10 +34,12 @@
     [self setUpBird];
     [self setUpGravity];
     [self setUpCoins];
+    [self setUpPowerups];
     go = NO;
     _scoreboard.hidden = YES;
     _scoreLabel.hidden = YES;
     _okButtonImage.hidden = YES;
+    
 }
 /****************setUpCoins**********************
  PARAMS: NONE
@@ -585,6 +587,57 @@
         
 }
 
+
+/******************UpdatePowerupMovement***********
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Updates coin movement across the screen.
+ ***********************************************/
+-(void)updatePowerupMovement
+{
+    
+    
+    if(_tubeBottomImage.frame.origin.x<160) // 160== half way acroos the screen
+    {
+        startPowerupOne=YES;
+        
+    }
+    if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
+    {
+        tubeCounter+=1;
+        
+        
+    }
+    if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
+    {
+        tubeCounter+=1;
+        
+        
+    }
+    
+    
+
+    if(startPowerupOne==YES)
+    {
+        _powerUpImage.frame=CGRectMake(_powerUpImage.frame.origin.x+powerupSpeed, _powerUpImage.frame.origin.y, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+    }
+   
+    
+    
+    if(_powerUpImage.frame.origin.x<0)
+    {
+        startPowerupOne=YES;
+    }
+   
+    
+    if(_powerUpImage.frame.origin.x<(_powerUpImage.frame.size.width*-1))
+    {
+        _powerUpImage.hidden=NO;
+        powerupWasHit=NO;
+        startPowerupOne=NO;
+        _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+    }
+}
 
 
 
