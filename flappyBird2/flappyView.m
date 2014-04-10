@@ -77,6 +77,24 @@
  
 }
 
+/****************setUpPowerups**********************
+ PARAMS: NONE
+ RETURNS: NONE
+ DESCRIPTION: Initializes and sets constants for powerups.
+ ***********************************************/
+-(void)setUpPowerups
+{
+    powerupsCollisionArray=[[NSMutableArray alloc] init];
+    [powerupsCollisionArray addObject:_powerUpImage];
+    _powerUpImage.hidden=YES;
+    powerupRand=arc4random()%396;  //above ground
+    powerupSpeed=-1;
+    startPowerupOne=NO;
+    startPowerupTwo=NO;
+    powerupsBegan=NO;
+    powerupWasHit=NO;
+}
+
 -(void)setUpMultiplier
 {
     
@@ -224,6 +242,7 @@
         [self updateGround];
         [self updateGravity];
         [self updateCoinMovement];
+        [self updatePowerupMovement];
         [self collisionChecking];
         [self updateRandomNumbers];
         if(timerCount == 10)
@@ -290,7 +309,7 @@
     
         if(coinWasHit==NO)
         {
-            for (int j=0; j<[coinCollisionArray count]; j++) {
+            for (int j=0; j<[powerupsCollisionArray count]; j++) {
                 UIImageView *coinPicture=coinCollisionArray[j];
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
                 {

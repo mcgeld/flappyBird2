@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -191,6 +191,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-xS-1Kp">
+                                <rect key="frame" x="128" y="45" width="65" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -206,6 +210,7 @@
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
                         <outlet property="okButtonImage" destination="Gzn-ou-Z1h" id="JlJ-cw-xbz"/>
+                        <outlet property="powerUpImage" destination="dYX-xS-1Kp" id="Mk4-bD-ikP"/>
                         <outlet property="scoreLabel" destination="Ix2-th-Ml3" id="qXA-5g-cbs"/>
                         <outlet property="scoreboard" destination="YSH-bt-4tp" id="WW4-5g-zmJ"/>
                         <outlet property="startButtonImage" destination="V8y-gq-21s" id="nMG-59-n2t"/>
@@ -226,6 +231,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.png" width="192" height="192"/>
         <image name="bottomTube.png" width="52" height="321"/>
         <image name="flappyBirdCoin10.png" width="40" height="40"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
