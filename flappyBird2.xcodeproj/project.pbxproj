@@ -40,7 +40,8 @@
 		7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */; };
 		AC74CBF818EBBEE5006974C9 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AC74CBF718EBBEE5006974C9 /* scoreboard.png */; };
 		AC74CC0018EBCBAF006974C9 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC74CBFF18EBCBAF006974C9 /* okButton.png */; };
-		AC822A7918F4C7DD002EF1E9 /* goldBird.png in Resources */ = {isa = PBXBuildFile; fileRef = AC822A7818F4C7DD002EF1E9 /* goldBird.png */; };
+		AC76043818F61EAD0081EA16 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76043718F61EAD0081EA16 /* scoreboard.png */; };
+		AC76043A18F61EBB0081EA16 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76043918F61EBB0081EA16 /* okButton.png */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -95,7 +96,8 @@
 		7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin10.png; sourceTree = "<group>"; };
 		AC74CBF718EBBEE5006974C9 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scoreboard.png; path = ../../../../../Downloads/scoreboard.png; sourceTree = "<group>"; };
 		AC74CBFF18EBCBAF006974C9 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = okButton.png; path = ../../../../../Downloads/okButton.png; sourceTree = "<group>"; };
-		AC822A7818F4C7DD002EF1E9 /* goldBird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goldBird.png; path = ../../../../../Downloads/goldBird.png; sourceTree = "<group>"; };
+		AC76043718F61EAD0081EA16 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreboard.png; sourceTree = "<group>"; };
+		AC76043918F61EBB0081EA16 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okButton.png; sourceTree = "<group>"; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -175,12 +177,13 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC76043918F61EBB0081EA16 /* okButton.png */,
+				AC76043718F61EAD0081EA16 /* scoreboard.png */,
 				AC74CBFF18EBCBAF006974C9 /* okButton.png */,
 				AC74CBF718EBBEE5006974C9 /* scoreboard.png */,
 				7FB3BBA918C1BF01001B558D /* flappyBirdCoin8.png */,
 				7FB3BBAA18C1BF01001B558D /* flappyBirdCoin7.png */,
 				7FB3BBAB18C1BF01001B558D /* flappyBirdCoin6.png */,
-				AC822A7818F4C7DD002EF1E9 /* goldBird.png */,
 				7FB3BBAC18C1BF01001B558D /* flappyBirdCoin5.png */,
 				7FB3BBAD18C1BF01001B558D /* flappyBirdCoin4.png */,
 				7FB3BBAE18C1BF01001B558D /* flappyBirdCoin3.png */,
@@ -303,6 +306,7 @@
 				7FB3BBB618C1BF01001B558D /* flappyBirdCoin5.png in Resources */,
 				7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */,
 				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
+				AC76043818F61EAD0081EA16 /* scoreboard.png in Resources */,
 				7FB3BBB818C1BF01001B558D /* flappyBirdCoin3.png in Resources */,
 				7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */,
 				7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */,
@@ -315,9 +319,9 @@
 				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
+				AC76043A18F61EBB0081EA16 /* okButton.png in Resources */,
 				7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
-				AC822A7918F4C7DD002EF1E9 /* goldBird.png in Resources */,
 				7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */,
 				7FB3BBB418C1BF01001B558D /* flappyBirdCoin7.png in Resources */,
 				AC74CC0018EBCBAF006974C9 /* okButton.png in Resources */,
