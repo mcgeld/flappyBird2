@@ -39,7 +39,7 @@
 		7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */; };
 		7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */; };
 		AC76043E18F61F930081EA16 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76043D18F61F930081EA16 /* scoreboard.png */; };
-		AC76044018F61FE60081EA16 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76043F18F61FE60081EA16 /* okButton.png */; };
+		AC76044218F620AE0081EA16 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76044118F620AE0081EA16 /* okButton.png */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -93,7 +93,7 @@
 		7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin9.png; sourceTree = "<group>"; };
 		7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin10.png; sourceTree = "<group>"; };
 		AC76043D18F61F930081EA16 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreboard.png; sourceTree = "<group>"; };
-		AC76043F18F61FE60081EA16 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okButton.png; sourceTree = "<group>"; };
+		AC76044118F620AE0081EA16 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okButton.png; sourceTree = "<group>"; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC76044118F620AE0081EA16 /* okButton.png */,
 				AC76043D18F61F930081EA16 /* scoreboard.png */,
-				AC76043F18F61FE60081EA16 /* okButton.png */,
 				7FB3BBA918C1BF01001B558D /* flappyBirdCoin8.png */,
 				7FB3BBAA18C1BF01001B558D /* flappyBirdCoin7.png */,
 				7FB3BBAB18C1BF01001B558D /* flappyBirdCoin6.png */,
@@ -306,10 +306,10 @@
 				7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */,
 				7F4F20F418BEB753002675F6 /* InfoPlist.strings in Resources */,
 				7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */,
-				AC76044018F61FE60081EA16 /* okButton.png in Resources */,
 				7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */,
 				7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */,
 				7FB3BBBA18C1BF01001B558D /* flappyBirdCoin1.png in Resources */,
+				AC76044218F620AE0081EA16 /* okButton.png in Resources */,
 				7FB3BBB718C1BF01001B558D /* flappyBirdCoin4.png in Resources */,
 				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
