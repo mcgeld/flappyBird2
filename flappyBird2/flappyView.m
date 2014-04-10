@@ -309,14 +309,26 @@
     
         if(coinWasHit==NO)
         {
-            for (int j=0; j<[powerupsCollisionArray count]; j++) {
-                UIImageView *coinPicture=coinCollisionArray[j];
+            for (int j=0; j<[coinCollisionArray count]; j++) {
+                UIImageView * coinPicture=coinCollisionArray[j];
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
                 {
-                    coinCounter+=1;
+                    coinCounter += 1;
                     coinPicture.hidden=YES;
-                    _coinCountLabel.text=[NSString stringWithFormat:@"%d",coinCounter];
+                    _coinCountLabel.text = [NSString stringWithFormat:@"%d", coinCounter];
                     coinWasHit=YES;
+                }
+            }
+        }
+        if(powerupWasHit==NO)
+        {
+            for (int j=0; j<[powerupsCollisionArray count]; j++) {
+                UIImageView * powerupPicture=powerupsCollisionArray[j];
+                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
+                {
+                    powerupPicture.hidden=YES;
+                    powerupWasHit=YES;
+                    gravityConstant *= 2;
                 }
             }
         }
