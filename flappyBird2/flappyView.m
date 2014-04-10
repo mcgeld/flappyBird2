@@ -603,8 +603,7 @@
     }
     
     
-    
-    
+
     if(startPowerupOne==YES)
     {
         _powerUpImage.frame=CGRectMake(_powerUpImage.frame.origin.x+powerupSpeed, _powerUpImage.frame.origin.y, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
