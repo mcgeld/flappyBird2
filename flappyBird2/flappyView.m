@@ -366,9 +366,21 @@
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
                 if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
                 {
-                    powerupPicture.hidden=YES;
-                    powerupWasHit=YES;
-                    gravityConstant *= 2;
+                    
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
+                    {
+                        powerupPicture.hidden=YES;
+                        powerupWasHit=YES;
+                        //gravityConstant *= 2;
+                        [gameLoopTimer invalidate];
+                        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.006 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+                    }
+                    
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"oneUpMedal.png"]])
+                    {
+                        flappyBirdLives+=1;
+                    }
+                    
                 }
             }
         }
@@ -778,10 +790,7 @@
 
 -(void)gameOver
 {
-    [gravityTimer invalidate];
-    [groundTimer invalidate];
-    [tubeTimer invalidate];
-    [gameLoopTimer invalidate];
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:2];
     _birdPicture.center=CGPointMake(_birdPicture.center.x, _birdPicture.center.y);
@@ -807,6 +816,11 @@
 -(void)finish
 {
     [fallTimer invalidate];
+    [gravityTimer invalidate];
+    [groundTimer invalidate];
+    [tubeTimer invalidate];
+    [gameLoopTimer invalidate];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
