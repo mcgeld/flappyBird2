@@ -146,8 +146,8 @@
     [collisionObjectsArray addObject:_tubeBottomImage1];
     [collisionObjectsArray addObject:_tubeTopImage];
     [collisionObjectsArray addObject:_tubeTopImage1];
-    [collisionObjectsArray addObject:_ground1];
-    [collisionObjectsArray addObject:_ground2];
+    //[collisionObjectsArray addObject:_ground1];
+    //[collisionObjectsArray addObject:_ground2];
     
     deadCollisionObjectsArray = [[NSMutableArray alloc]init];
     [deadCollisionObjectsArray addObject:_ground1];
@@ -178,12 +178,14 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    
+    flappyBirdLives=1;
+    birdIsPassingTube=NO;
+    birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
     [birdPics addObject:@"flappyBirdFlying1.png"];
     [birdPics addObject:@"flappyBirdFlying2.png"];
     [birdPics addObject:@"flappyBirdFlying3.png"];
-    
+    _flappyLivesLabel.text=[NSString stringWithFormat:@"%d",flappyBirdLives];
     birdY = _birdPicture.frame.origin.y;
     birdPicNum = 0;
     birdAccel = 0;
@@ -253,6 +255,15 @@
             [self updateCoins];
             timerCount = 0;
         }
+        if(birdIsPassingTube==YES)
+        {
+            birdPassingCounter+=1;
+            if(birdPassingCounter==100)
+            {
+                birdIsPassingTube=NO;
+                birdPassingCounter=0;
+            }
+        }
         //increase timerCount for updates not synchronous with gameLoop
     }
     else
@@ -282,6 +293,7 @@
     {
         random=(arc4random()%238)*-1;
         coinRand=(arc4random()%396);  //above the ground
+        powerupRand=(arc4random()%396);
     }
 }
 
@@ -301,9 +313,29 @@
         
             if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
             {
-                dead = YES;
-                birdAccel = 0;
-                //[self gameOver];
+                if(birdIsPassingTube==NO)
+                {
+                    flappyBirdLives-=1;
+                    birdIsPassingTube=YES;
+                    if(flappyBirdLives==0)
+                    {
+                        dead = YES;
+                        birdAccel = 0;
+                        //[self gameOver];
+                    }
+                }
+            }
+        }
+        
+        for(int i=0; i<[deadCollisionObjectsArray count]; i++)
+        {
+            UIImageView *Bird=deadCollisionObjectsArray[i];
+            
+            if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+            {
+                        dead = YES;
+                        birdAccel = 0;
+                        //[self gameOver];
             }
         }
     
@@ -452,7 +484,7 @@
     
  
     
-    
+    _flappyLivesLabel.text=[NSString stringWithFormat:@"%d", flappyBirdLives];
     _tubeCountLabel.text=[NSString stringWithFormat:@"%d",tubeCounter];
     
     

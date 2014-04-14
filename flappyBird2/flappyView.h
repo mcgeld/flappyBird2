@@ -38,7 +38,10 @@
     float groundY;
     
     //Bird Variables
+    int birdPassingCounter;
+    bool birdIsPassingTube;
     NSMutableArray * birdPics;
+    int flappyBirdLives;
     int birdFall;
     int birdPicNum;
     int birdAccelMax;
@@ -103,6 +106,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *okButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *powerUpImage;
 - (IBAction)okButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *flappyLivesLabel;
 
 
 
