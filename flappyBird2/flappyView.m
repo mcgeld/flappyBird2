@@ -360,9 +360,12 @@
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
                 if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
                 {
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
+                    {
                     powerupPicture.hidden=YES;
                     powerupWasHit=YES;
                     gravityConstant *= 2;
+                    }
                 }
             }
         }
