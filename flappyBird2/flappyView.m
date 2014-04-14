@@ -184,7 +184,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=1;
+    flappyBirdLives=10;
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
@@ -378,7 +378,11 @@
                     
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"oneUpMedal.png"]])
                     {
+                        if(powerupPicture.hidden==NO)
+                        {
                         flappyBirdLives+=1;
+                        powerupPicture.hidden=YES;
+                        }
                     }
                     
                 }
