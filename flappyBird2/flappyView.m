@@ -602,18 +602,7 @@
         startPowerupOne=YES;
         
     }
-    if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
-    {
-        tubeCounter+=1;
-        
-        
-    }
-    if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
-    {
-        tubeCounter+=1;
-        
-        
-    }
+
     
     
 
