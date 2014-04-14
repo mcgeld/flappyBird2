@@ -87,9 +87,15 @@
 -(void)setUpPowerups
 {
     powerupsCollisionArray=[[NSMutableArray alloc] init];
+    powerupsImageArray=[[NSMutableArray alloc] init];
     [powerupsCollisionArray addObject:_powerUpImage];
+    [powerupsImageArray addObject:@"oneUpMedal.png"];
+    [powerupsImageArray addObject:@"scoreMultiplier.png"];
+    [powerupsImageArray addObject:@"arrow.png"];
     _powerUpImage.hidden=YES;
     powerupRand=arc4random()%396;  //above ground
+    imageRand=arc4random()%3;
+    _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[imageRand]];
     powerupSpeed=-1;
     startPowerupOne=NO;
     startPowerupTwo=NO;
@@ -636,8 +642,6 @@
     }
 
     
-    
-
     if(startPowerupOne==YES)
     {
         _powerUpImage.frame=CGRectMake(_powerUpImage.frame.origin.x+powerupSpeed, _powerUpImage.frame.origin.y, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);

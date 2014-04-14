@@ -78,6 +78,8 @@
     
     //Powerups variables
     NSMutableArray *powerupsCollisionArray;
+    NSMutableArray *powerupsImageArray;
+    int imageRand;
     int powerupRand;
     int powerupSpeed;
     bool powerupsBegan;
