@@ -196,11 +196,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-0l-run">
-                                <rect key="frame" x="10" y="20" width="42" height="21"/>
+                                <rect key="frame" x="258" y="515" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying3.png" translatesAutoresizingMaskIntoConstraints="NO" id="8vF-Rz-jlu">
+                                <rect key="frame" x="223" y="516" width="27" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -243,6 +247,7 @@
         <image name="flappyBirdCoin10.png" width="40" height="40"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdFlying1.png" width="17" height="12"/>
+        <image name="flappyBirdFlying3.png" width="17" height="12"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
         <image name="okButton.png" width="108" height="38"/>

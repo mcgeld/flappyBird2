@@ -393,6 +393,8 @@
                     
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"oneUpMedal.png"]])
                     {
+                        if(powerupPicture.hidden==NO)
+                        {
                         flappyBirdLives+=1;
                         powerupPicture.hidden=YES;
                         powerupWasHit=YES;
