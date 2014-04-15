@@ -10,13 +10,13 @@
 
 @implementation flappyView
 /******************OVERVIEW*********************
-"flappyView" is the view controller that handles the actual game play of the game. It handles everything about game play and is the main part of the game.
+ "flappyView" is the view controller that handles the actual game play of the game. It handles everything about game play and is the main part of the game.
  **********************************************/
 
 
 /***********************************************
  INITIALIZATION -- BEGIN
-***********************************************/
+ ***********************************************/
 
 
 /****************viewDidLoad********************
@@ -26,7 +26,7 @@
  **********************************************/
 - (void)viewDidLoad
 {
-   
+    
     [super viewDidLoad];
     [self setUpTubes];
     [self setUpCollisionObjects];
@@ -42,6 +42,7 @@
     scoreMultiplier=1;
     
 }
+
 /****************setUpCoins**********************
  PARAMS: NONE
  RETURNS: NONE
@@ -77,7 +78,7 @@
     coinCounter=0;
     _coinCountLabel.text=@"0";
     coinWasHit=NO;
- 
+    
 }
 
 /****************setUpPowerups**********************
@@ -93,6 +94,7 @@
     [powerupsImageArray addObject:@"oneUpMedal.png"];
     [powerupsImageArray addObject:@"scoreMultiplier.png"];
     [powerupsImageArray addObject:@"arrow.png"];
+    [powerupsImageArray addObject:@"dash.jpg"];
     _powerUpImage.hidden=YES;
     powerupRand=arc4random()%396;  //above ground
     
@@ -136,8 +138,8 @@
     _tubeTopImage1.hidden=YES;
     _tubeCountLabel.text=@"0";
     tubeCounter=0;
- 
-
+    
+    
 }
 
 /*************setUpCollisionObjects*************
@@ -185,7 +187,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=30;
+    flappyBirdLives=1;
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
@@ -236,9 +238,6 @@
  DEFAULTS -- END
  ************************************************/
 
-/*************************************************
- GAME -- BEGIN
- ************************************************/
 
 /****************gameLoop*************************
  PARAMS: NONE
@@ -275,7 +274,7 @@
         if(powerupHit==YES)
         {
             powerupTimer+=1;
-            NSLog(@"%d", powerupTimer);
+            //NSLog(@"%d", powerupTimer);
             if(powerupTimer==600)
             {
                 powerupHit=NO;
@@ -297,9 +296,8 @@
         }
     }
     timerCount += 1;
-
+    
 }
-
 
 /****************UpdateRandomNumbers******************
  PARAMS: NONE
@@ -314,9 +312,11 @@
         random=(arc4random()%238)*-1;
         coinRand=(arc4random()%396);  //above the ground
         powerupRand=(arc4random()%396);
-        imageRand=arc4random()%3;
+        imageRand=arc4random()%4;
     }
 }
+
+
 
 /****************CollisionChecking*************************
  PARAMS: NONE
@@ -331,7 +331,7 @@
         for(int i=0; i<[collisionObjectsArray count]; i++)
         {
             UIImageView *Bird=collisionObjectsArray[i];
-        
+            
             if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
             {
                 if(birdIsPassingTube==NO)
@@ -354,17 +354,18 @@
             
             if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
             {
-                        dead = YES;
-                        birdAccel = 0;
-                        //[self gameOver];
+                dead = YES;
+                birdAccel = 0;
+                //[self gameOver];
             }
         }
-    
-    //If the bird hits any coins.
-    
+        
+        //If the bird hits any coins.
+        
         if(coinWasHit==NO)
         {
-            for (int j=0; j<[coinCollisionArray count]; j++) {
+            for (int j=0; j<[coinCollisionArray count]; j++)
+            {
                 UIImageView * coinPicture=coinCollisionArray[j];
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
                 {
@@ -377,12 +378,13 @@
         }
         if(powerupWasHit==NO)
         {
-            for (int j=0; j<[powerupsCollisionArray count]; j++) {
+            for (int j=0; j<[powerupsCollisionArray count]; j++)
+            {
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
                 if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
                 {
                     powerupHit=YES;
-                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"dash.jpg"]])
                     {
                         powerupPicture.hidden=YES;
                         powerupWasHit=YES;
@@ -395,9 +397,10 @@
                     {
                         if(powerupPicture.hidden==NO)
                         {
-                        flappyBirdLives+=1;
-                        powerupPicture.hidden=YES;
-                        powerupWasHit=YES;
+                            flappyBirdLives+=1;
+                            powerupPicture.hidden=YES;
+                            powerupWasHit=YES;
+                        }
                     }
                     
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"scoreMultiplier.png"]])
@@ -406,6 +409,13 @@
                         powerupWasHit=YES;
                         scoreMultiplier=2;
                         
+                    }
+                    
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
+                    {
+                        powerupPicture.hidden=YES;
+                        powerupWasHit=YES;
+                        gravityConstant *= 1.5;
                     }
                     
                 }
@@ -429,6 +439,9 @@
     }
     
 }
+
+
+
 -(void)updateGround
 {
     [UIView animateWithDuration:0.01
@@ -491,11 +504,11 @@
     else
     {
         [UIView animateWithDuration:0.01
-                     animations:^(void)
+                         animations:^(void)
          {
              _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y - birdAccel, _birdPicture.frame.size.width, _birdPicture.frame.size.height)   ;
          }
-                     completion:^(BOOL finished){}];
+                         completion:^(BOOL finished){}];
     }
     birdAccel -= gravityConstant;
     if(birdAccel < birdAccelMax)
@@ -527,7 +540,7 @@
 -(void)updateTube
 {
     
- 
+    
     
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d", flappyBirdLives];
     _tubeCountLabel.text=[NSString stringWithFormat:@"%d",tubeCounter];
@@ -538,8 +551,8 @@
     {
         
         startTubeTwo=YES;
-  
-      
+        
+        
     }
     //if second image is halfway off the screen
     if(_tubeBottomImage1.frame.origin.x<0)
@@ -553,24 +566,24 @@
     {
         startTubeOne=NO;
         
-         _tubeTopImage.frame=CGRectMake(tubeTopX, random, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
+        _tubeTopImage.frame=CGRectMake(tubeTopX, random, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
         
-         _tubeBottomImage.frame=CGRectMake(tubeBottomX, (random+sizeBetweenTubes+_tubeBottomImage.frame.size.height), _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
+        _tubeBottomImage.frame=CGRectMake(tubeBottomX, (random+sizeBetweenTubes+_tubeBottomImage.frame.size.height), _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
         
         
         
     }
     
     
-     //if second tube finishes start first and put second back to original spot
-   if(_tubeBottomImage1.center.x<(_tubeBottomImage1.frame.size.width*-1))
+    //if second tube finishes start first and put second back to original spot
+    if(_tubeBottomImage1.center.x<(_tubeBottomImage1.frame.size.width*-1))
     {
         startTubeTwo=NO;
-         _tubeTopImage1.frame=CGRectMake(tubeTopX, random, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
+        _tubeTopImage1.frame=CGRectMake(tubeTopX, random, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
         
-    _tubeBottomImage1.frame=CGRectMake(tubeBottomX, (random+sizeBetweenTubes+_tubeBottomImage1.frame.size.height), _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+        _tubeBottomImage1.frame=CGRectMake(tubeBottomX, (random+sizeBetweenTubes+_tubeBottomImage1.frame.size.height), _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
         
-   }
+    }
     
     
     //Movement of the tubes
@@ -584,13 +597,13 @@
     
     if(startTubeTwo==YES)
     {
- _tubeBottomImage1.frame = CGRectMake(_tubeBottomImage1.frame.origin.x+tubeSpeed, _tubeBottomImage1.frame.origin.y, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+        _tubeBottomImage1.frame = CGRectMake(_tubeBottomImage1.frame.origin.x+tubeSpeed, _tubeBottomImage1.frame.origin.y, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
         
-    _tubeTopImage1.frame = CGRectMake(_tubeTopImage1.frame.origin.x+tubeSpeed, _tubeTopImage1.frame.origin.y, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
+        _tubeTopImage1.frame = CGRectMake(_tubeTopImage1.frame.origin.x+tubeSpeed, _tubeTopImage1.frame.origin.y, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
         
     }
     
-
+    
 }
 
 
@@ -605,36 +618,36 @@
 {
     
     
-        if(_tubeBottomImage.frame.origin.x<160) // 160== half way acroos the screen
-        {
-            startCoinOne=YES;
-         
-        }
-        if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
-        {
-            tubeCounter+=scoreMultiplier;
-      
+    if(_tubeBottomImage.frame.origin.x<160) // 160== half way acroos the screen
+    {
+        startCoinOne=YES;
         
-        }
-        if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
-        {
-            tubeCounter+=scoreMultiplier;
+    }
+    if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
+    {
+        tubeCounter+=scoreMultiplier;
         
         
-        }
+    }
+    if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
+    {
+        tubeCounter+=scoreMultiplier;
+        
+        
+    }
     
-   
     
-        
-        if(startCoinOne==YES)
-        {
+    
+    
+    if(startCoinOne==YES)
+    {
         _coinPicture.frame=CGRectMake(_coinPicture.frame.origin.x+coinSpeed, _coinPicture.frame.origin.y, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
-        }
-        if(startCoinTwo==YES)
-        {
-            _coinPicture1.frame=CGRectMake(_coinPicture1.frame.origin.x+coinSpeed, _coinPicture1.frame.origin.y, _coinPicture1.frame.size.width, _coinPicture1.frame.size.height);
-            
-        }
+    }
+    if(startCoinTwo==YES)
+    {
+        _coinPicture1.frame=CGRectMake(_coinPicture1.frame.origin.x+coinSpeed, _coinPicture1.frame.origin.y, _coinPicture1.frame.size.width, _coinPicture1.frame.size.height);
+        
+    }
     
     
     if(_coinPicture.frame.origin.x<0)
@@ -645,7 +658,7 @@
     {
         startCoinOne=YES;
     }
-   
+    
     if(_coinPicture.frame.origin.x<(_coinPicture.frame.size.width*-1))
     {
         _coinPicture.hidden=NO;
@@ -661,9 +674,8 @@
         _coinPicture1.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
     }
     
-        
+    
 }
-
 
 /******************UpdatePowerupMovement***********
  PARAMS: NONE
@@ -680,18 +692,18 @@
         if(arc4random()%4==1)
         {
             startPowerupOne=YES;
-        
+            
         }
         
     }
-
+    
     
     if(startPowerupOne==YES)
     {
         _powerUpImage.frame=CGRectMake(_powerUpImage.frame.origin.x+powerupSpeed, _powerUpImage.frame.origin.y, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
     }
-   
-   
+    
+    
     
     if(_powerUpImage.frame.origin.x<(_powerUpImage.frame.size.width*-1))
     {
@@ -712,8 +724,6 @@
 {
     _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[imageRand]];
 }
-
-
 
 - (void)goPressed
 {
@@ -751,8 +761,6 @@
     }
 }
 
-
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if(!dead)
@@ -761,8 +769,8 @@
         CGPoint curTouchPoint = [curTouch locationInView:self.view];
         if(CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
         {
-        [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
-        startButtonDown = YES;
+            [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
+            startButtonDown = YES;
         }
         else
         {
@@ -807,11 +815,11 @@
 -(void)makeBirdFall
 {
     [UIView animateWithDuration:0.01
-            animations:^(void)
-            {
-                _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, birdFall, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
-            }
-            completion:^(BOOL finished){}];
+                     animations:^(void)
+     {
+         _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, birdFall, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
+     }
+                     completion:^(BOOL finished){}];
     if(_birdPicture.frame.origin.y + _birdPicture.frame.size.height >= _ground1.frame.origin.y)
     {
         [self finish];
@@ -866,4 +874,5 @@
     if(_okButtonImage.hidden == NO)
         [self finish];
 }
+
 @end
