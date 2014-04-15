@@ -43,6 +43,7 @@
 		AC76044218F620AE0081EA16 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76044118F620AE0081EA16 /* okButton.png */; };
 		ACA6FEC618FC9CEF00B51909 /* scoreMultiplier.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */; };
 		ACA6FEC818FC9D1E00B51909 /* oneUpMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */; };
+		ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC918FCA39F00B51909 /* dash.jpg */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -100,6 +101,7 @@
 		AC76044118F620AE0081EA16 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okButton.png; sourceTree = "<group>"; };
 		ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreMultiplier.png; sourceTree = "<group>"; };
 		ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oneUpMedal.png; sourceTree = "<group>"; };
+		ACA6FEC918FCA39F00B51909 /* dash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dash.jpg; sourceTree = "<group>"; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACA6FEC918FCA39F00B51909 /* dash.jpg */,
 				ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */,
 				ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */,
 				7FCEC18518F622C600A97A6A /* arrow.png */,
@@ -308,6 +311,7 @@
 				7F4F210218BEB753002675F6 /* Images.xcassets in Resources */,
 				7FB3BBB618C1BF01001B558D /* flappyBirdCoin5.png in Resources */,
 				7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */,
+				ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */,
 				7FCEC18618F622C600A97A6A /* arrow.png in Resources */,
 				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
 				AC76043E18F61F930081EA16 /* scoreboard.png in Resources */,

@@ -39,6 +39,7 @@
     _scoreboard.hidden = YES;
     _scoreLabel.hidden = YES;
     _okButtonImage.hidden = YES;
+    scoreMultiplier=1;
     
 }
 /****************setUpCoins**********************
@@ -94,8 +95,8 @@
     [powerupsImageArray addObject:@"arrow.png"];
     _powerUpImage.hidden=YES;
     powerupRand=arc4random()%396;  //above ground
-    imageRand=arc4random()%3;
-    _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[imageRand]];
+    
+    
     powerupSpeed=-1;
     startPowerupOne=NO;
     startPowerupTwo=NO;
@@ -184,7 +185,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=1;
+    flappyBirdLives=30;
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
@@ -270,6 +271,19 @@
                 birdPassingCounter=0;
             }
         }
+        
+        if(powerupHit==YES)
+        {
+            powerupTimer+=1;
+            NSLog(@"%d", powerupTimer);
+            if(powerupTimer==600)
+            {
+                powerupHit=NO;
+                scoreMultiplier=1;
+                gravityConstant=0.17;
+                powerupTimer=0;
+            }
+        }
         //increase timerCount for updates not synchronous with gameLoop
     }
     else
@@ -300,6 +314,7 @@
         random=(arc4random()%238)*-1;
         coinRand=(arc4random()%396);  //above the ground
         powerupRand=(arc4random()%396);
+        imageRand=arc4random()%3;
     }
 }
 
@@ -353,7 +368,7 @@
                 UIImageView * coinPicture=coinCollisionArray[j];
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
                 {
-                    coinCounter += 1;
+                    coinCounter += scoreMultiplier;
                     coinPicture.hidden=YES;
                     _coinCountLabel.text = [NSString stringWithFormat:@"%d", coinCounter];
                     coinWasHit=YES;
@@ -366,7 +381,7 @@
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
                 if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
                 {
-                    
+                    powerupHit=YES;
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
                     {
                         powerupPicture.hidden=YES;
@@ -379,6 +394,16 @@
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"oneUpMedal.png"]])
                     {
                         flappyBirdLives+=1;
+                        powerupPicture.hidden=YES;
+                        powerupWasHit=YES;
+                    }
+                    
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"scoreMultiplier.png"]])
+                    {
+                        powerupPicture.hidden=YES;
+                        powerupWasHit=YES;
+                        scoreMultiplier=2;
+                        
                     }
                     
                 }
@@ -585,13 +610,13 @@
         }
         if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
         {
-            tubeCounter+=1;
+            tubeCounter+=scoreMultiplier;
       
         
         }
         if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
         {
-            tubeCounter+=1;
+            tubeCounter+=scoreMultiplier;
         
         
         }
@@ -647,9 +672,14 @@
 {
     
     
+    
     if(_tubeBottomImage.frame.origin.x<160) // 160== half way acroos the screen
     {
-        startPowerupOne=YES;
+        if(arc4random()%4==1)
+        {
+            startPowerupOne=YES;
+        
+        }
         
     }
 
@@ -659,21 +689,26 @@
         _powerUpImage.frame=CGRectMake(_powerUpImage.frame.origin.x+powerupSpeed, _powerUpImage.frame.origin.y, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
     }
    
-    
-    
-    if(_powerUpImage.frame.origin.x<0)
-    {
-        startPowerupOne=YES;
-    }
    
     
     if(_powerUpImage.frame.origin.x<(_powerUpImage.frame.size.width*-1))
     {
-        _powerUpImage.hidden=NO;
-        powerupWasHit=NO;
-        startPowerupOne=NO;
-        _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+        
+        if(powerupHit==NO)
+        {
+            _powerUpImage.hidden=NO;
+            powerupWasHit=NO;
+            startPowerupOne=NO;
+            _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+            [self changePowerupImage];
+            
+        }
     }
+}
+
+-(void)changePowerupImage
+{
+    _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[imageRand]];
 }
 
 

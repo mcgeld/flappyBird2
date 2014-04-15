@@ -82,10 +82,14 @@
     int imageRand;
     int powerupRand;
     int powerupSpeed;
+    int powerupTimer;
+    int scoreMultiplier;
     bool powerupsBegan;
     bool startPowerupOne;
     bool startPowerupTwo;
     bool powerupWasHit;
+    bool powerupHit;
+    
     
     //Miscellaneous Variables
     BOOL go;
