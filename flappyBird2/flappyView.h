@@ -50,6 +50,8 @@
     BOOL dead;
     BOOL wingsGoingUp;
     BOOL done;
+    BOOL flap;
+    int flapMultiplier;
     
     //Gravity Variables
     float gravityConstant;
@@ -88,8 +90,8 @@
     bool startPowerupOne;
     bool startPowerupTwo;
     bool powerupWasHit;
-    int scoreMultiplier;
     bool powerupHit;
+    
     
     //Miscellaneous Variables
     BOOL go;

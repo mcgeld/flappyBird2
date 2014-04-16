@@ -201,6 +201,8 @@
     birdAccelMax = -10;
     wingsGoingUp = NO;
     dead = NO;
+    flap = NO;
+    flapMultiplier = -1;
 }
 
 /*********************setUpGravity****************
@@ -257,7 +259,7 @@
         [self updateRandomNumbers];
         if(timerCount == 10)
         {
-            [self updateFlaps];
+            //[self updateFlaps];
             [self updateCoins];
             timerCount = 0;
         }
@@ -444,9 +446,7 @@
                 {
                     
                     powerupHit=YES;
-                    
-                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
-                        
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"dash.jpg"]])
                     {
                         
                         powerupPicture.hidden=YES;
@@ -497,6 +497,12 @@
                         
                     }
                     
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
+                    {
+                        powerupPicture.hidden=YES;
+                        powerupWasHit=YES;
+                        gravityConstant *= 1.5;
+                    }
                     
                     
                 }
@@ -561,31 +567,30 @@
 
 -(void)updateFlaps
 {
-    [UIView animateWithDuration:0.01
+    if(flap)
+    {
+        
+        [UIView animateWithDuration:0.01
                      animations:^(void)
-     {
-         _birdPicture.image = [UIImage imageNamed:birdPics[birdPicNum]];
-     }
+         {
+             _birdPicture.image = [UIImage imageNamed:birdPics[birdPicNum]];
+         }
                      completion:^(BOOL finished){}];
-    if(birdPicNum == [birdPics count] - 1)
-    {
-        birdPicNum = [birdPics count] - 2;
-        wingsGoingUp = YES;
-    }
-    else if(birdPicNum == 0)
-    {
-        birdPicNum = 1;
-        wingsGoingUp = NO;
-    }
-    else
-    {
-        if(wingsGoingUp)
+        if(birdPicNum == [birdPics count] - 1)
         {
-            birdPicNum -= 1;
+            birdPicNum = [birdPics count] - 2;
+            flapMultiplier *= -1;
+            //wingsGoingUp = YES;
+        }
+        else if(birdPicNum == 0)
+        {
+            birdPicNum = 1;
+            flap = NO;
+            //wingsGoingUp = NO;
         }
         else
         {
-            birdPicNum += 1;
+            birdPicNum += 1 * flapMultiplier;
         }
     }
 }
@@ -831,6 +836,7 @@
     if(!go)
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.07 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
         
         
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
@@ -875,6 +881,8 @@
         }
         else
         {
+            flap = YES;
+            flapMultiplier = 1;
             birdAccel = 4.7;
         }
     }
