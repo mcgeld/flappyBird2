@@ -849,7 +849,7 @@
 -(void)showScore
 {
     NSString * tubeCountStr = [NSString stringWithFormat:@"%d", tubeCounter];
-    NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
+  //  NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
     _scoreLabel.text = tubeCountStr;
     _scoreboard.hidden = NO;
     _scoreLabel.hidden = NO;
