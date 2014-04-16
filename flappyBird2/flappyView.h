@@ -84,6 +84,8 @@
     bool startPowerupOne;
     bool startPowerupTwo;
     bool powerupWasHit;
+    int scoreMultiplier;
+    bool powerupHit;
     
     //Miscellaneous Variables
     BOOL go;
