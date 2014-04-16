@@ -51,6 +51,8 @@
     BOOL dead;
     BOOL wingsGoingUp;
     BOOL done;
+    BOOL flap;
+    int flapMultiplier;
     
     //Gravity Variables
     float gravityConstant;

@@ -204,6 +204,8 @@
     birdAccelMax = -10;
     wingsGoingUp = NO;
     dead = NO;
+    flap = NO;
+    flapMultiplier = -1;
 }
 
 /*********************setUpGravity****************
@@ -260,7 +262,7 @@
         [self updateRandomNumbers];
         if(timerCount == 10)
         {
-            [self updateFlaps];
+            //[self updateFlaps];
             [self updateCoins];
             timerCount = 0;
         }
@@ -327,91 +329,172 @@
  DESCRIPTION: Checks for any collisions involving the bird picture. I.E.(coins, death objects)
  ************************************************/
 -(void)collisionChecking
+
 {
+    
     //collision checking
+    
     if(!dead)
+        
     {
+        
         for(int i=0; i<[collisionObjectsArray count]; i++)
+            
         {
+            
             UIImageView *Bird=collisionObjectsArray[i];
             
-            if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
-            {
-                if(birdIsPassingTube==NO)
-                {
-                    flappyBirdLives-=1;
-                    birdIsPassingTube=YES;
-                    if(flappyBirdLives==0)
-                    {
-                        dead = YES;
-                        birdAccel = 0;
-                        //[self gameOver];
-                    }
-                }
-            }
-        }
-        
-        for(int i=0; i<[deadCollisionObjectsArray count]; i++)
-        {
-            UIImageView *Bird=deadCollisionObjectsArray[i];
+            
             
             if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+                
             {
-                dead = YES;
-                birdAccel = 0;
-                //[self gameOver];
+                
+                if(birdIsPassingTube==NO)
+                    
+                {
+                    
+                    flappyBirdLives-=1;
+                    
+                    birdIsPassingTube=YES;
+                    
+                    if(flappyBirdLives==0)
+                        
+                    {
+                        
+                        dead = YES;
+                        
+                        birdAccel = 0;
+                        
+                        //[self gameOver];
+                        
+                    }
+                    
+                }
+                
             }
+            
         }
+        
+        
+        
+        for(int i=0; i<[deadCollisionObjectsArray count]; i++)
+            
+        {
+            
+            UIImageView *Bird=deadCollisionObjectsArray[i];
+            
+            
+            
+            if(CGRectIntersectsRect(_birdPicture.frame, Bird.frame ))
+                
+            {
+                
+                dead = YES;
+                
+                birdAccel = 0;
+                
+                //[self gameOver];
+                
+            }
+            
+        }
+        
+        
         
         //If the bird hits any coins.
         
+        
+        
         if(coinWasHit==NO)
+            
         {
+            
             for (int j=0; j<[coinCollisionArray count]; j++)
+                
             {
+                
                 UIImageView * coinPicture=coinCollisionArray[j];
+                
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
+                    
                 {
+                    
                     coinCounter += scoreMultiplier;
+                    
                     coinPicture.hidden=YES;
+                    
                     _coinCountLabel.text = [NSString stringWithFormat:@"%d", coinCounter];
+                    
                     coinWasHit=YES;
+                    
                 }
+                
             }
+            
         }
+        
         if(powerupWasHit==NO)
+            
         {
+            
             for (int j=0; j<[powerupsCollisionArray count]; j++)
+                
             {
+                
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
+                
                 if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
+                    
                 {
+                    
                     powerupHit=YES;
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"dash.jpg"]])
                     {
+                        
                         powerupPicture.hidden=YES;
+                        
                         powerupWasHit=YES;
                        // gravityConstant = 1;
                         [gameLoopTimer invalidate];
+                        
                         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.006 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+                        
                     }
                     
+                    
+                    
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"oneUpMedal.png"]])
+                        
                     {
+                        
                         if(powerupPicture.hidden==NO)
+                            
                         {
+                            
                             flappyBirdLives+=1;
+                            
                             powerupPicture.hidden=YES;
+                            
                             powerupWasHit=YES;
                             
                         }
+                        
                     }
                     
+                    
+                    
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"scoreMultiplier.png"]])
+                        
                     {
+                        
                         powerupPicture.hidden=YES;
+                        
                         powerupWasHit=YES;
+                        
                         scoreMultiplier=2;
+                        
+                        
                         
                     }
                     
@@ -422,25 +505,46 @@
                         gravityConstant *= 1.5;
                     }
                     
+                    
                 }
+                
             }
+            
         }
+        
     }
+    
     else
+        
     {
         
+        
+        
         for(int i=0; i<[deadCollisionObjectsArray count]; i++)
+            
         {
+            
             UIImageView *object=deadCollisionObjectsArray[i];
             
+            
+            
             if(CGRectIntersectsRect(_birdPicture.frame, object.frame ))
+                
             {
+                
                 done = YES;
+                
                 birdAccel = 0;
+                
                 [self showScore];
+                
             }
+            
         }
+        
     }
+    
+    
     
 }
 
@@ -464,31 +568,30 @@
 
 -(void)updateFlaps
 {
-    [UIView animateWithDuration:0.01
+    if(flap)
+    {
+        
+        [UIView animateWithDuration:0.01
                      animations:^(void)
-     {
-         _birdPicture.image = [UIImage imageNamed:birdPics[birdPicNum]];
-     }
+         {
+             _birdPicture.image = [UIImage imageNamed:birdPics[birdPicNum]];
+         }
                      completion:^(BOOL finished){}];
-    if(birdPicNum == [birdPics count] - 1)
-    {
-        birdPicNum = [birdPics count] - 2;
-        wingsGoingUp = YES;
-    }
-    else if(birdPicNum == 0)
-    {
-        birdPicNum = 1;
-        wingsGoingUp = NO;
-    }
-    else
-    {
-        if(wingsGoingUp)
+        if(birdPicNum == [birdPics count] - 1)
         {
-            birdPicNum -= 1;
+            birdPicNum = [birdPics count] - 2;
+            flapMultiplier *= -1;
+            //wingsGoingUp = YES;
+        }
+        else if(birdPicNum == 0)
+        {
+            birdPicNum = 1;
+            flap = NO;
+            //wingsGoingUp = NO;
         }
         else
         {
-            birdPicNum += 1;
+            birdPicNum += 1 * flapMultiplier;
         }
     }
 }
@@ -734,6 +837,7 @@
     if(!go)
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.07 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
         
         
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
@@ -778,6 +882,8 @@
         }
         else
         {
+            flap = YES;
+            flapMultiplier = 1;
             birdAccel = 4.7;
         }
     }
