@@ -9,6 +9,7 @@
 #import "flappyView.h"
 
 @implementation flappyView
+@synthesize db=_db;
 /******************OVERVIEW*********************
  "flappyView" is the view controller that handles the actual game play of the game. It handles everything about game play and is the main part of the game.
  **********************************************/
@@ -26,7 +27,8 @@
  **********************************************/
 - (void)viewDidLoad
 {
-    
+    [self loadPlist];
+    NSString * val= [_db getUser:0];
     [super viewDidLoad];
     [self setUpTubes];
     [self setUpCollisionObjects];
@@ -38,6 +40,7 @@
     go = NO;
     _scoreboard.hidden = YES;
     _scoreLabel.hidden = YES;
+    _highScoreLabel.hidden=YES;
     _okButtonImage.hidden = YES;
     scoreMultiplier=1;
     
@@ -187,7 +190,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=1;
+    flappyBirdLives=10;
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
@@ -388,7 +391,7 @@
                     {
                         powerupPicture.hidden=YES;
                         powerupWasHit=YES;
-                        //gravityConstant *= 2;
+                       // gravityConstant = 1;
                         [gameLoopTimer invalidate];
                         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.006 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
                     }
@@ -400,6 +403,7 @@
                             flappyBirdLives+=1;
                             powerupPicture.hidden=YES;
                             powerupWasHit=YES;
+                            
                         }
                     }
                     
@@ -848,9 +852,26 @@
 
 -(void)showScore
 {
+
+    NSString * val= [_db getUser:0];
+    int value=[val intValue];
+    if(tubeCounter>value)
+    {
+        
+        val=[NSString stringWithFormat:@"%i",tubeCounter];
+    }
+    else
+    {
+        val=[NSString stringWithFormat:@"%i",value];
+    }
     NSString * tubeCountStr = [NSString stringWithFormat:@"%d", tubeCounter];
-  //  NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
+    [_db removeUser:0];
+    [_db addUser:val atIndex:0];
+    [_db savePlist:[_db getDB]];
+    //  NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
     _scoreLabel.text = tubeCountStr;
+    _highScoreLabel.text = val;
+    _highScoreLabel.hidden=NO;
     _scoreboard.hidden = NO;
     _scoreLabel.hidden = NO;
     _okButtonImage.hidden = NO;
@@ -874,5 +895,39 @@
     if(_okButtonImage.hidden == NO)
         [self finish];
 }
+
+-(void)enterUser:(NSString *)sender
+{
+ 
+        [_db addUser:sender];
+    
+   // NSLog(sender);
+        [_db savePlist:[_db getDB]];
+    
+    
+}
+
+
+-(void)loadPlist
+{
+    NSString * plistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0] stringByAppendingPathComponent:@"database.plist"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath])
+    {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
+    }
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+    NSString *errorDesc = nil;
+    NSPropertyListFormat format;
+    
+    _db = [[database alloc] initWithArray:(NSMutableArray *)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc]];
+}
+
+-(void)loadBinary
+{
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"database.db"];
+    _db = [[database alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
+}
+
 
 @end

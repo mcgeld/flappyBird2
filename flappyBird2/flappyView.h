@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "dataBase.h"
 
 @interface flappyView : UIViewController
 {
@@ -101,6 +102,10 @@
     
     
 }
+
+@property (strong, nonatomic) database * db;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 
 @property (weak, nonatomic) IBOutlet UIImageView *ground2;
@@ -109,6 +114,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *scoreboard;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *okButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *powerUpImage;
 - (IBAction)okButton:(id)sender;

@@ -47,6 +47,7 @@
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
+		ADE10FE418FF1F4F00D28B34 /* dataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE10FE318FF1F4F00D28B34 /* dataBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
 		ADC3FA0218C0EC940011D68A /* flappyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = flappyView.m; sourceTree = "<group>"; };
+		ADE10FE218FF1F4F00D28B34 /* dataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dataBase.h; path = ../dataBase.h; sourceTree = "<group>"; };
+		ADE10FE318FF1F4F00D28B34 /* dataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dataBase.m; path = ../dataBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,8 @@
 				ADC3FA0218C0EC940011D68A /* flappyView.m */,
 				7F4F20FE18BEB753002675F6 /* ViewController.h */,
 				7F4F20FF18BEB753002675F6 /* ViewController.m */,
+				ADE10FE218FF1F4F00D28B34 /* dataBase.h */,
+				ADE10FE318FF1F4F00D28B34 /* dataBase.m */,
 				7F4F210118BEB753002675F6 /* Images.xcassets */,
 				7F4F20F018BEB753002675F6 /* Supporting Files */,
 			);
@@ -357,6 +362,7 @@
 				ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */,
 				7F4F210018BEB753002675F6 /* ViewController.m in Sources */,
 				7F4F20FA18BEB753002675F6 /* AppDelegate.m in Sources */,
+				ADE10FE418FF1F4F00D28B34 /* dataBase.m in Sources */,
 				7F4F20F618BEB753002675F6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
