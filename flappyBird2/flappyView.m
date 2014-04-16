@@ -455,7 +455,9 @@
                         powerupPicture.hidden=YES;
                         
                         powerupWasHit=YES;
-                       // gravityConstant = 1;
+                        
+                        //gravityConstant *= 2;
+                        
                         [gameLoopTimer invalidate];
                         
                         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.006 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
