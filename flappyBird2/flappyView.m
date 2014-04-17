@@ -7,6 +7,7 @@
 //
 
 #import "flappyView.h"
+#import "ViewController.h"
 
 @implementation flappyView
 @synthesize db=_db;
@@ -28,7 +29,7 @@
 - (void)viewDidLoad
 {
     [self loadPlist];
-    NSString * val= [_db getUser:0];
+  //  NSString * val= [_db getUser:0];
     [super viewDidLoad];
     [self setUpTubes];
     [self setUpCollisionObjects];
@@ -190,7 +191,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=10;
+    flappyBirdLives=gameMode;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
@@ -725,6 +726,12 @@
  ***********************************************/
 -(void)updateCoinMovement
 {
+    if(coinCounter==5)      //if they get 5 coins, they recieve and extra life
+    {
+        coinCounter=0;
+        flappyBirdLives+=1;
+    }
+    
     
     
     if(_tubeBottomImage.frame.origin.x<160) // 160== half way acroos the screen
@@ -960,25 +967,42 @@
 
 -(void)showScore
 {
-
+    
+    NSMutableArray * sizeOfData=[_db getDB];
+    if([sizeOfData count]>0)
+    {
+    
     NSString * val= [_db getUser:0];
     int value=[val intValue];
     if(tubeCounter>value)
     {
-        
+        [_db removeUser:0];
         val=[NSString stringWithFormat:@"%i",tubeCounter];
+         [_db addUser:val atIndex:0];
+        _highScoreLabel.text = val;
     }
     else
     {
+        [_db removeUser:0];
         val=[NSString stringWithFormat:@"%i",value];
+         [_db addUser:val atIndex:0];
+        _highScoreLabel.text = val;
     }
-    NSString * tubeCountStr = [NSString stringWithFormat:@"%d", tubeCounter];
-    [_db removeUser:0];
-    [_db addUser:val atIndex:0];
+    }
+    else
+    {
+        NSString * val=[NSString stringWithFormat:@"%i",tubeCounter];
+         [_db addUser:val atIndex:0];
+        _highScoreLabel.text = val;
+    }
+        
+        NSString * tubeCountStr = [NSString stringWithFormat:@"%d", tubeCounter];
+    
+   
     [_db savePlist:[_db getDB]];
     //  NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
     _scoreLabel.text = tubeCountStr;
-    _highScoreLabel.text = val;
+    
     _highScoreLabel.hidden=NO;
     _scoreboard.hidden = NO;
     _scoreLabel.hidden = NO;

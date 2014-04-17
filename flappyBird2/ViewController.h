@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+  int gameMode;
 @interface ViewController : UIViewController
 {
+  
+    
+    
     NSTimer * gameLoopTimer;
     NSTimer * groundTimer;
     NSTimer * birdFlapTimer;
@@ -40,5 +43,8 @@
 - (IBAction)goPressed:(id)sender;
 - (IBAction)gravityPressed:(id)sender;
 
+- (IBAction)easyMode:(id)sender;
+- (IBAction)mediumMode:(id)sender;
+- (IBAction)hardMode:(id)sender;
 
 @end

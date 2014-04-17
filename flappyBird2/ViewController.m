@@ -192,6 +192,18 @@
     }
 }
 
+- (IBAction)easyMode:(id)sender {
+    gameMode=3;
+}
+
+- (IBAction)mediumMode:(id)sender {
+    gameMode=2;
+}
+
+- (IBAction)hardMode:(id)sender {
+    gameMode=1;
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch * curTouch = [touches anyObject];
