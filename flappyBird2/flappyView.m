@@ -856,7 +856,7 @@
             _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
             if(CGRectIntersectsRect(_powerUpImage.frame, _tubeBottomImage.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeBottomImage1.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeTopImage.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeTopImage1.frame))
             {
-                _powerUpImage.frame=CGRectMake(tubeBottomX+(_tubeTopImage.frame.size.width+10), powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+                _powerUpImage.frame=CGRectMake(tubeBottomX+(_tubeTopImage.frame.size.width+_tubeTopImage.frame.size.width), powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
             }
             [self changePowerupImage];
             
