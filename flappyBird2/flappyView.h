@@ -53,6 +53,9 @@
     BOOL done;
     BOOL flap;
     int flapMultiplier;
+    int modifier;
+    BOOL flash;
+    int flashCount;
     
     //Gravity Variables
     float gravityConstant;
@@ -65,6 +68,7 @@
     NSTimer * gravityTimer;
     NSTimer * birdFlapTimer;
     NSTimer * gameLoopTimer;
+    NSTimer * birdFlashTimer;
     int timerCount;
     
     //Coin Variables

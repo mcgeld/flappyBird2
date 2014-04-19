@@ -207,6 +207,10 @@
     dead = NO;
     flap = NO;
     flapMultiplier = -1;
+    birdFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(makeBirdFlash) userInfo:nil repeats:YES];
+    modifier = -1;
+    flash = NO;
+    flashCount = 0;
 }
 
 /*********************setUpGravity****************
@@ -274,19 +278,19 @@
             birdPassingCounter+=1;
             if(birdPassingCounter<50)
             {
-                _birdPicture.alpha=.4;
+                //_birdPicture.alpha=.4;
             }
             else if(birdPassingCounter<120)
             {
-                _birdPicture.alpha=1;
+                //_birdPicture.alpha=1;
             }
             else if(birdPassingCounter<160)
             {
-                _birdPicture.alpha=.4;
+                //_birdPicture.alpha=.4;
             }
             if(birdPassingCounter==160)
             {
-                _birdPicture.alpha=1;
+                //_birdPicture.alpha=1;
                 birdIsPassingTube=NO;
                 birdPassingCounter=0;
             }
@@ -370,8 +374,11 @@
                 if(birdIsPassingTube==NO)
                     
                 {
-                     _birdPicture.alpha=.5;
+                    flash = YES;
+                    //_birdPicture.alpha=.5;
                     flappyBirdLives-=1;
+                    
+                    
                     
                     birdIsPassingTube=YES;
                     
@@ -966,6 +973,22 @@
     {
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = YES;
+    }
+}
+
+-(void)makeBirdFlash
+{
+    if(flash)
+    {
+        _birdPicture.alpha = _birdPicture.alpha + 0.75 * modifier;
+        modifier *= -1;
+        flashCount += 1;
+    }
+    if(flashCount == 20)
+    {
+        flash = NO;
+        flashCount = 0;
+        modifier = -1;
     }
 }
 
