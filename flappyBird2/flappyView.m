@@ -355,6 +355,12 @@
     
     //collision checking
     
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    CFURLRef soundFileURLRef;
+    UInt32 soundID;
+    
+    
+    
     if(!dead)
         
     {
@@ -374,6 +380,11 @@
                 if(birdIsPassingTube==NO)
                     
                 {
+                    hitSound = @"sfx_hit";
+                    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) hitSound, CFSTR ("wav"), NULL);
+                    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                    AudioServicesPlaySystemSound(soundID);
+                    
                     flash = YES;
                     //_birdPicture.alpha=.5;
                     flappyBirdLives-=1;
@@ -443,6 +454,10 @@
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
                     
                 {
+                    coinSound = @"smw_coin";
+                    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) coinSound, CFSTR ("wav"), NULL);
+                    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                    AudioServicesPlaySystemSound(soundID);
                     
                     coinCounter += scoreMultiplier;
                     
@@ -475,6 +490,11 @@
                     powerupHit=YES;
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"dash.jpg"]])
                     {
+                        powerupSound = @"here_we_go";
+                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                        AudioServicesPlaySystemSound(soundID);
+                        
                         
                         powerupPicture.hidden=YES;
                         
@@ -497,6 +517,10 @@
                         if(powerupPicture.hidden==NO)
                             
                         {
+                            powerupSound = @"smw_power_up";
+                            soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                            AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                            AudioServicesPlaySystemSound(soundID);
                             
                             flappyBirdLives+=1;
                             
@@ -513,6 +537,11 @@
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"scoreMultiplier.png"]])
                         
                     {
+                        powerupSound = @"score_mult";
+                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                        AudioServicesPlaySystemSound(soundID);
+                        
                         
                         powerupPicture.hidden=YES;
                         
@@ -526,6 +555,11 @@
                     
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
                     {
+                        powerupSound = @"blip";
+                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                        AudioServicesPlaySystemSound(soundID);
+                        
                         powerupPicture.hidden=YES;
                         powerupWasHit=YES;
                         gravityConstant *= 1.5;
@@ -562,6 +596,7 @@
                 
                 birdAccel = 0;
                 
+                
                 [self showScore];
                 
             }
@@ -596,6 +631,17 @@
 {
     if(flap)
     {
+        flapSound = @"sfx_wing";
+        
+        CFBundleRef mainBundle = CFBundleGetMainBundle();
+        CFURLRef soundFileURLRef;
+        
+        
+        
+        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) flapSound, CFSTR ("wav"), NULL);
+        UInt32 soundID;
+        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+        
         
         [UIView animateWithDuration:0.01
                      animations:^(void)
@@ -608,6 +654,7 @@
             birdPicNum = [birdPics count] - 2;
             flapMultiplier *= -1;
             //wingsGoingUp = YES;
+            AudioServicesPlaySystemSound(soundID);
         }
         else if(birdPicNum == 0)
         {

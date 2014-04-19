@@ -44,6 +44,15 @@
 		ACA6FEC618FC9CEF00B51909 /* scoreMultiplier.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */; };
 		ACA6FEC818FC9D1E00B51909 /* oneUpMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */; };
 		ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC918FCA39F00B51909 /* dash.jpg */; };
+		ACC9886A190245DF00BE1660 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC98869190245DF00BE1660 /* AudioToolbox.framework */; };
+		ACC9886C1902471300BE1660 /* sfx_die.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9886B1902471300BE1660 /* sfx_die.wav */; };
+		ACC988701902484100BE1660 /* sfx_wing.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9886F1902484100BE1660 /* sfx_wing.wav */; };
+		ACC98872190248ED00BE1660 /* sfx_hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC98871190248ED00BE1660 /* sfx_hit.wav */; };
+		ACC9887419024AC900BE1660 /* smw_coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887319024AC900BE1660 /* smw_coin.wav */; };
+		ACC9887619024C2300BE1660 /* smw_power_up.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887519024C2300BE1660 /* smw_power_up.wav */; };
+		ACC9887819024EB300BE1660 /* here_we_go.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887719024EB300BE1660 /* here_we_go.wav */; };
+		ACC9887A19024FA300BE1660 /* score_mult.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887919024FA300BE1660 /* score_mult.wav */; };
+		ACC9887C190250B300BE1660 /* blip.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887B190250B300BE1660 /* blip.wav */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -103,6 +112,15 @@
 		ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreMultiplier.png; sourceTree = "<group>"; };
 		ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oneUpMedal.png; sourceTree = "<group>"; };
 		ACA6FEC918FCA39F00B51909 /* dash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dash.jpg; sourceTree = "<group>"; };
+		ACC98869190245DF00BE1660 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		ACC9886B1902471300BE1660 /* sfx_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_die.wav; sourceTree = "<group>"; };
+		ACC9886F1902484100BE1660 /* sfx_wing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_wing.wav; sourceTree = "<group>"; };
+		ACC98871190248ED00BE1660 /* sfx_hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_hit.wav; sourceTree = "<group>"; };
+		ACC9887319024AC900BE1660 /* smw_coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smw_coin.wav; sourceTree = "<group>"; };
+		ACC9887519024C2300BE1660 /* smw_power_up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smw_power_up.wav; sourceTree = "<group>"; };
+		ACC9887719024EB300BE1660 /* here_we_go.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = here_we_go.wav; sourceTree = "<group>"; };
+		ACC9887919024FA300BE1660 /* score_mult.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = score_mult.wav; sourceTree = "<group>"; };
+		ACC9887B190250B300BE1660 /* blip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blip.wav; sourceTree = "<group>"; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -116,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC9886A190245DF00BE1660 /* AudioToolbox.framework in Frameworks */,
 				7F4F20EC18BEB753002675F6 /* CoreGraphics.framework in Frameworks */,
 				7F4F20EE18BEB753002675F6 /* UIKit.framework in Frameworks */,
 				7F4F20EA18BEB753002675F6 /* Foundation.framework in Frameworks */,
@@ -157,6 +176,7 @@
 		7F4F20E818BEB753002675F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACC98869190245DF00BE1660 /* AudioToolbox.framework */,
 				7F4F20E918BEB753002675F6 /* Foundation.framework */,
 				7F4F20EB18BEB753002675F6 /* CoreGraphics.framework */,
 				7F4F20ED18BEB753002675F6 /* UIKit.framework */,
@@ -186,6 +206,14 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACC9887B190250B300BE1660 /* blip.wav */,
+				ACC9887919024FA300BE1660 /* score_mult.wav */,
+				ACC9887719024EB300BE1660 /* here_we_go.wav */,
+				ACC9887519024C2300BE1660 /* smw_power_up.wav */,
+				ACC9887319024AC900BE1660 /* smw_coin.wav */,
+				ACC98871190248ED00BE1660 /* sfx_hit.wav */,
+				ACC9886F1902484100BE1660 /* sfx_wing.wav */,
+				ACC9886B1902471300BE1660 /* sfx_die.wav */,
 				ACA6FEC918FCA39F00B51909 /* dash.jpg */,
 				ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */,
 				ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */,
@@ -319,12 +347,16 @@
 				ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */,
 				7FCEC18618F622C600A97A6A /* arrow.png in Resources */,
 				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
+				ACC9887A19024FA300BE1660 /* score_mult.wav in Resources */,
 				AC76043E18F61F930081EA16 /* scoreboard.png in Resources */,
+				ACC9887419024AC900BE1660 /* smw_coin.wav in Resources */,
+				ACC9887819024EB300BE1660 /* here_we_go.wav in Resources */,
 				7FB3BBB818C1BF01001B558D /* flappyBirdCoin3.png in Resources */,
 				7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */,
 				7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */,
 				7F4F20F418BEB753002675F6 /* InfoPlist.strings in Resources */,
 				7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */,
+				ACC9887C190250B300BE1660 /* blip.wav in Resources */,
 				ACA6FEC618FC9CEF00B51909 /* scoreMultiplier.png in Resources */,
 				7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */,
 				7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */,
@@ -332,9 +364,13 @@
 				AC76044218F620AE0081EA16 /* okButton.png in Resources */,
 				7FB3BBB718C1BF01001B558D /* flappyBirdCoin4.png in Resources */,
 				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
+				ACC98872190248ED00BE1660 /* sfx_hit.wav in Resources */,
+				ACC988701902484100BE1660 /* sfx_wing.wav in Resources */,
+				ACC9886C1902471300BE1660 /* sfx_die.wav in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
 				7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */,
+				ACC9887619024C2300BE1660 /* smw_power_up.wav in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
 				7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */,
 				ACA6FEC818FC9D1E00B51909 /* oneUpMedal.png in Resources */,
