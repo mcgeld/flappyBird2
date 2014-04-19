@@ -334,7 +334,7 @@
         random=(arc4random()%238)*-1;
         coinRand=(arc4random()%396);  //above the ground
         powerupRand=(arc4random()%396);
-        imageRand=arc4random()%4;
+        imageRand=arc4random()%10;
     }
 }
 
@@ -742,9 +742,10 @@
  ***********************************************/
 -(void)updateCoinMovement
 {
-    if(coinCounter>=5)      //if they get 5 coins, they recieve and extra life
+    if(coinCounter>=10)      //if they get 5 coins, they recieve and extra life
     {
-        coinCounter-=5;
+        coinCounter-=10;
+        _coinCountLabel.text=[NSString stringWithFormat:@"%i",coinCounter];
         flappyBirdLives+=1;
     }
     
@@ -848,7 +849,7 @@
             _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
             if(CGRectIntersectsRect(_powerUpImage.frame, _tubeBottomImage.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeBottomImage1.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeTopImage.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeTopImage1.frame))
             {
-                _powerUpImage.frame=CGRectMake(tubeBottomX+_tubeTopImage.frame.size.width, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+                _powerUpImage.frame=CGRectMake(tubeBottomX+(_tubeTopImage.frame.size.width+10), powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
             }
             [self changePowerupImage];
             
@@ -858,7 +859,23 @@
 
 -(void)changePowerupImage
 {
-    _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[imageRand]];
+    if(imageRand<2)
+    {
+        _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[1]];
+    }
+    else if(imageRand<5)
+    {
+        _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[2]];
+    }
+    else if(imageRand<8)
+    {
+        _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[3]];
+    }
+    else
+    {
+         _powerUpImage.image=[UIImage imageNamed:powerupsImageArray[0]];
+    }
+    
 }
 
 - (void)goPressed
