@@ -1079,30 +1079,35 @@
 {
     
     NSMutableArray * sizeOfData=[_db getDB];
-    if([sizeOfData count]>0)
+    if([sizeOfData count]>3)
     {
     
-    NSString * val= [_db getUser:0];
+    NSString * val= [_db getUser:(gameMode-1)];
     int value=[val intValue];
-    if(tubeCounter>value)
-    {
-        [_db removeUser:0];
-        val=[NSString stringWithFormat:@"%i",tubeCounter];
-         [_db addUser:val atIndex:0];
-        _highScoreLabel.text = val;
+        if(tubeCounter>value)
+        {
+            [_db removeUser:(gameMode-1)];
+            val=[NSString stringWithFormat:@"%i",tubeCounter];
+            [_db addUser:val atIndex:(gameMode-1)];
+            _highScoreLabel.text = val;
+        }
+        else
+        {
+            [_db removeUser:(gameMode-1)];
+            val=[NSString stringWithFormat:@"%i",value];
+            [_db addUser:val atIndex:(gameMode-1)];
+            _highScoreLabel.text = val;
+        }
     }
     else
     {
-        [_db removeUser:0];
-        val=[NSString stringWithFormat:@"%i",value];
-         [_db addUser:val atIndex:0];
-        _highScoreLabel.text = val;
-    }
-    }
-    else
-    {
+        NSString *zero=[NSString stringWithFormat:@"%i",0];
+        [_db addUser:zero atIndex:0];
+        [_db addUser:zero atIndex:1];
+        [_db addUser:zero atIndex:2];
         NSString * val=[NSString stringWithFormat:@"%i",tubeCounter];
-         [_db addUser:val atIndex:0];
+        [_db removeUser:(gameMode-1)];
+         [_db addUser:val atIndex:(gameMode-1)];
         _highScoreLabel.text = val;
     }
         
