@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #include "dataBase.h"
 
 @interface flappyView : UIViewController
@@ -105,6 +106,12 @@
     
     //Multiplier Variables
     int multRand;
+    
+    //Sound Variables
+    NSString * flapSound;
+    NSString * hitSound;
+    NSString * coinSound;
+    NSString * powerupSound;
     
     
     
