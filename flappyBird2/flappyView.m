@@ -102,7 +102,7 @@
     _powerUpImage.hidden=YES;
     powerupRand=arc4random()%396;  //above ground
     
-    
+    canStartPowerUp=0;
     powerupSpeed=-1;
     startPowerupOne=NO;
     startPowerupTwo=NO;
@@ -263,6 +263,8 @@
         [self updateRandomNumbers];
         if(timerCount == 10)
         {
+            canStartPowerUp+=1;
+        
             //[self updateFlaps];
             [self updateCoins];
             timerCount = 0;
@@ -270,8 +272,21 @@
         if(birdIsPassingTube==YES)
         {
             birdPassingCounter+=1;
-            if(birdPassingCounter==100)
+            if(birdPassingCounter<50)
             {
+                _birdPicture.alpha=.4;
+            }
+            else if(birdPassingCounter<120)
+            {
+                _birdPicture.alpha=1;
+            }
+            else if(birdPassingCounter<160)
+            {
+                _birdPicture.alpha=.4;
+            }
+            if(birdPassingCounter==160)
+            {
+                _birdPicture.alpha=1;
                 birdIsPassingTube=NO;
                 birdPassingCounter=0;
             }
@@ -293,6 +308,7 @@
     }
     else
     {
+          _birdPicture.alpha=1;
         [self updateGravity];
         [self collisionChecking];
         if(timerCount == 10)
@@ -443,8 +459,8 @@
             {
                 
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
-                
-                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
+              
+                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame)&&canStartPowerUp>15)
                     
                 {
                     
@@ -725,9 +741,9 @@
  ***********************************************/
 -(void)updateCoinMovement
 {
-    if(coinCounter==5)      //if they get 5 coins, they recieve and extra life
+    if(coinCounter>=5)      //if they get 5 coins, they recieve and extra life
     {
-        coinCounter=0;
+        coinCounter-=5;
         flappyBirdLives+=1;
     }
     
@@ -847,6 +863,7 @@
     if(!go)
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+
         birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.07 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
         
         
@@ -934,6 +951,7 @@
 
 -(void)makeBirdFall
 {
+   
     [UIView animateWithDuration:0.01
                      animations:^(void)
      {
@@ -949,13 +967,14 @@
 
 -(void)dropBird
 {
+    
     birdFall = _birdPicture.frame.origin.y;
     fallTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:nil repeats:YES];
 }
 
 -(void)gameOver
 {
-    
+  
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:2];
     _birdPicture.center=CGPointMake(_birdPicture.center.x, _birdPicture.center.y);

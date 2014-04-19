@@ -92,6 +92,7 @@
     bool startPowerupTwo;
     bool powerupWasHit;
     bool powerupHit;
+    int canStartPowerUp;
     
     
     //Miscellaneous Variables
