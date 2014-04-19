@@ -207,6 +207,10 @@
     dead = NO;
     flap = NO;
     flapMultiplier = -1;
+    birdFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(makeBirdFlash) userInfo:nil repeats:YES];
+    modifier = -1;
+    flash = NO;
+    flashCount = 0;
 }
 
 /*********************setUpGravity****************
@@ -274,19 +278,19 @@
             birdPassingCounter+=1;
             if(birdPassingCounter<50)
             {
-                _birdPicture.alpha=.4;
+                //_birdPicture.alpha=.4;
             }
             else if(birdPassingCounter<120)
             {
-                _birdPicture.alpha=1;
+                //_birdPicture.alpha=1;
             }
             else if(birdPassingCounter<160)
             {
-                _birdPicture.alpha=.4;
+                //_birdPicture.alpha=.4;
             }
             if(birdPassingCounter==160)
             {
-                _birdPicture.alpha=1;
+                //_birdPicture.alpha=1;
                 birdIsPassingTube=NO;
                 birdPassingCounter=0;
             }
@@ -370,7 +374,11 @@
                 if(birdIsPassingTube==NO)
                     
                 {
+                    flash = YES;
+                    //_birdPicture.alpha=.5;
                     flappyBirdLives-=1;
+                    
+                    
                     
                     birdIsPassingTube=YES;
                     
@@ -841,14 +849,16 @@
         
         if(powerupHit==NO)
         {
-            if(tubeBottomX > _tubeTopImage.frame.origin.x + _tubeTopImage.frame.size.width || tubeBottomX > _tubeTopImage1.frame.origin.x + _tubeTopImage1.frame.size.width || tubeBottomX > _tubeBottomImage.frame.origin.x + _tubeBottomImage.frame.size.width || tubeBottomX > _tubeBottomImage1.frame.origin.x + _tubeBottomImage1.frame.size.width || tubeBottomX < _tubeTopImage.frame.origin.x - _powerUpImage.frame.size.width || tubeBottomX < _tubeTopImage1.frame.origin.x - _powerUpImage.frame.size.width || tubeBottomX < _tubeBottomImage.frame.origin.x - _powerUpImage.frame.size.width || tubeBottomX < _tubeBottomImage1.frame.origin.x - _powerUpImage.frame.size.width)
+            _powerUpImage.hidden=NO;
+            powerupWasHit=NO;
+            startPowerupOne=NO;
+            _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+            if(CGRectIntersectsRect(_powerUpImage.frame, _tubeBottomImage.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeBottomImage1.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeTopImage.frame)||CGRectIntersectsRect(_powerUpImage.frame, _tubeTopImage1.frame))
             {
-                _powerUpImage.hidden=NO;
-                powerupWasHit=NO;
-                startPowerupOne=NO;
-                _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
-                [self changePowerupImage];
+                _powerUpImage.frame=CGRectMake(tubeBottomX+_tubeTopImage.frame.size.width, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
             }
+            [self changePowerupImage];
+            
         }
     }
 }
@@ -946,6 +956,22 @@
     {
         [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
         startButtonDown = YES;
+    }
+}
+
+-(void)makeBirdFlash
+{
+    if(flash)
+    {
+        _birdPicture.alpha = _birdPicture.alpha + 0.75 * modifier;
+        modifier *= -1;
+        flashCount += 1;
+    }
+    if(flashCount == 20)
+    {
+        flash = NO;
+        flashCount = 0;
+        modifier = -1;
     }
 }
 
