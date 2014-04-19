@@ -354,7 +354,6 @@
                 if(birdIsPassingTube==NO)
                     
                 {
-                    
                     flappyBirdLives-=1;
                     
                     birdIsPassingTube=YES;
@@ -826,12 +825,14 @@
         
         if(powerupHit==NO)
         {
-            _powerUpImage.hidden=NO;
-            powerupWasHit=NO;
-            startPowerupOne=NO;
-            _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
-            [self changePowerupImage];
-            
+            if(tubeBottomX > _tubeTopImage.frame.origin.x + _tubeTopImage.frame.size.width || tubeBottomX > _tubeTopImage1.frame.origin.x + _tubeTopImage1.frame.size.width || tubeBottomX > _tubeBottomImage.frame.origin.x + _tubeBottomImage.frame.size.width || tubeBottomX > _tubeBottomImage1.frame.origin.x + _tubeBottomImage1.frame.size.width || tubeBottomX < _tubeTopImage.frame.origin.x - _powerUpImage.frame.size.width || tubeBottomX < _tubeTopImage1.frame.origin.x - _powerUpImage.frame.size.width || tubeBottomX < _tubeBottomImage.frame.origin.x - _powerUpImage.frame.size.width || tubeBottomX < _tubeBottomImage1.frame.origin.x - _powerUpImage.frame.size.width)
+            {
+                _powerUpImage.hidden=NO;
+                powerupWasHit=NO;
+                startPowerupOne=NO;
+                _powerUpImage.frame=CGRectMake(tubeBottomX, powerupRand, _powerUpImage.frame.size.width, _powerUpImage.frame.size.height);
+                [self changePowerupImage];
+            }
         }
     }
 }
