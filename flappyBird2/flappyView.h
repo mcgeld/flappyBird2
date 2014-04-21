@@ -71,6 +71,8 @@
     NSTimer * gameLoopTimer;
     NSTimer * birdFlashTimer;
     int timerCount;
+    bool changeTimerOne;
+    bool changeTimerTwo;
     
     //Coin Variables
     NSMutableArray *coinPics;
