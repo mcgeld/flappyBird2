@@ -300,12 +300,15 @@
         {
             powerupTimer+=1;
             //NSLog(@"%d", powerupTimer);
-            if(powerupTimer==600)
+            if(powerupTimer==650)
             {
                 powerupHit=NO;
                 scoreMultiplier=1;
                 gravityConstant=0.17;
                 powerupTimer=0;
+                [gameLoopTimer invalidate];
+                gameLoopTimer = nil;
+                gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
             }
         }
         //increase timerCount for updates not synchronous with gameLoop
