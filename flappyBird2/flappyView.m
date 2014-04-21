@@ -45,6 +45,8 @@
     _okButtonImage.hidden = YES;
     _powerUpNotification.hidden = YES;
     scoreMultiplier=1;
+    changeTimerOne=NO;
+    changeTimerTwo=NO;
     
 }
 
@@ -274,6 +276,22 @@
             //[self updateFlaps];
             [self updateCoins];
             timerCount = 0;
+        }
+        if(tubeCounter>30&&changeTimerOne==NO)
+        {
+            
+            [gameLoopTimer invalidate];
+            gameLoopTimer=nil;
+             gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.008 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+            changeTimerOne=YES;
+        }
+        if(tubeCounter>80&&changeTimerTwo==NO)
+        {
+            
+            [gameLoopTimer invalidate];
+            gameLoopTimer=nil;
+            gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.007 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+            changeTimerTwo=YES;
         }
         if(birdIsPassingTube==YES)
         {
