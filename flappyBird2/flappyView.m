@@ -115,7 +115,6 @@
     powerupFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
     powModifier = -1;
     powFlash = NO;
-    powFlashCount = 0;
 }
 
 
@@ -196,7 +195,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=gameMode;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
+    flappyBirdLives=20;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
@@ -333,9 +332,10 @@
             if(powerupTimer==650)
             {
                 _powerUpNotification.hidden = YES;
+                _powerUpNotification.alpha = 1;
+                powModifier = -1;
                 powFlash = NO;
                 powerupHit=NO;
-                _powerUpNotification.alpha = 1;
                 scoreMultiplier=1;
                 gravityConstant=0.17;
                 powerupTimer=0;
@@ -1119,12 +1119,6 @@
         powModifier *= -1;
         powFlashCount += 1;
     }
-    
-   // else{
-   //     powFlash = NO;
-   //     powFlashCount = 0;
-   //     powModifier = -1;
-   // }
 }
 
 -(void)makeBirdFall

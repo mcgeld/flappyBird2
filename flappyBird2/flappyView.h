@@ -71,6 +71,7 @@
     NSTimer * gameLoopTimer;
     NSTimer * birdFlashTimer;
     NSTimer * fasterFlashTimer;
+    NSTimer * powerupFlashTimer;
     int fasterFlashCount;
     BOOL invalidateFaster;
     int timerCount;
