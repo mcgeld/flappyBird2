@@ -199,9 +199,17 @@
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
-    [birdPics addObject:@"flappyBirdFlying1.png"];
+    /*[birdPics addObject:@"flappyBirdFlying1.png"];
     [birdPics addObject:@"flappyBirdFlying2.png"];
-    [birdPics addObject:@"flappyBirdFlying3.png"];
+    [birdPics addObject:@"flappyBirdFlying3.png"];*/
+    [birdPics addObject:@"animatedHands1.png"];
+    [birdPics addObject:@"animatedHands2.png"];
+    [birdPics addObject:@"animatedHands3.png"];
+    [birdPics addObject:@"animatedHands4.png"];
+    [birdPics addObject:@"animatedHands5.png"];
+    [birdPics addObject:@"animatedHands6.png"];
+    [birdPics addObject:@"animatedHands7.png"];
+    [birdPics addObject:@"animatedHands8.png"];
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d",flappyBirdLives];
     birdY = _birdPicture.frame.origin.y;
     birdPicNum = 0;
@@ -723,8 +731,9 @@
                      completion:^(BOOL finished){}];
         if(birdPicNum == [birdPics count] - 1)
         {
-            birdPicNum = [birdPics count] - 2;
-            flapMultiplier *= -1;
+            birdPicNum = 0;
+            //birdPicNum = [birdPics count] - 2;
+            //flapMultiplier *= -1;
             //wingsGoingUp = YES;
             AudioServicesPlaySystemSound(soundID);
         }
@@ -1010,7 +1019,7 @@
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
 
-        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.07 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
+        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.035 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
         
         
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);

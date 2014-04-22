@@ -74,7 +74,6 @@
     NSTimer * powerupFlashTimer;
     int fasterFlashCount;
     BOOL invalidateFaster;
-    NSTimer * powerupFlashTimer;
     int timerCount;
     bool changeTimerOne;
     bool changeTimerTwo;

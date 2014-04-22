@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -147,8 +147,8 @@
                                 <rect key="frame" x="40" y="75" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying1.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-oz-6Fg">
-                                <rect key="frame" x="133" y="136" width="41" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="animatedHands1.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-oz-6Fg">
+                                <rect key="frame" x="140" y="75" width="74" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-Qz-lOv">
@@ -265,6 +265,7 @@
     </scenes>
     <resources>
         <image name="Faster.png" width="218" height="60"/>
+        <image name="animatedHands1.png" width="182" height="178"/>
         <image name="arrow.png" width="192" height="192"/>
         <image name="bottomTube.png" width="52" height="321"/>
         <image name="dash.jpg" width="360" height="273"/>
