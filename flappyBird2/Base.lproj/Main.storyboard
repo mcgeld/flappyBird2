@@ -143,6 +143,10 @@
                                 <rect key="frame" x="249" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Faster.png" translatesAutoresizingMaskIntoConstraints="NO" id="TYM-ua-jv8">
+                                <rect key="frame" x="40" y="75" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying1.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-oz-6Fg">
                                 <rect key="frame" x="133" y="136" width="41" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,6 +179,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-xS-1Kp">
+                                <rect key="frame" x="128" y="45" width="41" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scoreboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="YSH-bt-4tp">
                                 <rect key="frame" x="50" y="149" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -196,10 +204,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-xS-1Kp">
-                                <rect key="frame" x="128" y="45" width="41" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-0l-run">
                                 <rect key="frame" x="33" y="472" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -228,6 +232,7 @@
                         <outlet property="coinCountLabel" destination="OzV-iY-UYg" id="BXh-bA-XRJ"/>
                         <outlet property="coinPicture" destination="7JL-Qz-lOv" id="bU8-ca-zbU"/>
                         <outlet property="coinPicture1" destination="BQs-Q9-upT" id="Oy9-0j-nKv"/>
+                        <outlet property="fasterImage" destination="TYM-ua-jv8" id="Sxc-rc-ZPP"/>
                         <outlet property="flappyLivesLabel" destination="zwa-0l-run" id="Hvy-hX-CIX"/>
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
@@ -254,6 +259,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Faster.png" width="218" height="60"/>
         <image name="arrow.png" width="192" height="192"/>
         <image name="bottomTube.png" width="52" height="321"/>
         <image name="flappyBirdCoin10.png" width="40" height="40"/>

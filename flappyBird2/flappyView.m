@@ -46,7 +46,8 @@
     scoreMultiplier=1;
     changeTimerOne=NO;
     changeTimerTwo=NO;
-    
+    _fasterImage.hidden = YES;
+    invalidateFaster = NO;
 }
 
 /****************setUpCoins**********************
@@ -275,21 +276,25 @@
             [self updateCoins];
             timerCount = 0;
         }
-        if(tubeCounter>30&&changeTimerOne==NO)
+        if(tubeCounter>3&&changeTimerOne==NO)
         {
             
             [gameLoopTimer invalidate];
             gameLoopTimer=nil;
              gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.008 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
             changeTimerOne=YES;
+            fasterFlashCount = 0;
+            fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
         }
-        if(tubeCounter>80&&changeTimerTwo==NO)
+        if(tubeCounter>8&&changeTimerTwo==NO)
         {
             
             [gameLoopTimer invalidate];
             gameLoopTimer=nil;
             gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.007 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
             changeTimerTwo=YES;
+            fasterFlashCount = 0;
+            fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
         }
         if(birdIsPassingTube==YES)
         {
@@ -345,7 +350,36 @@
         }
     }
     timerCount += 1;
+    if(invalidateFaster)
+    {
+        [fasterFlashTimer invalidate];
+        invalidateFaster = NO;
+    }
     
+}
+
+-(void) flashFaster
+{
+    if(fasterFlashCount == 0)
+    {
+        _fasterImage.hidden = NO;
+        _fasterImage.alpha = 0.0;
+    }
+    else if(fasterFlashCount <= 4)
+    {
+        _fasterImage.alpha += 0.25;
+    }
+    else if(fasterFlashCount > 10)
+    {
+        _fasterImage.alpha -= 0.25;
+    }
+    if(fasterFlashCount == 14)
+    {
+        _fasterImage.hidden = YES;
+        _fasterImage.alpha = 0.0;
+        invalidateFaster = YES;
+    }
+    fasterFlashCount += 1;
 }
 
 /****************UpdateRandomNumbers******************
@@ -1156,6 +1190,7 @@
     [groundTimer invalidate];
     [tubeTimer invalidate];
     [gameLoopTimer invalidate];
+    [fasterFlashTimer invalidate];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
