@@ -132,10 +132,10 @@
 -(void)setUpTubes
 {
     widthOfViewController=320;
-    sizeBetweenTubes=128;
+    sizeBetweenTubes=170;
     tubeWidth=59;
     tubeHeight=256;
-    tubeBottomY=321;
+    tubeBottomY=356;
     tubeBottomX=350;
     tubeTopX=350;
     tubeTopY=-107;
@@ -188,7 +188,7 @@
     _ground1.frame = CGRectMake(0, self.view.frame.size.height - _ground1.frame.size.height, _ground1.frame.size.width, _ground1.frame.size.height);
     _ground2.frame = CGRectMake(self.view.frame.size.width, self.view.frame.size.height - _ground2.frame.size.height, _ground2.frame.size.width, _ground2.frame.size.height);
     
-    groundY = self.view.frame.size.height - _ground1.frame.size.height;
+    groundY = _movingBackground1.frame.origin.y;
     groundX = 0;
 }
 
@@ -204,9 +204,17 @@
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
-    [birdPics addObject:@"flappyBirdFlying1.png"];
+    /*[birdPics addObject:@"flappyBirdFlying1.png"];
     [birdPics addObject:@"flappyBirdFlying2.png"];
-    [birdPics addObject:@"flappyBirdFlying3.png"];
+    [birdPics addObject:@"flappyBirdFlying3.png"];*/
+    [birdPics addObject:@"animatedHands1.png"];
+    [birdPics addObject:@"animatedHands2.png"];
+    [birdPics addObject:@"animatedHands3.png"];
+    [birdPics addObject:@"animatedHands4.png"];
+    [birdPics addObject:@"animatedHands5.png"];
+    [birdPics addObject:@"animatedHands6.png"];
+    [birdPics addObject:@"animatedHands7.png"];
+    [birdPics addObject:@"animatedHands8.png"];
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d",flappyBirdLives];
     birdY = _birdPicture.frame.origin.y;
     birdPicNum = 0;
@@ -268,7 +276,6 @@
     if(!dead)
     {
         [self updateTube];
-        [self updateGround];
         [self updateGravity];
         [self updateCoinMovement];
         [self updatePowerupMovement];
@@ -281,6 +288,10 @@
             //[self updateFlaps];
             [self updateCoins];
             timerCount = 0;
+        }
+        if(timerCount % 2 == 0)
+        {
+            [self updateGround];
         }
         if(tubeCounter>30&&changeTimerOne==NO)
         {
@@ -693,12 +704,12 @@
     [UIView animateWithDuration:0.01
                      animations:^(void)
      {
-         [_ground1 setFrame:CGRectMake(groundX, groundY, _ground1.frame.size.width, _ground1.frame.size.height)];
-         [_ground2 setFrame:CGRectMake(groundX + self.view.frame.size.width, groundY, _ground2.frame.size.width, _ground2.frame.size.height)];
+         [_movingBackground1 setFrame:CGRectMake(groundX, groundY, _movingBackground1.frame.size.width, _movingBackground1.frame.size.height)];
+         [_movingBackground2 setFrame:CGRectMake(groundX + self.view.frame.size.width - 20, groundY, _movingBackground2.frame.size.width, _movingBackground2.frame.size.height)];
      }
                      completion:^(BOOL finished){}];
     groundX -= 1;
-    if(groundX < (self.view.frame.size.width * -1))
+    if(groundX < (self.view.frame.size.width * -1 + 20))
     {
         groundX = 0;
     }
@@ -728,8 +739,9 @@
                      completion:^(BOOL finished){}];
         if(birdPicNum == [birdPics count] - 1)
         {
-            birdPicNum = [birdPics count] - 2;
-            flapMultiplier *= -1;
+            birdPicNum = 0;
+            //birdPicNum = [birdPics count] - 2;
+            //flapMultiplier *= -1;
             //wingsGoingUp = YES;
             AudioServicesPlaySystemSound(soundID);
         }
@@ -1029,7 +1041,7 @@
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
 
-        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.07 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
+        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
         
         
         _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);

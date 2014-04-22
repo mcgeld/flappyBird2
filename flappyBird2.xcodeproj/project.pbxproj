@@ -40,6 +40,18 @@
 		7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */; };
 		7FBF99AC1905DE18000163A0 /* Faster.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99AB1905DE18000163A0 /* Faster.png */; };
 		7FBF99AE1905FD4D000163A0 /* gameLoopSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99AD1905FD4D000163A0 /* gameLoopSong.mp3 */; };
+		7FBF99B719060B44000163A0 /* animatedHands8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99AF19060B44000163A0 /* animatedHands8.png */; };
+		7FBF99B819060B44000163A0 /* animatedHands7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B019060B44000163A0 /* animatedHands7.png */; };
+		7FBF99B919060B44000163A0 /* animatedHands6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B119060B44000163A0 /* animatedHands6.png */; };
+		7FBF99BA19060B44000163A0 /* animatedHands5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B219060B44000163A0 /* animatedHands5.png */; };
+		7FBF99BB19060B44000163A0 /* animatedHands4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B319060B44000163A0 /* animatedHands4.png */; };
+		7FBF99BC19060B44000163A0 /* animatedHands3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B419060B44000163A0 /* animatedHands3.png */; };
+		7FBF99BD19060B44000163A0 /* animatedHands2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B519060B44000163A0 /* animatedHands2.png */; };
+		7FBF99BE19060B44000163A0 /* animatedHands1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B619060B44000163A0 /* animatedHands1.png */; };
+		7FBF99C01906A9B0000163A0 /* gameLoopSong_short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99BF1906A9B0000163A0 /* gameLoopSong_short.mp3 */; };
+		7FBF99C21906DCA9000163A0 /* collisionGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99C11906DCA9000163A0 /* collisionGround.png */; };
+		7FBF99C41906DCB3000163A0 /* movingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99C31906DCB3000163A0 /* movingBackground.png */; };
+		7FBF99C61906DCBB000163A0 /* stationaryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99C51906DCBB000163A0 /* stationaryBackground.png */; };
 		7FCEC18618F622C600A97A6A /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC18518F622C600A97A6A /* arrow.png */; };
 		AC76043E18F61F930081EA16 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76043D18F61F930081EA16 /* scoreboard.png */; };
 		AC76044218F620AE0081EA16 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76044118F620AE0081EA16 /* okButton.png */; };
@@ -112,6 +124,18 @@
 		7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin10.png; sourceTree = "<group>"; };
 		7FBF99AB1905DE18000163A0 /* Faster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Faster.png; sourceTree = "<group>"; };
 		7FBF99AD1905FD4D000163A0 /* gameLoopSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameLoopSong.mp3; sourceTree = "<group>"; };
+		7FBF99AF19060B44000163A0 /* animatedHands8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands8.png; sourceTree = "<group>"; };
+		7FBF99B019060B44000163A0 /* animatedHands7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands7.png; sourceTree = "<group>"; };
+		7FBF99B119060B44000163A0 /* animatedHands6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands6.png; sourceTree = "<group>"; };
+		7FBF99B219060B44000163A0 /* animatedHands5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands5.png; sourceTree = "<group>"; };
+		7FBF99B319060B44000163A0 /* animatedHands4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands4.png; sourceTree = "<group>"; };
+		7FBF99B419060B44000163A0 /* animatedHands3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands3.png; sourceTree = "<group>"; };
+		7FBF99B519060B44000163A0 /* animatedHands2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands2.png; sourceTree = "<group>"; };
+		7FBF99B619060B44000163A0 /* animatedHands1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands1.png; sourceTree = "<group>"; };
+		7FBF99BF1906A9B0000163A0 /* gameLoopSong_short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameLoopSong_short.mp3; sourceTree = "<group>"; };
+		7FBF99C11906DCA9000163A0 /* collisionGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collisionGround.png; sourceTree = "<group>"; };
+		7FBF99C31906DCB3000163A0 /* movingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movingBackground.png; sourceTree = "<group>"; };
+		7FBF99C51906DCBB000163A0 /* stationaryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stationaryBackground.png; sourceTree = "<group>"; };
 		7FCEC18518F622C600A97A6A /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		AC76043D18F61F930081EA16 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreboard.png; sourceTree = "<group>"; };
 		AC76044118F620AE0081EA16 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okButton.png; sourceTree = "<group>"; };
@@ -355,17 +379,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4F210218BEB753002675F6 /* Images.xcassets in Resources */,
+				7FBF99BA19060B44000163A0 /* animatedHands5.png in Resources */,
 				7FB3BBB618C1BF01001B558D /* flappyBirdCoin5.png in Resources */,
 				7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */,
 				ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */,
 				7FCEC18618F622C600A97A6A /* arrow.png in Resources */,
 				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
+				7FBF99C61906DCBB000163A0 /* stationaryBackground.png in Resources */,
 				ACC9887A19024FA300BE1660 /* score_mult.wav in Resources */,
 				AC76043E18F61F930081EA16 /* scoreboard.png in Resources */,
 				ACC9887419024AC900BE1660 /* smw_coin.wav in Resources */,
 				7FBF99AC1905DE18000163A0 /* Faster.png in Resources */,
+				7FBF99B719060B44000163A0 /* animatedHands8.png in Resources */,
 				ACC9887819024EB300BE1660 /* here_we_go.wav in Resources */,
 				7FB3BBB818C1BF01001B558D /* flappyBirdCoin3.png in Resources */,
+				7FBF99C01906A9B0000163A0 /* gameLoopSong_short.mp3 in Resources */,
 				7F4F212D18BF9C75002675F6 /* flappyBirdFlying3.png in Resources */,
 				7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */,
 				7F4F20F418BEB753002675F6 /* InfoPlist.strings in Resources */,
@@ -384,13 +412,20 @@
 				ACFFE314190607AF000BA013 /* gameLoop.wav in Resources */,
 				ACC9886C1902471300BE1660 /* sfx_die.wav in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
+				7FBF99C21906DCA9000163A0 /* collisionGround.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
 				7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */,
+				7FBF99BB19060B44000163A0 /* animatedHands4.png in Resources */,
 				ACC9887619024C2300BE1660 /* smw_power_up.wav in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
+				7FBF99BD19060B44000163A0 /* animatedHands2.png in Resources */,
 				7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */,
+				7FBF99BE19060B44000163A0 /* animatedHands1.png in Resources */,
 				ACA6FEC818FC9D1E00B51909 /* oneUpMedal.png in Resources */,
+				7FBF99B919060B44000163A0 /* animatedHands6.png in Resources */,
 				7FB3BBB418C1BF01001B558D /* flappyBirdCoin7.png in Resources */,
+				7FBF99C41906DCB3000163A0 /* movingBackground.png in Resources */,
+				7FBF99B819060B44000163A0 /* animatedHands7.png in Resources */,
 				7FB3BBB318C1BF01001B558D /* flappyBirdCoin8.png in Resources */,
 				7F4F212918BF9C60002675F6 /* flappyBirdFlying1.png in Resources */,
 			);
