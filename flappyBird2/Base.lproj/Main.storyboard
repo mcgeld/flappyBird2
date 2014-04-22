@@ -111,9 +111,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdDaytime.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ilf-wJ-33a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stationaryBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ilf-wJ-33a">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movingBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wt9-AR-HMR">
+                                <rect key="frame" x="0.0" y="267" width="320" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movingBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-bD-2YG">
+                                <rect key="frame" x="304" y="267" width="320" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Li-uoA">
                                 <rect key="frame" x="249" y="245" width="59" height="300"/>
@@ -123,12 +131,12 @@
                                 <rect key="frame" x="50" y="245" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="rKT-Et-hWb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="collisionGround.png" translatesAutoresizingMaskIntoConstraints="NO" id="rKT-Et-hWb">
                                 <rect key="frame" x="0.0" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-xI-VSw">
-                                <rect key="frame" x="44" y="454" width="320" height="114"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="collisionGround.png" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-xI-VSw">
+                                <rect key="frame" x="40" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdStartButtonUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-gq-21s">
@@ -241,6 +249,8 @@
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
                         <outlet property="highScoreLabel" destination="yW6-VX-Zby" id="7P5-WL-iAk"/>
+                        <outlet property="movingBackground1" destination="Wt9-AR-HMR" id="xaH-Th-0tp"/>
+                        <outlet property="movingBackground2" destination="r8f-bD-2YG" id="hp0-3B-1j9"/>
                         <outlet property="okButtonImage" destination="Gzn-ou-Z1h" id="JlJ-cw-xbz"/>
                         <outlet property="powerUpImage" destination="dYX-xS-1Kp" id="Mk4-bD-ikP"/>
                         <outlet property="powerUpNotification" destination="sSD-km-4vy" id="Dtg-dg-e2o"/>
@@ -268,6 +278,7 @@
         <image name="animatedHands1.png" width="182" height="178"/>
         <image name="arrow.png" width="192" height="192"/>
         <image name="bottomTube.png" width="52" height="321"/>
+        <image name="collisionGround.png" width="480" height="131"/>
         <image name="dash.jpg" width="360" height="273"/>
         <image name="flappyBirdCoin10.png" width="40" height="40"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
@@ -275,8 +286,10 @@
         <image name="flappyBirdFlying3.png" width="17" height="12"/>
         <image name="flappyBirdGroundWide.png" width="154" height="56"/>
         <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
+        <image name="movingBackground.png" width="480" height="215"/>
         <image name="okButton.png" width="108" height="38"/>
         <image name="scoreboard.png" width="233" height="117"/>
+        <image name="stationaryBackground.png" width="480" height="800"/>
         <image name="topTube.png" width="52" height="321"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

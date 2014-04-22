@@ -158,6 +158,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coinPicture1;
 @property (weak, nonatomic) IBOutlet UILabel *coinCountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *fasterImage;
+@property (weak, nonatomic) IBOutlet UIImageView *movingBackground1;
+@property (weak, nonatomic) IBOutlet UIImageView *movingBackground2;
 
 
 
