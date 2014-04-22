@@ -330,7 +330,7 @@
                 _powerUpNotification.hidden = YES;
                 powFlash = NO;
                 powerupHit=NO;
-                powModifier = 1;
+                _powerUpNotification.alpha = 1;
                 scoreMultiplier=1;
                 gravityConstant=0.17;
                 powerupTimer=0;
@@ -1086,11 +1086,11 @@
         powFlashCount += 1;
     }
     
-    else{
-        powFlash = NO;
-        powFlashCount = 0;
-        powModifier = -1;
-    }
+   // else{
+   //     powFlash = NO;
+   //     powFlashCount = 0;
+   //     powModifier = -1;
+   // }
 }
 
 -(void)makeBirdFall
