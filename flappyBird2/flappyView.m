@@ -276,7 +276,7 @@
             [self updateCoins];
             timerCount = 0;
         }
-        if(tubeCounter>3&&changeTimerOne==NO)
+        if(tubeCounter>30&&changeTimerOne==NO)
         {
             
             [gameLoopTimer invalidate];
@@ -286,7 +286,7 @@
             fasterFlashCount = 0;
             fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
         }
-        if(tubeCounter>8&&changeTimerTwo==NO)
+        if(tubeCounter>80&&changeTimerTwo==NO)
         {
             
             [gameLoopTimer invalidate];
