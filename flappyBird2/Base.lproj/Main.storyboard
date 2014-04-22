@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -220,6 +220,10 @@
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dash.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sSD-km-4vy">
+                                <rect key="frame" x="20" y="19" width="51" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -239,6 +243,7 @@
                         <outlet property="highScoreLabel" destination="yW6-VX-Zby" id="7P5-WL-iAk"/>
                         <outlet property="okButtonImage" destination="Gzn-ou-Z1h" id="JlJ-cw-xbz"/>
                         <outlet property="powerUpImage" destination="dYX-xS-1Kp" id="Mk4-bD-ikP"/>
+                        <outlet property="powerUpNotification" destination="sSD-km-4vy" id="Dtg-dg-e2o"/>
                         <outlet property="scoreLabel" destination="Ix2-th-Ml3" id="qXA-5g-cbs"/>
                         <outlet property="scoreboard" destination="YSH-bt-4tp" id="WW4-5g-zmJ"/>
                         <outlet property="startButtonImage" destination="V8y-gq-21s" id="nMG-59-n2t"/>
@@ -262,6 +267,7 @@
         <image name="Faster.png" width="218" height="60"/>
         <image name="arrow.png" width="192" height="192"/>
         <image name="bottomTube.png" width="52" height="321"/>
+        <image name="dash.jpg" width="360" height="273"/>
         <image name="flappyBirdCoin10.png" width="40" height="40"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
         <image name="flappyBirdFlying1.png" width="17" height="12"/>

@@ -43,6 +43,7 @@
     _scoreLabel.hidden = YES;
     _highScoreLabel.hidden=YES;
     _okButtonImage.hidden = YES;
+    _powerUpNotification.hidden = YES;
     scoreMultiplier=1;
     changeTimerOne=NO;
     changeTimerTwo=NO;
@@ -111,12 +112,13 @@
     startPowerupTwo=NO;
     powerupsBegan=NO;
     powerupWasHit=NO;
+    powerupFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
+    powModifier = -1;
+    powFlash = NO;
+    powFlashCount = 0;
 }
 
--(void)setUpMultiplier
-{
-    
-}
+
 
 /****************setUpTubes**********************
  PARAMS: NONE
@@ -323,11 +325,17 @@
         {
             powerupTimer+=1;
             //NSLog(@"%d", powerupTimer);
+            if(powerupTimer == 400)
+            {
+                powFlash = YES;
+            }
+            
             if(powerupTimer==650)
             {
-
-                
+                _powerUpNotification.hidden = YES;
+                powFlash = NO;
                 powerupHit=NO;
+                powModifier = 1;
                 scoreMultiplier=1;
                 gravityConstant=0.17;
                 powerupTimer=0;
@@ -552,9 +560,11 @@
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
                         
+                        _powerUpNotification.image = [UIImage imageNamed:@"dash.jpg"];
+                        _powerUpNotification.hidden = NO;
                         
                         powerupPicture.hidden=YES;
-                        
+                    
                         powerupWasHit=YES;
                         
                         //gravityConstant *= 2;
@@ -599,7 +609,9 @@
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
                         
-                        
+                        _powerUpNotification.image = [UIImage imageNamed:@"scoreMultiplier.png"];
+                        _powerUpNotification.hidden = NO;
+                    
                         powerupPicture.hidden=YES;
                         
                         powerupWasHit=YES;
@@ -617,6 +629,9 @@
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
                         
+                        _powerUpNotification.image = [UIImage imageNamed:@"arrow.png"];
+                        _powerUpNotification.hidden = NO;
+                    
                         powerupPicture.hidden=YES;
                         powerupWasHit=YES;
                         gravityConstant *= 1.5;
@@ -1096,6 +1111,22 @@
     }
 }
 
+-(void)makePowerupNotificationFlash
+{
+    if(powFlash)
+    {
+        _powerUpNotification.alpha = _powerUpNotification.alpha + 0.75 * powModifier;
+        powModifier *= -1;
+        powFlashCount += 1;
+    }
+    
+    else{
+        powFlash = NO;
+        powFlashCount = 0;
+        powModifier = -1;
+    }
+}
+
 -(void)makeBirdFall
 {
    
@@ -1134,7 +1165,6 @@
 
 -(void)showScore
 {
-    
     NSMutableArray * sizeOfData=[_db getDB];
     if([sizeOfData count]>3)
     {
@@ -1179,6 +1209,8 @@
     _scoreboard.hidden = NO;
     _scoreLabel.hidden = NO;
     _okButtonImage.hidden = NO;
+    _powerUpNotification.hidden = YES;
+
     
     
 }

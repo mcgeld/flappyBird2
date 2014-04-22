@@ -103,6 +103,9 @@
     bool powerupWasHit;
     bool powerupHit;
     int canStartPowerUp;
+    int powModifier;
+    BOOL powFlash;
+    int powFlashCount;
     
     
     //Miscellaneous Variables
@@ -138,7 +141,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *powerUpImage;
 - (IBAction)okButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *flappyLivesLabel;
-
+@property (weak, nonatomic) IBOutlet UIImageView *powerUpNotification;
 
 
 
