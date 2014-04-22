@@ -195,7 +195,7 @@
 -(void)setUpBird
 {
     _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
-    flappyBirdLives=20;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
+    flappyBirdLives=gameMode;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
