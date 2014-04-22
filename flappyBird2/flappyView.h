@@ -70,7 +70,9 @@
     NSTimer * birdFlapTimer;
     NSTimer * gameLoopTimer;
     NSTimer * birdFlashTimer;
-    NSTimer * powerupFlashTimer;
+    NSTimer * fasterFlashTimer;
+    int fasterFlashCount;
+    BOOL invalidateFaster;
     int timerCount;
     bool changeTimerOne;
     bool changeTimerTwo;
@@ -154,6 +156,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *coinPicture1;
 @property (weak, nonatomic) IBOutlet UILabel *coinCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *fasterImage;
 
 
 
