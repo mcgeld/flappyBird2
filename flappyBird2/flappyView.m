@@ -115,7 +115,6 @@
     powerupFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
     powModifier = -1;
     powFlash = NO;
-    powFlashCount = 0;
 }
 
 
@@ -333,9 +332,10 @@
             if(powerupTimer==650)
             {
                 _powerUpNotification.hidden = YES;
+                _powerUpNotification.alpha = 1;
+                powModifier = -1;
                 powFlash = NO;
                 powerupHit=NO;
-                powModifier = 1;
                 scoreMultiplier=1;
                 gravityConstant=0.17;
                 powerupTimer=0;
@@ -1118,12 +1118,6 @@
         _powerUpNotification.alpha = _powerUpNotification.alpha + 0.75 * powModifier;
         powModifier *= -1;
         powFlashCount += 1;
-    }
-    
-    else{
-        powFlash = NO;
-        powFlashCount = 0;
-        powModifier = -1;
     }
 }
 
