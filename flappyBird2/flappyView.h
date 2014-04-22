@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 #include "dataBase.h"
 
 @interface flappyView : UIViewController
@@ -74,7 +75,6 @@
     NSTimer * powerupFlashTimer;
     int fasterFlashCount;
     BOOL invalidateFaster;
-    NSTimer * powerupFlashTimer;
     int timerCount;
     bool changeTimerOne;
     bool changeTimerTwo;
@@ -144,7 +144,7 @@
 - (IBAction)okButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *flappyLivesLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *powerUpNotification;
-
+@property (nonatomic, retain) AVAudioPlayer *bgMusic;
 
 
 //Tube Properties

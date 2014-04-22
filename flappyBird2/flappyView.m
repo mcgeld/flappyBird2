@@ -11,6 +11,7 @@
 
 @implementation flappyView
 @synthesize db=_db;
+@synthesize bgMusic = _bgMusic;
 /******************OVERVIEW*********************
  "flappyView" is the view controller that handles the actual game play of the game. It handles everything about game play and is the main part of the game.
  **********************************************/
@@ -49,6 +50,10 @@
     changeTimerTwo=NO;
     _fasterImage.hidden = YES;
     invalidateFaster = NO;
+    
+    
+    
+  
 }
 
 /****************setUpCoins**********************
@@ -1006,6 +1011,20 @@
 
 - (void)goPressed
 {
+    
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameLoop" ofType:@"wav"]];
+    
+    NSError *error;
+    _bgMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    _bgMusic.numberOfLoops = -1;
+    
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@",[error description]);
+    } else {
+        [_bgMusic play];
+    }
+    
     if(!go)
     {
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
@@ -1204,6 +1223,7 @@
     _scoreLabel.hidden = NO;
     _okButtonImage.hidden = NO;
     _powerUpNotification.hidden = YES;
+    [_bgMusic stop];
 
     
     

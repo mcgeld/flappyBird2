@@ -55,6 +55,8 @@
 		ACC9887819024EB300BE1660 /* here_we_go.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887719024EB300BE1660 /* here_we_go.wav */; };
 		ACC9887A19024FA300BE1660 /* score_mult.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887919024FA300BE1660 /* score_mult.wav */; };
 		ACC9887C190250B300BE1660 /* blip.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887B190250B300BE1660 /* blip.wav */; };
+		ACFFE314190607AF000BA013 /* gameLoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACFFE313190607AF000BA013 /* gameLoop.wav */; };
+		ACFFE316190725B3000BA013 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE315190725B3000BA013 /* AVFoundation.framework */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -125,6 +127,8 @@
 		ACC9887719024EB300BE1660 /* here_we_go.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = here_we_go.wav; sourceTree = "<group>"; };
 		ACC9887919024FA300BE1660 /* score_mult.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = score_mult.wav; sourceTree = "<group>"; };
 		ACC9887B190250B300BE1660 /* blip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blip.wav; sourceTree = "<group>"; };
+		ACFFE313190607AF000BA013 /* gameLoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameLoop.wav; sourceTree = "<group>"; };
+		ACFFE315190725B3000BA013 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACFFE316190725B3000BA013 /* AVFoundation.framework in Frameworks */,
 				ACC9886A190245DF00BE1660 /* AudioToolbox.framework in Frameworks */,
 				7F4F20EC18BEB753002675F6 /* CoreGraphics.framework in Frameworks */,
 				7F4F20EE18BEB753002675F6 /* UIKit.framework in Frameworks */,
@@ -180,6 +185,7 @@
 		7F4F20E818BEB753002675F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACFFE315190725B3000BA013 /* AVFoundation.framework */,
 				ACC98869190245DF00BE1660 /* AudioToolbox.framework */,
 				7F4F20E918BEB753002675F6 /* Foundation.framework */,
 				7F4F20EB18BEB753002675F6 /* CoreGraphics.framework */,
@@ -210,6 +216,7 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACFFE313190607AF000BA013 /* gameLoop.wav */,
 				7FBF99AD1905FD4D000163A0 /* gameLoopSong.mp3 */,
 				7FBF99AB1905DE18000163A0 /* Faster.png */,
 				ACC9887B190250B300BE1660 /* blip.wav */,
@@ -374,6 +381,7 @@
 				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
 				ACC98872190248ED00BE1660 /* sfx_hit.wav in Resources */,
 				ACC988701902484100BE1660 /* sfx_wing.wav in Resources */,
+				ACFFE314190607AF000BA013 /* gameLoop.wav in Resources */,
 				ACC9886C1902471300BE1660 /* sfx_die.wav in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
