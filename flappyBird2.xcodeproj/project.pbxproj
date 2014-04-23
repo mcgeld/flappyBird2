@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4BBFF319073CED0026F078 /* PIPE.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF219073CED0026F078 /* PIPE.png */; };
+		7F4BBFF519073D450026F078 /* PIPE_Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF419073D450026F078 /* PIPE_Down.png */; };
 		7F4F20EA18BEB753002675F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F20E918BEB753002675F6 /* Foundation.framework */; };
 		7F4F20EC18BEB753002675F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F20EB18BEB753002675F6 /* CoreGraphics.framework */; };
 		7F4F20EE18BEB753002675F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F20ED18BEB753002675F6 /* UIKit.framework */; };
@@ -86,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F4BBFF219073CED0026F078 /* PIPE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIPE.png; sourceTree = "<group>"; };
+		7F4BBFF419073D450026F078 /* PIPE_Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIPE_Down.png; sourceTree = "<group>"; };
 		7F4F20E618BEB753002675F6 /* flappyBird2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flappyBird2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4F20E918BEB753002675F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7F4F20EB18BEB753002675F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -240,6 +244,8 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7F4BBFF419073D450026F078 /* PIPE_Down.png */,
+				7F4BBFF219073CED0026F078 /* PIPE.png */,
 				ACE2E5C619073A230005405B /* gameLoop.wav */,
 				7FBF99C51906DCBB000163A0 /* stationaryBackground.png */,
 				7FBF99C31906DCB3000163A0 /* movingBackground.png */,
@@ -427,6 +433,7 @@
 				7FBF99C21906DCA9000163A0 /* collisionGround.png in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
 				7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */,
+				7F4BBFF319073CED0026F078 /* PIPE.png in Resources */,
 				7FBF99BB19060B44000163A0 /* animatedHands4.png in Resources */,
 				ACC9887619024C2300BE1660 /* smw_power_up.wav in Resources */,
 				ACE2E5C719073A230005405B /* gameLoop.wav in Resources */,
@@ -437,6 +444,7 @@
 				ACA6FEC818FC9D1E00B51909 /* oneUpMedal.png in Resources */,
 				7FBF99B919060B44000163A0 /* animatedHands6.png in Resources */,
 				7FB3BBB418C1BF01001B558D /* flappyBirdCoin7.png in Resources */,
+				7F4BBFF519073D450026F078 /* PIPE_Down.png in Resources */,
 				7FBF99C41906DCB3000163A0 /* movingBackground.png in Resources */,
 				7FBF99B819060B44000163A0 /* animatedHands7.png in Resources */,
 				7FB3BBB318C1BF01001B558D /* flappyBirdCoin8.png in Resources */,

@@ -123,11 +123,11 @@
                                 <rect key="frame" x="304" y="267" width="320" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Li-uoA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Li-uoA">
                                 <rect key="frame" x="249" y="245" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="UP5-VS-104">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE.png" translatesAutoresizingMaskIntoConstraints="NO" id="UP5-VS-104">
                                 <rect key="frame" x="50" y="245" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -143,11 +143,11 @@
                                 <rect key="frame" x="117" y="404" width="86" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-YR-9aX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE_Down.png" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-YR-9aX">
                                 <rect key="frame" x="50" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="bgH-9R-DOg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE_Down.png" translatesAutoresizingMaskIntoConstraints="NO" id="bgH-9R-DOg">
                                 <rect key="frame" x="249" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -275,6 +275,8 @@
     </scenes>
     <resources>
         <image name="Faster.png" width="218" height="60"/>
+        <image name="PIPE.png" width="140" height="342"/>
+        <image name="PIPE_Down.png" width="140" height="342"/>
         <image name="animatedHands1.png" width="182" height="178"/>
         <image name="arrow.png" width="192" height="192"/>
         <image name="bottomTube.png" width="52" height="321"/>
@@ -290,7 +292,6 @@
         <image name="okButton.png" width="108" height="38"/>
         <image name="scoreboard.png" width="233" height="117"/>
         <image name="stationaryBackground.png" width="480" height="800"/>
-        <image name="topTube.png" width="52" height="321"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
