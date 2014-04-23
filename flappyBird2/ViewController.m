@@ -52,6 +52,11 @@
     timerCount = 0;
     _coinPicture.frame = CGRectMake(_coinPicture.frame.origin.x, _coinPicture.frame.origin.y, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
  
+    if(_soundFXOutlet.isOn)
+        soundFX = true;
+    if(_musicSwitchOutlet.isOn)
+        musicOn = true;
+    
     
 }
 
@@ -204,6 +209,21 @@
     gameMode=1;
 }
 
+- (IBAction)soundFXSwitch:(id)sender {
+    if(_soundFXOutlet.on)
+        soundFX = true;
+    else
+        soundFX = false;
+}
+
+- (IBAction)musicSwitch:(id)sender
+{
+    if(_musicSwitchOutlet.on)
+        musicOn = true;
+    else
+        musicOn = false;
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch * curTouch = [touches anyObject];
@@ -247,4 +267,5 @@
         startButtonDown = YES;
     }
 }
+
 @end
