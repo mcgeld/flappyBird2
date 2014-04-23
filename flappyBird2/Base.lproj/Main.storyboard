@@ -16,34 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdDaytime.png" translatesAutoresizingMaskIntoConstraints="NO" id="rGx-R8-eKx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stationaryBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="rGx-R8-eKx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="1pB-00-sgn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="groundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="1pB-00-sgn">
                                 <rect key="frame" x="0.0" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdGroundWide.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwo-zN-oSB">
-                                <rect key="frame" x="44" y="454" width="320" height="114"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands4 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="7B4-uk-aEs">
+                                <rect key="frame" x="93" y="243" width="135" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdStartButtonUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="l9r-jF-sG3">
-                                <rect key="frame" x="117" y="404" width="86" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-jU-PZ4">
+                                <rect key="frame" x="20" y="502" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying1.png" translatesAutoresizingMaskIntoConstraints="NO" id="7B4-uk-aEs">
-                                <rect key="frame" x="129" y="259" width="63" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMy-fd-ZQH">
-                                <rect key="frame" x="140" y="79" width="41" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-jU-PZ4">
-                                <rect key="frame" x="25" y="474" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="EASY">
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
+                                <state key="normal" image="easy.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -52,10 +41,10 @@
                                     <segue destination="bIU-bI-iiZ" kind="modal" id="hBe-57-sXz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bD-BG-fWe">
-                                <rect key="frame" x="233" y="473" width="67" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bD-BG-fWe">
+                                <rect key="frame" x="120" y="502" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="MEDIUM">
+                                <state key="normal" image="medium.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,10 +53,10 @@
                                     <segue destination="bIU-bI-iiZ" kind="modal" id="Stn-VO-hrQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMk-Ju-c44">
-                                <rect key="frame" x="139" y="512" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMk-Ju-c44">
+                                <rect key="frame" x="220" y="502" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="HARD">
+                                <state key="normal" image="hard.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -76,6 +65,10 @@
                                     <segue destination="bIU-bI-iiZ" kind="modal" id="hn5-CL-TIp"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title.png" translatesAutoresizingMaskIntoConstraints="NO" id="FqF-ib-Fvi">
+                                <rect key="frame" x="40" y="-113" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -85,10 +78,8 @@
                     <connections>
                         <outlet property="background1" destination="rGx-R8-eKx" id="Wey-4S-6jX"/>
                         <outlet property="birdPicture" destination="7B4-uk-aEs" id="fWW-aw-idv"/>
-                        <outlet property="coinPicture" destination="qMy-fd-ZQH" id="raW-gX-7ag"/>
                         <outlet property="ground1" destination="1pB-00-sgn" id="SV3-hw-p63"/>
-                        <outlet property="ground2" destination="rwo-zN-oSB" id="yF2-jq-4kS"/>
-                        <outlet property="startButtonImage" destination="l9r-jF-sG3" id="E4H-2f-u1W"/>
+                        <outlet property="titlePicture" destination="FqF-ib-Fvi" id="BrV-xn-5YV"/>
                     </connections>
                 </viewController>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flappyBirdDaytime.png" id="vEO-QM-gcx">
@@ -139,7 +130,11 @@
                                 <rect key="frame" x="40" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdStartButtonUp.png" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-gq-21s">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="groundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="EB4-60-Umf">
+                                <rect key="frame" x="0.0" y="454" width="320" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start.png" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-gq-21s">
                                 <rect key="frame" x="117" y="404" width="86" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -151,54 +146,56 @@
                                 <rect key="frame" x="249" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Faster.png" translatesAutoresizingMaskIntoConstraints="NO" id="TYM-ua-jv8">
-                                <rect key="frame" x="40" y="75" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="faster2.png" translatesAutoresizingMaskIntoConstraints="NO" id="TYM-ua-jv8">
+                                <rect key="frame" x="40" y="75" width="240" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="animatedHands1.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-oz-6Fg">
-                                <rect key="frame" x="140" y="75" width="74" height="75"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands1 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-oz-6Fg">
+                                <rect key="frame" x="140" y="75" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="7JL-Qz-lOv">
                                 <rect key="frame" x="154" y="211" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="BQs-Q9-upT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coin1.png" translatesAutoresizingMaskIntoConstraints="NO" id="BQs-Q9-upT">
                                 <rect key="frame" x="154" y="269" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdCoin10.png" translatesAutoresizingMaskIntoConstraints="NO" id="yNN-Rf-4Kz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coin1.png" translatesAutoresizingMaskIntoConstraints="NO" id="yNN-Rf-4Kz">
                                 <rect key="frame" x="0.0" y="501" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="coins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzV-iY-UYg">
-                                <rect key="frame" x="34" y="500" width="41" height="21"/>
+                                <rect key="frame" x="34" y="500" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomTube.png" translatesAutoresizingMaskIntoConstraints="NO" id="cgR-tp-g2B">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE.png" translatesAutoresizingMaskIntoConstraints="NO" id="cgR-tp-g2B">
                                 <rect key="frame" x="0.0" y="529" width="25" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tubes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYb-g6-KwZ">
-                                <rect key="frame" x="33" y="536" width="43" height="21"/>
+                                <rect key="frame" x="33" y="536" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-xS-1Kp">
-                                <rect key="frame" x="128" y="45" width="41" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gravitypowerup.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-xS-1Kp">
+                                <rect key="frame" x="128" y="45" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scoreboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="YSH-bt-4tp">
-                                <rect key="frame" x="50" y="149" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scoreboard2.png" translatesAutoresizingMaskIntoConstraints="NO" id="YSH-bt-4tp">
+                                <rect key="frame" x="40" y="149" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzn-ou-Z1h">
                                 <rect key="frame" x="117" y="328" width="86" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="okButton.png">
+                                <state key="normal" image="ok.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -206,30 +203,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ix2-th-Ml3">
-                                <rect key="frame" x="231" y="185" width="42" height="21"/>
+                                <rect key="frame" x="96" y="221" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-0l-run">
-                                <rect key="frame" x="33" y="472" width="42" height="21"/>
+                                <rect key="frame" x="33" y="472" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flappyBirdFlying3.png" translatesAutoresizingMaskIntoConstraints="NO" id="8vF-Rz-jlu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands1 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="8vF-Rz-jlu">
                                 <rect key="frame" x="1" y="473" width="27" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-VX-Zby">
-                                <rect key="frame" x="231" y="223" width="42" height="29"/>
+                                <rect key="frame" x="203" y="217" width="42" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dash.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sSD-km-4vy">
-                                <rect key="frame" x="20" y="19" width="51" height="47"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speedpowerup.png" translatesAutoresizingMaskIntoConstraints="NO" id="sSD-km-4vy">
+                                <rect key="frame" x="20" y="19" width="40" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -274,24 +273,27 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Faster.png" width="218" height="60"/>
         <image name="PIPE.png" width="140" height="342"/>
         <image name="PIPE_Down.png" width="140" height="342"/>
-        <image name="animatedHands1.png" width="182" height="178"/>
-        <image name="arrow.png" width="192" height="192"/>
-        <image name="bottomTube.png" width="52" height="321"/>
+        <image name="coin1.png" width="129" height="129"/>
         <image name="collisionGround.png" width="480" height="131"/>
-        <image name="dash.jpg" width="360" height="273"/>
+        <image name="easy.png" width="156" height="69"/>
+        <image name="faster2.png" width="313" height="65"/>
         <image name="flappyBirdCoin10.png" width="40" height="40"/>
         <image name="flappyBirdDaytime.png" width="288" height="511"/>
-        <image name="flappyBirdFlying1.png" width="17" height="12"/>
-        <image name="flappyBirdFlying3.png" width="17" height="12"/>
-        <image name="flappyBirdGroundWide.png" width="154" height="56"/>
-        <image name="flappyBirdStartButtonUp.png" width="40" height="14"/>
+        <image name="gravitypowerup.png" width="182" height="178"/>
+        <image name="groundImage.png" width="480" height="69"/>
+        <image name="hands1 copy.png" width="182" height="178"/>
+        <image name="hands4 copy.png" width="182" height="178"/>
+        <image name="hard.png" width="157" height="68"/>
+        <image name="medium.png" width="156" height="67"/>
         <image name="movingBackground.png" width="480" height="215"/>
-        <image name="okButton.png" width="108" height="38"/>
-        <image name="scoreboard.png" width="233" height="117"/>
+        <image name="ok.png" width="159" height="66"/>
+        <image name="scoreboard2.png" width="450" height="239"/>
+        <image name="speedpowerup.png" width="182" height="178"/>
+        <image name="start.png" width="157" height="65"/>
         <image name="stationaryBackground.png" width="480" height="800"/>
+        <image name="title.png" width="453" height="243"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

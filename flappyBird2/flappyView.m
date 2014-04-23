@@ -46,14 +46,10 @@
     _okButtonImage.hidden = YES;
     _powerUpNotification.hidden = YES;
     scoreMultiplier=1;
-    changeTimerOne=NO;
-    changeTimerTwo=NO;
     _fasterImage.hidden = YES;
     invalidateFaster = NO;
-    
-    
-    
-  
+    gameSpeed = 0.009;
+    makeFaster = YES;
 }
 
 /****************setUpCoins**********************
@@ -67,17 +63,26 @@
     coinCollisionArray=[[NSMutableArray alloc] init];
     [coinCollisionArray addObject:_coinPicture];
     [coinCollisionArray addObject:_coinPicture1];
-    [coinPics addObject:@"flappyBirdCoin1.png"];
-    [coinPics addObject:@"flappyBirdCoin2.png"];
-    [coinPics addObject:@"flappyBirdCoin3.png"];
-    [coinPics addObject:@"flappyBirdCoin4.png"];
-    [coinPics addObject:@"flappyBirdCoin5.png"];
-    [coinPics addObject:@"flappyBirdCoin6.png"];
-    [coinPics addObject:@"flappyBirdCoin7.png"];
-    [coinPics addObject:@"flappyBirdCoin8.png"];
-    [coinPics addObject:@"flappyBirdCoin9.png"];
-    [coinPics addObject:@"flappyBirdCoin10.png"];
-    coinPicNum = 1;
+    [coinPics addObject:@"coin1.png"];
+    [coinPics addObject:@"coin2.png"];
+    [coinPics addObject:@"coin3.png"];
+    [coinPics addObject:@"coin4.png"];
+    [coinPics addObject:@"coin5.png"];
+    [coinPics addObject:@"coin6.png"];
+    [coinPics addObject:@"coin7.png"];
+    [coinPics addObject:@"coin8.png"];
+    [coinPics addObject:@"coin9.png"];
+    [coinPics addObject:@"coin10.png"];
+    [coinPics addObject:@"coin11.png"];
+    [coinPics addObject:@"coin12.png"];
+    [coinPics addObject:@"coin13.png"];
+    [coinPics addObject:@"coin14.png"];
+    [coinPics addObject:@"coin15.png"];
+    [coinPics addObject:@"coin16.png"];
+    [coinPics addObject:@"coin17.png"];
+    [coinPics addObject:@"coin18.png"];
+    [coinPics addObject:@"coin19.png"];
+    coinPicNum = 0;
     UIImage * coinImage = [UIImage imageNamed:coinPics[0]];
     _coinPicture.image = coinImage;
     _coinPicture1.image=coinImage;
@@ -104,10 +109,10 @@
     powerupsCollisionArray=[[NSMutableArray alloc] init];
     powerupsImageArray=[[NSMutableArray alloc] init];
     [powerupsCollisionArray addObject:_powerUpImage];
-    [powerupsImageArray addObject:@"oneUpMedal.png"];
-    [powerupsImageArray addObject:@"scoreMultiplier.png"];
-    [powerupsImageArray addObject:@"arrow.png"];
-    [powerupsImageArray addObject:@"dash.jpg"];
+    [powerupsImageArray addObject:@"1upPowerup.png"];
+    [powerupsImageArray addObject:@"coinpowerup.png"];
+    [powerupsImageArray addObject:@"gravitypowerup.png"];
+    [powerupsImageArray addObject:@"speedpowerup.jpg"];
     _powerUpImage.hidden=YES;
     powerupRand=arc4random()%396;  //above ground
     
@@ -207,14 +212,14 @@
     /*[birdPics addObject:@"flappyBirdFlying1.png"];
     [birdPics addObject:@"flappyBirdFlying2.png"];
     [birdPics addObject:@"flappyBirdFlying3.png"];*/
-    [birdPics addObject:@"animatedHands1.png"];
-    [birdPics addObject:@"animatedHands2.png"];
-    [birdPics addObject:@"animatedHands3.png"];
-    [birdPics addObject:@"animatedHands4.png"];
-    [birdPics addObject:@"animatedHands5.png"];
-    [birdPics addObject:@"animatedHands6.png"];
-    [birdPics addObject:@"animatedHands7.png"];
-    [birdPics addObject:@"animatedHands8.png"];
+    [birdPics addObject:@"hands1 copy.png"];
+    [birdPics addObject:@"hands2 copy.png"];
+    [birdPics addObject:@"hands3 copy.png"];
+    [birdPics addObject:@"hands4 copy.png"];
+    [birdPics addObject:@"hands5 copy.png"];
+    [birdPics addObject:@"hands6 copy.png"];
+    [birdPics addObject:@"hands7 copy.png"];
+    [birdPics addObject:@"hands8 copy.png"];
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d",flappyBirdLives];
     birdY = _birdPicture.frame.origin.y;
     birdPicNum = 0;
@@ -293,25 +298,16 @@
         {
             [self updateGround];
         }
-        if(tubeCounter>30&&changeTimerOne==NO)
+        if((tubeCounter - 30) % 50 == 0 && makeFaster)
         {
-            
+            gameSpeed -= 0.001f;
+            NSLog([NSString stringWithFormat:@"%f", gameSpeed]);
             [gameLoopTimer invalidate];
             gameLoopTimer=nil;
-             gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.008 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
-            changeTimerOne=YES;
+             gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:gameSpeed target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
             fasterFlashCount = 0;
             fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
-        }
-        if(tubeCounter>80&&changeTimerTwo==NO)
-        {
-            
-            [gameLoopTimer invalidate];
-            gameLoopTimer=nil;
-            gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.007 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
-            changeTimerTwo=YES;
-            fasterFlashCount = 0;
-            fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
+            makeFaster = NO;
         }
         if(birdIsPassingTube==YES)
         {
@@ -357,7 +353,7 @@
                 powerupTimer=0;
                 [gameLoopTimer invalidate];
                 gameLoopTimer = nil;
-                gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+                gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:gameSpeed target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
             }
         }
         //increase timerCount for updates not synchronous with gameLoop
@@ -569,14 +565,14 @@
                 {
                     
                     powerupHit=YES;
-                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"dash.jpg"]])
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"speedpowerup.png"]])
                     {
                         powerupSound = @"here_we_go";
                         soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
                         
-                        _powerUpNotification.image = [UIImage imageNamed:@"dash.jpg"];
+                        _powerUpNotification.image = [UIImage imageNamed:@"speedpowerup.png"];
                         _powerUpNotification.hidden = NO;
                         
                         powerupPicture.hidden=YES;
@@ -593,7 +589,7 @@
                     
                     
                     
-                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"oneUpMedal.png"]])
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"1upPowerup.png"]])
                         
                     {
                         
@@ -617,7 +613,7 @@
                     
                     
                     
-                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"scoreMultiplier.png"]])
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"coinpowerup.png"]])
                         
                     {
                         powerupSound = @"score_mult";
@@ -625,7 +621,7 @@
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
                         
-                        _powerUpNotification.image = [UIImage imageNamed:@"scoreMultiplier.png"];
+                        _powerUpNotification.image = [UIImage imageNamed:@"coinpowerup.png"];
                         _powerUpNotification.hidden = NO;
                     
                         powerupPicture.hidden=YES;
@@ -638,14 +634,14 @@
                         
                     }
                     
-                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"arrow.png"]])
+                    if([powerupPicture.image isEqual:[UIImage imageNamed:@"gravitypowerup.png"]])
                     {
                         powerupSound = @"blip";
                         soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
                         
-                        _powerUpNotification.image = [UIImage imageNamed:@"arrow.png"];
+                        _powerUpNotification.image = [UIImage imageNamed:@"gravitypowerup.png"];
                         _powerUpNotification.hidden = NO;
                     
                         powerupPicture.hidden=YES;
@@ -901,14 +897,14 @@
     }
     if(_tubeBottomImage1.frame.origin.x<160&&_tubeBottomImage1.frame.origin.x>158)
     {
-        tubeCounter+=scoreMultiplier;
-        
+        tubeCounter+=1;
+        makeFaster = YES;
         
     }
     if(_tubeBottomImage.frame.origin.x<160&&_tubeBottomImage.frame.origin.x>158)
     {
-        tubeCounter+=scoreMultiplier;
-        
+        tubeCounter+=1;
+        makeFaster = YES;
         
     }
     
@@ -1249,8 +1245,7 @@
     [tubeTimer invalidate];
     [gameLoopTimer invalidate];
     [fasterFlashTimer invalidate];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)okButton:(id)sender

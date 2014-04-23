@@ -34,14 +34,9 @@
     BOOL gravityOn;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
-@property (weak, nonatomic) IBOutlet UIButton *goButton;
-@property (weak, nonatomic) IBOutlet UIImageView *ground2;
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
-@property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
-@property (weak, nonatomic) IBOutlet UIImageView *coinPicture;
-- (IBAction)goPressed:(id)sender;
-- (IBAction)gravityPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *titlePicture;
 
 - (IBAction)easyMode:(id)sender;
 - (IBAction)mediumMode:(id)sender;

@@ -76,8 +76,8 @@
     int fasterFlashCount;
     BOOL invalidateFaster;
     int timerCount;
-    bool changeTimerOne;
-    bool changeTimerTwo;
+    float gameSpeed;
+    BOOL makeFaster;
     
     //Coin Variables
     NSMutableArray *coinPics;
