@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
   int gameMode;
+  bool soundFX;
+  bool musicOn;
 @interface ViewController : UIViewController
 {
   
@@ -41,5 +43,9 @@
 - (IBAction)easyMode:(id)sender;
 - (IBAction)mediumMode:(id)sender;
 - (IBAction)hardMode:(id)sender;
+- (IBAction)soundFXSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *soundFXOutlet;
+@property (weak, nonatomic) IBOutlet UISwitch *musicSwitchOutlet;
+- (IBAction)musicSwitch:(id)sender;
 
 @end

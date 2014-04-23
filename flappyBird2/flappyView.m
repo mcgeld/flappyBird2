@@ -97,6 +97,8 @@
     _coinCountLabel.text=@"0";
     coinWasHit=NO;
     
+    
+    
 }
 
 /****************setUpPowerups**********************
@@ -457,11 +459,13 @@
                 if(birdIsPassingTube==NO)
                     
                 {
-                    hitSound = @"sfx_hit";
-                    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) hitSound, CFSTR ("wav"), NULL);
-                    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                    AudioServicesPlaySystemSound(soundID);
-                    
+                    if(soundFX)
+                    {
+                        hitSound = @"sfx_hit";
+                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) hitSound, CFSTR ("wav"), NULL);
+                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                        AudioServicesPlaySystemSound(soundID);
+                    }
                     flash = YES;
                     //_birdPicture.alpha=.5;
                     flappyBirdLives-=1;
@@ -531,11 +535,13 @@
                 if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
                     
                 {
-                    coinSound = @"smw_coin";
-                    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) coinSound, CFSTR ("wav"), NULL);
-                    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                    AudioServicesPlaySystemSound(soundID);
-                    
+                    if(soundFX)
+                    {
+                        coinSound = @"smw_coin";
+                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) coinSound, CFSTR ("wav"), NULL);
+                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                        AudioServicesPlaySystemSound(soundID);
+                    }
                     coinCounter += scoreMultiplier;
                     
                     coinPicture.hidden=YES;
@@ -596,11 +602,13 @@
                         if(powerupPicture.hidden==NO)
                             
                         {
-                            powerupSound = @"smw_power_up";
-                            soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
-                            AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                            AudioServicesPlaySystemSound(soundID);
-                            
+                            if(soundFX)
+                            {
+                                powerupSound = @"smw_power_up";
+                                soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                                AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                                AudioServicesPlaySystemSound(soundID);
+                            }
                             flappyBirdLives+=1;
                             
                             powerupPicture.hidden=YES;
@@ -716,15 +724,12 @@
     if(flap)
     {
         flapSound = @"sfx_wing";
-        
         CFBundleRef mainBundle = CFBundleGetMainBundle();
         CFURLRef soundFileURLRef;
-        
-        
-        
         soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) flapSound, CFSTR ("wav"), NULL);
         UInt32 soundID;
         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+        
         
         
         [UIView animateWithDuration:0.01
@@ -739,7 +744,8 @@
             //birdPicNum = [birdPics count] - 2;
             //flapMultiplier *= -1;
             //wingsGoingUp = YES;
-            AudioServicesPlaySystemSound(soundID);
+            if(soundFX)
+                AudioServicesPlaySystemSound(soundID);
         }
         else if(birdPicNum == 0)
         {
@@ -1019,18 +1025,21 @@
 
 - (void)goPressed
 {
-    
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameLoop" ofType:@"wav"]];
-    
-    NSError *error;
-    _bgMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    _bgMusic.numberOfLoops = -1;
-    
-    if (error)
+    if(musicOn)
     {
-        NSLog(@"Error in audioPlayer: %@",[error description]);
-    } else {
-        [_bgMusic play];
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameLoop" ofType:@"wav"]];
+    
+        NSError *error;
+        _bgMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        _bgMusic.numberOfLoops = -1;
+    
+        if (error)
+        {
+            NSLog(@"Error in audioPlayer: %@",[error description]);
+        }
+        else {
+            [_bgMusic play];
+        }
     }
     
     if(!go)

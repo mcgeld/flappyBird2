@@ -106,6 +106,21 @@
     gameMode=1;
 }
 
+- (IBAction)soundFXSwitch:(id)sender {
+    if(_soundFXOutlet.on)
+        soundFX = true;
+    else
+        soundFX = false;
+}
+
+- (IBAction)musicSwitch:(id)sender
+{
+    if(_musicSwitchOutlet.on)
+        musicOn = true;
+    else
+        musicOn = false;
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 }
@@ -118,4 +133,5 @@
 {
     
 }
+
 @end
