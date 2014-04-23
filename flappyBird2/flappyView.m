@@ -50,6 +50,8 @@
     invalidateFaster = NO;
     gameSpeed = 0.009;
     makeFaster = YES;
+    
+    
 }
 
 /****************setUpCoins**********************
@@ -580,11 +582,13 @@
                     powerupHit=YES;
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"speedpowerup.png"]])
                     {
-                        powerupSound = @"here_we_go";
-                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
-                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                        AudioServicesPlaySystemSound(soundID);
-                        
+                        if(soundFX)
+                        {
+                            powerupSound = @"here_we_go";
+                            soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                            AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                            AudioServicesPlaySystemSound(soundID);
+                        }
                         _powerUpNotification.image = [UIImage imageNamed:@"speedpowerup.png"];
                         _powerUpNotification.hidden = NO;
                         
@@ -631,11 +635,13 @@
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"coinpowerup.png"]])
                         
                     {
-                        powerupSound = @"score_mult";
-                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
-                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                        AudioServicesPlaySystemSound(soundID);
-                        
+                        if(soundFX)
+                        {
+                            powerupSound = @"score_mult";
+                            soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                            AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                            AudioServicesPlaySystemSound(soundID);
+                        }
                         _powerUpNotification.image = [UIImage imageNamed:@"coinpowerup.png"];
                         _powerUpNotification.hidden = NO;
                     
@@ -651,11 +657,13 @@
                     
                     if([powerupPicture.image isEqual:[UIImage imageNamed:@"gravitypowerup.png"]])
                     {
-                        powerupSound = @"blip";
-                        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
-                        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                        AudioServicesPlaySystemSound(soundID);
-                        
+                        if(soundFX)
+                        {
+                            powerupSound = @"blip";
+                            soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
+                            AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                            AudioServicesPlaySystemSound(soundID);
+                        }
                         _powerUpNotification.image = [UIImage imageNamed:@"gravitypowerup.png"];
                         _powerUpNotification.hidden = NO;
                     

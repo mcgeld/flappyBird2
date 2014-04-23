@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7F4F20E518BEB753002675F6"
                BuildableName = "flappyBird2.app"
-               BlueprintName = "flappyBird2"
-               ReferencedContainer = "container:flappyBird2.xcodeproj">
+               BlueprintName = "Flappy Hands"
+               ReferencedContainer = "container:Flappy Hands.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7F4F210618BEB753002675F6"
                BuildableName = "flappyBird2Tests.xctest"
-               BlueprintName = "flappyBird2Tests"
-               ReferencedContainer = "container:flappyBird2.xcodeproj">
+               BlueprintName = "Flappy HandsTests"
+               ReferencedContainer = "container:Flappy Hands.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F4F20E518BEB753002675F6"
             BuildableName = "flappyBird2.app"
-            BlueprintName = "flappyBird2"
-            ReferencedContainer = "container:flappyBird2.xcodeproj">
+            BlueprintName = "Flappy Hands"
+            ReferencedContainer = "container:Flappy Hands.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F4F20E518BEB753002675F6"
             BuildableName = "flappyBird2.app"
-            BlueprintName = "flappyBird2"
-            ReferencedContainer = "container:flappyBird2.xcodeproj">
+            BlueprintName = "Flappy Hands"
+            ReferencedContainer = "container:Flappy Hands.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F4F20E518BEB753002675F6"
             BuildableName = "flappyBird2.app"
-            BlueprintName = "flappyBird2"
-            ReferencedContainer = "container:flappyBird2.xcodeproj">
+            BlueprintName = "Flappy Hands"
+            ReferencedContainer = "container:Flappy Hands.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

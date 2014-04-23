@@ -35,6 +35,11 @@
     birdAccel = 0;
     gravityConstant = -0.22;
     _titlePicture.frame = CGRectMake(_titlePicture.frame.origin.x, 0 - _titlePicture.frame.size.height, _titlePicture.frame.size.width, _titlePicture.frame.size.height);
+    
+    if(_soundFXOutlet.on)
+        soundFX = true;
+    if(_musicSwitchOutlet.on)
+        musicOn = true;
 }
 
 - (void)didReceiveMemoryWarning
