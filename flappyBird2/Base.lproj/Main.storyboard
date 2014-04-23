@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -38,7 +38,7 @@
                                 </state>
                                 <connections>
                                     <action selector="easyMode:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6xX-Bh-jhE"/>
-                                    <segue destination="bIU-bI-iiZ" kind="modal" id="hBe-57-sXz"/>
+                                    <segue destination="bIU-bI-iiZ" kind="modal" animates="NO" id="hBe-57-sXz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bD-BG-fWe">
@@ -50,7 +50,7 @@
                                 </state>
                                 <connections>
                                     <action selector="mediumMode:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kxy-XD-NYv"/>
-                                    <segue destination="bIU-bI-iiZ" kind="modal" id="Stn-VO-hrQ"/>
+                                    <segue destination="bIU-bI-iiZ" kind="modal" animates="NO" id="Stn-VO-hrQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMk-Ju-c44">
@@ -62,7 +62,7 @@
                                 </state>
                                 <connections>
                                     <action selector="hardMode:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mmF-kj-aIA"/>
-                                    <segue destination="bIU-bI-iiZ" kind="modal" id="hn5-CL-TIp"/>
+                                    <segue destination="bIU-bI-iiZ" kind="modal" animates="NO" id="hn5-CL-TIp"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title.png" translatesAutoresizingMaskIntoConstraints="NO" id="FqF-ib-Fvi">
@@ -203,7 +203,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ix2-th-Ml3">
-                                <rect key="frame" x="96" y="221" width="42" height="21"/>
+                                <rect key="frame" x="73" y="221" width="66" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -221,7 +221,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-VX-Zby">
-                                <rect key="frame" x="203" y="217" width="42" height="29"/>
+                                <rect key="frame" x="172" y="217" width="77" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

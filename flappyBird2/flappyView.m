@@ -139,7 +139,7 @@
 -(void)setUpTubes
 {
     widthOfViewController=320;
-    sizeBetweenTubes=170;
+    sizeBetweenTubes=160;
     tubeWidth=59;
     tubeHeight=256;
     tubeBottomY=356;
@@ -303,12 +303,19 @@
         if((tubeCounter - 30) % 50 == 0 && makeFaster)
         {
             gameSpeed -= 0.001f;
-            NSLog([NSString stringWithFormat:@"%f", gameSpeed]);
-            [gameLoopTimer invalidate];
-            gameLoopTimer=nil;
-             gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:gameSpeed target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
-            fasterFlashCount = 0;
-            fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
+            if(gameSpeed > 0.0009)
+            {
+                NSLog([NSString stringWithFormat:@"%f", gameSpeed]);
+                [gameLoopTimer invalidate];
+                gameLoopTimer=nil;
+                gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:gameSpeed target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+                fasterFlashCount = 0;
+                fasterFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(flashFaster) userInfo:nil repeats:YES];
+            }
+            else
+            {
+                gameSpeed = 0.001f;
+            }
             makeFaster = NO;
         }
         if(birdIsPassingTube==YES)
