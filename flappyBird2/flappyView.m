@@ -141,7 +141,7 @@
 -(void)setUpTubes
 {
     widthOfViewController=320;
-    sizeBetweenTubes=160;
+    sizeBetweenTubes=150;
     tubeWidth=59;
     tubeHeight=256;
     tubeBottomY=356;
@@ -1269,6 +1269,12 @@
     [tubeTimer invalidate];
     [gameLoopTimer invalidate];
     [fasterFlashTimer invalidate];
+    fallTimer=nil;
+    gravityTimer=nil;
+    groundTimer=nil;
+    tubeTimer=nil;
+    gameLoopTimer=nil;
+    fasterFlashTimer=nil;
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

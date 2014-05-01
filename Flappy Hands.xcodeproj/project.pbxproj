@@ -302,6 +302,7 @@
 		7F4F20DD18BEB753002675F6 = {
 			isa = PBXGroup;
 			children = (
+				ADD6B1D119082C910029BBAE /* iPad */,
 				7F4F20EF18BEB753002675F6 /* flappyBird2 */,
 				7F4F210E18BEB753002675F6 /* flappyBird2Tests */,
 				7F4F20E818BEB753002675F6 /* Frameworks */,
@@ -480,6 +481,13 @@
 				7F4F211118BEB753002675F6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADD6B1D119082C910029BBAE /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -815,7 +823,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flappyBird2/Flappy Hands-Prefix.pch";
 				INFOPLIST_FILE = "flappyBird2/Flappy Hands-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Flappy Hands";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -828,7 +838,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flappyBird2/Flappy Hands-Prefix.pch";
 				INFOPLIST_FILE = "flappyBird2/Flappy Hands-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Flappy Hands";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
