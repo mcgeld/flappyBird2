@@ -136,6 +136,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nh9-oM-QHi">
+                                <rect key="frame" x="117" y="441" width="86" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ok.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okButton:" destination="bIU-bI-iiZ" eventType="touchUpInside" id="B7w-ER-8qs"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movingBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wt9-AR-HMR">
                                 <rect key="frame" x="0.0" y="267" width="320" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -162,10 +172,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="groundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="EB4-60-Umf">
                                 <rect key="frame" x="0.0" y="454" width="320" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start.png" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-gq-21s">
-                                <rect key="frame" x="117" y="404" width="86" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE_Down.png" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-YR-9aX">
@@ -261,6 +267,16 @@
                                 <rect key="frame" x="20" y="19" width="40" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N21-zj-S0Q">
+                                <rect key="frame" x="117" y="394" width="86" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="start.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goPressed:" destination="bIU-bI-iiZ" eventType="touchUpInside" id="Rms-nb-cRZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -285,7 +301,7 @@
                         <outlet property="powerUpNotification" destination="sSD-km-4vy" id="Dtg-dg-e2o"/>
                         <outlet property="scoreLabel" destination="Ix2-th-Ml3" id="qXA-5g-cbs"/>
                         <outlet property="scoreboard" destination="YSH-bt-4tp" id="WW4-5g-zmJ"/>
-                        <outlet property="startButtonImage" destination="V8y-gq-21s" id="nMG-59-n2t"/>
+                        <outlet property="startButtonImage" destination="N21-zj-S0Q" id="7Oo-Vm-2hK"/>
                         <outlet property="tubeBottomImage" destination="Dxm-Li-uoA" id="bWy-cH-OTe"/>
                         <outlet property="tubeBottomImage1" destination="UP5-VS-104" id="AdK-ZL-6gL"/>
                         <outlet property="tubeCountLabel" destination="JYb-g6-KwZ" id="0p5-0D-tC3"/>

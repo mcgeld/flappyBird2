@@ -295,12 +295,15 @@
             canStartPowerUp+=1;
         
             //[self updateFlaps];
-            [self updateCoins];
             timerCount = 0;
         }
         if(timerCount % 2 == 0)
         {
             [self updateGround];
+        }
+        if(timerCount % 5 == 0)
+        {
+            [self updateCoins];
         }
         if((tubeCounter - 30) % 50 == 0 && makeFaster)
         {
@@ -1038,7 +1041,7 @@
     
 }
 
-- (void)goPressed
+/*- (void)goPressed
 {
     if(musicOn)
     {
@@ -1091,7 +1094,7 @@
         go = NO;
         
     }
-}
+}*/
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -1115,7 +1118,7 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(!dead)
+    /*if(!dead)
     {
         UITouch * curTouch = [touches anyObject];
         CGPoint curTouchPoint = [curTouch locationInView:self.view];
@@ -1127,7 +1130,7 @@
             [self goPressed];
             //  [self gravityPressed:event];
         }
-    }
+    }*/
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -1312,4 +1315,59 @@
 }
 
 
+- (IBAction)goPressed:(id)sender
+{
+    if(musicOn)
+    {
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameLoop" ofType:@"wav"]];
+        
+        NSError *error;
+        _bgMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        _bgMusic.numberOfLoops = -1;
+        
+        if (error)
+        {
+            NSLog(@"Error in audioPlayer: %@",[error description]);
+        }
+        else {
+            [_bgMusic play];
+        }
+    }
+    
+    if(!go)
+    {
+        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
+        
+        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
+        
+        
+        _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
+        _coinPicture.hidden=NO;
+        _coinPicture1.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
+        _coinPicture1.hidden=NO;
+        
+        _tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
+        _tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
+        _tubeTopImage.frame=CGRectMake(tubeTopX, tubeTopY, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
+        _tubeTopImage1.frame=CGRectMake(tubeTopX, tubeTopY, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
+        _tubeBottomImage1.hidden=NO;
+        _tubeBottomImage.hidden=NO;
+        _tubeTopImage1.hidden=NO;
+        _tubeTopImage.hidden=NO;
+        
+        _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
+        
+        go = YES;
+        
+    }
+    else
+    {
+        [tubeTimer invalidate];
+        [groundTimer invalidate];
+        [birdFlapTimer invalidate];
+        go = NO;
+        
+    }
+
+}
 @end

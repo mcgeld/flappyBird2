@@ -134,7 +134,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *ground2;
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
-@property (weak, nonatomic) IBOutlet UIImageView *startButtonImage;
+@property (weak, nonatomic) IBOutlet UIButton *startButtonImage;
+- (IBAction)goPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *scoreboard;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
