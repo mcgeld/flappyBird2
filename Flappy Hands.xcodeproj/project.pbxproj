@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4AE360191565B10045FD62 /* gameLoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7F4AE35F191565B10045FD62 /* gameLoop.wav */; };
 		7F4BBFF319073CED0026F078 /* PIPE.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF219073CED0026F078 /* PIPE.png */; };
 		7F4BBFF519073D450026F078 /* PIPE_Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF419073D450026F078 /* PIPE_Down.png */; };
 		7F4BC01319074E910026F078 /* hands8 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF619074E900026F078 /* hands8 copy.png */; };
@@ -81,7 +82,6 @@
 		7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */; };
 		7FB3BBBC18C1BF01001B558D /* flappyBirdCoin10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */; };
 		7FBF99AC1905DE18000163A0 /* Faster.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99AB1905DE18000163A0 /* Faster.png */; };
-		7FBF99AE1905FD4D000163A0 /* gameLoopSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99AD1905FD4D000163A0 /* gameLoopSong.mp3 */; };
 		7FBF99B719060B44000163A0 /* animatedHands8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99AF19060B44000163A0 /* animatedHands8.png */; };
 		7FBF99B819060B44000163A0 /* animatedHands7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B019060B44000163A0 /* animatedHands7.png */; };
 		7FBF99B919060B44000163A0 /* animatedHands6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF99B119060B44000163A0 /* animatedHands6.png */; };
@@ -123,7 +123,7 @@
 		ACC9887819024EB300BE1660 /* here_we_go.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887719024EB300BE1660 /* here_we_go.wav */; };
 		ACC9887A19024FA300BE1660 /* score_mult.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887919024FA300BE1660 /* score_mult.wav */; };
 		ACC9887C190250B300BE1660 /* blip.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887B190250B300BE1660 /* blip.wav */; };
-		ACE2E5C719073A230005405B /* gameLoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACE2E5C619073A230005405B /* gameLoop.wav */; };
+		ACE2E5C719073A230005405B /* gameLoop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACE2E5C619073A230005405B /* gameLoop1.wav */; };
 		ACFFE316190725B3000BA013 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE315190725B3000BA013 /* AVFoundation.framework */; };
 		ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FA18C031AC0011D68A /* bottomTube.png */; };
 		ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3F9FB18C031AC0011D68A /* topTube.png */; };
@@ -142,6 +142,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F4AE35F191565B10045FD62 /* gameLoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameLoop.wav; sourceTree = "<group>"; };
 		7F4BBFF219073CED0026F078 /* PIPE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIPE.png; sourceTree = "<group>"; };
 		7F4BBFF419073D450026F078 /* PIPE_Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIPE_Down.png; sourceTree = "<group>"; };
 		7F4BBFF619074E900026F078 /* hands8 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hands8 copy.png"; sourceTree = "<group>"; };
@@ -221,7 +222,6 @@
 		7FB3BBB118C1BF01001B558D /* flappyBirdCoin9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin9.png; sourceTree = "<group>"; };
 		7FB3BBB218C1BF01001B558D /* flappyBirdCoin10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyBirdCoin10.png; sourceTree = "<group>"; };
 		7FBF99AB1905DE18000163A0 /* Faster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Faster.png; sourceTree = "<group>"; };
-		7FBF99AD1905FD4D000163A0 /* gameLoopSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameLoopSong.mp3; sourceTree = "<group>"; };
 		7FBF99AF19060B44000163A0 /* animatedHands8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands8.png; sourceTree = "<group>"; };
 		7FBF99B019060B44000163A0 /* animatedHands7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands7.png; sourceTree = "<group>"; };
 		7FBF99B119060B44000163A0 /* animatedHands6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedHands6.png; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		ACC9887719024EB300BE1660 /* here_we_go.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = here_we_go.wav; sourceTree = "<group>"; };
 		ACC9887919024FA300BE1660 /* score_mult.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = score_mult.wav; sourceTree = "<group>"; };
 		ACC9887B190250B300BE1660 /* blip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blip.wav; sourceTree = "<group>"; };
-		ACE2E5C619073A230005405B /* gameLoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameLoop.wav; sourceTree = "<group>"; };
+		ACE2E5C619073A230005405B /* gameLoop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameLoop1.wav; sourceTree = "<group>"; };
 		ACFFE315190725B3000BA013 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ADC3F9FA18C031AC0011D68A /* bottomTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomTube.png; sourceTree = "<group>"; };
 		ADC3F9FB18C031AC0011D68A /* topTube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topTube.png; sourceTree = "<group>"; };
@@ -409,7 +409,8 @@
 				7F4BC01219074E910026F078 /* speedpowerup.png */,
 				7F4BBFF419073D450026F078 /* PIPE_Down.png */,
 				7F4BBFF219073CED0026F078 /* PIPE.png */,
-				ACE2E5C619073A230005405B /* gameLoop.wav */,
+				7F4AE35F191565B10045FD62 /* gameLoop.wav */,
+				ACE2E5C619073A230005405B /* gameLoop1.wav */,
 				7FBF99C51906DCBB000163A0 /* stationaryBackground.png */,
 				7FBF99C31906DCB3000163A0 /* movingBackground.png */,
 				7FBF99C11906DCA9000163A0 /* collisionGround.png */,
@@ -422,7 +423,6 @@
 				7FBF99B419060B44000163A0 /* animatedHands3.png */,
 				7FBF99B519060B44000163A0 /* animatedHands2.png */,
 				7FBF99B619060B44000163A0 /* animatedHands1.png */,
-				7FBF99AD1905FD4D000163A0 /* gameLoopSong.mp3 */,
 				7FBF99AB1905DE18000163A0 /* Faster.png */,
 				ACC9887B190250B300BE1660 /* blip.wav */,
 				ACC9887919024FA300BE1660 /* score_mult.wav */,
@@ -621,13 +621,13 @@
 				7FF95D211907FAA50031B710 /* icon76.png in Resources */,
 				7F4F211F18BEC43D002675F6 /* flappyBirdDaytime.png in Resources */,
 				ACC9887C190250B300BE1660 /* blip.wav in Resources */,
-				7FBF99AE1905FD4D000163A0 /* gameLoopSong.mp3 in Resources */,
 				ACA6FEC618FC9CEF00B51909 /* scoreMultiplier.png in Resources */,
 				7F4F212B18BF9C6D002675F6 /* flappyBirdFlying2.png in Resources */,
 				7FB3BBBB18C1BF01001B558D /* flappyBirdCoin9.png in Resources */,
 				7FF95D10190784580031B710 /* icon58.png in Resources */,
 				7F4BC02B19074E910026F078 /* coin4.png in Resources */,
 				7FB3BBBA18C1BF01001B558D /* flappyBirdCoin1.png in Resources */,
+				7F4AE360191565B10045FD62 /* gameLoop.wav in Resources */,
 				AC76044218F620AE0081EA16 /* okButton.png in Resources */,
 				7FB3BBB718C1BF01001B558D /* flappyBirdCoin4.png in Resources */,
 				ADC3F9FC18C031AC0011D68A /* bottomTube.png in Resources */,
@@ -646,7 +646,7 @@
 				7F4BC01819074E910026F078 /* hands3 copy.png in Resources */,
 				ACC9887619024C2300BE1660 /* smw_power_up.wav in Resources */,
 				7F4BC01A19074E910026F078 /* hands1 copy.png in Resources */,
-				ACE2E5C719073A230005405B /* gameLoop.wav in Resources */,
+				ACE2E5C719073A230005405B /* gameLoop1.wav in Resources */,
 				7F4F20FD18BEB753002675F6 /* Main.storyboard in Resources */,
 				7FBF99BD19060B44000163A0 /* animatedHands2.png in Resources */,
 				7F4F212318BF1A4B002675F6 /* flappyBirdGroundWide.png in Resources */,
