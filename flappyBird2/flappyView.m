@@ -1397,7 +1397,7 @@
         _tubeTopImage.hidden=NO;
         
         _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
-        
+        _startButtonImage.hidden=YES;
         go = YES;
         
     }
