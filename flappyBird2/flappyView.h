@@ -124,10 +124,18 @@
     NSString * powerupSound;
     
     
+
+    
+    
     
 }
 
 @property (strong, nonatomic) database * db;
+//labels
+@property (weak, nonatomic) IBOutlet UIImageView *handLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *coinLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *tubeLabel;
+
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *background1;

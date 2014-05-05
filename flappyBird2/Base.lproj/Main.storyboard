@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -9,8 +9,8 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aJv-rh-enN"/>
-                        <viewControllerLayoutGuide type="bottom" id="WTM-oE-w4I"/>
+                        <viewControllerLayoutGuide type="top" id="XTH-y7-uRk"/>
+                        <viewControllerLayoutGuide type="bottom" id="te3-Mg-6oB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -106,7 +106,10 @@
                     <connections>
                         <outlet property="background1" destination="rGx-R8-eKx" id="Wey-4S-6jX"/>
                         <outlet property="birdPicture" destination="7B4-uk-aEs" id="fWW-aw-idv"/>
+                        <outlet property="easyButtonView" destination="6xC-jU-PZ4" id="dU9-jK-7dJ"/>
                         <outlet property="ground1" destination="1pB-00-sgn" id="SV3-hw-p63"/>
+                        <outlet property="hardButtonView" destination="GMk-Ju-c44" id="qcg-AK-4fx"/>
+                        <outlet property="mediumButtonView" destination="9bD-BG-fWe" id="lJw-T0-6Bj"/>
                         <outlet property="musicSwitchOutlet" destination="LXW-8A-pgI" id="S5H-g1-rh4"/>
                         <outlet property="soundFXOutlet" destination="Zwc-TQ-oSG" id="FJG-0u-mDm"/>
                         <outlet property="titlePicture" destination="FqF-ib-Fvi" id="BrV-xn-5YV"/>
@@ -125,8 +128,8 @@
             <objects>
                 <viewController id="bIU-bI-iiZ" customClass="flappyView" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5UP-G5-5nN"/>
-                        <viewControllerLayoutGuide type="bottom" id="ryF-xQ-Oau"/>
+                        <viewControllerLayoutGuide type="top" id="LzE-i9-kHh"/>
+                        <viewControllerLayoutGuide type="bottom" id="oCC-Mx-a9y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DnL-KF-oeP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -158,10 +161,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="collisionGround.png" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-xI-VSw">
                                 <rect key="frame" x="40" y="454" width="320" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="groundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="EB4-60-Umf">
-                                <rect key="frame" x="0.0" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start.png" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-gq-21s">
@@ -247,7 +246,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hands1 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="8vF-Rz-jlu">
-                                <rect key="frame" x="1" y="473" width="27" height="20"/>
+                                <rect key="frame" x="0.0" y="473" width="27" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-VX-Zby">
@@ -267,16 +266,19 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="background1" destination="Ilf-wJ-33a" id="iE7-jL-GfT"/>
                         <outlet property="birdPicture" destination="gwu-oz-6Fg" id="oFJ-QM-5bd"/>
                         <outlet property="coinCountLabel" destination="OzV-iY-UYg" id="BXh-bA-XRJ"/>
+                        <outlet property="coinLabel" destination="yNN-Rf-4Kz" id="8MW-kB-Aw2"/>
                         <outlet property="coinPicture" destination="7JL-Qz-lOv" id="bU8-ca-zbU"/>
                         <outlet property="coinPicture1" destination="BQs-Q9-upT" id="Oy9-0j-nKv"/>
                         <outlet property="fasterImage" destination="TYM-ua-jv8" id="Sxc-rc-ZPP"/>
                         <outlet property="flappyLivesLabel" destination="zwa-0l-run" id="Hvy-hX-CIX"/>
                         <outlet property="ground1" destination="rKT-Et-hWb" id="lft-iz-HuL"/>
                         <outlet property="ground2" destination="UoX-xI-VSw" id="fsb-wM-73b"/>
+                        <outlet property="handLabel" destination="8vF-Rz-jlu" id="XxT-IY-Lct"/>
                         <outlet property="highScoreLabel" destination="yW6-VX-Zby" id="7P5-WL-iAk"/>
                         <outlet property="movingBackground1" destination="Wt9-AR-HMR" id="xaH-Th-0tp"/>
                         <outlet property="movingBackground2" destination="r8f-bD-2YG" id="hp0-3B-1j9"/>
@@ -289,6 +291,7 @@
                         <outlet property="tubeBottomImage" destination="Dxm-Li-uoA" id="bWy-cH-OTe"/>
                         <outlet property="tubeBottomImage1" destination="UP5-VS-104" id="AdK-ZL-6gL"/>
                         <outlet property="tubeCountLabel" destination="JYb-g6-KwZ" id="0p5-0D-tC3"/>
+                        <outlet property="tubeLabel" destination="cgR-tp-g2B" id="JOe-Mt-krN"/>
                         <outlet property="tubeTopImage" destination="bgH-9R-DOg" id="qJx-DD-dcT"/>
                         <outlet property="tubeTopImage1" destination="YIQ-YR-9aX" id="74j-gE-spJ"/>
                     </connections>
