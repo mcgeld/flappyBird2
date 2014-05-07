@@ -66,6 +66,9 @@
     //Timer Variables
     NSTimer * gameLoopTimer;
     NSTimer * fasterFlashTimer;
+    NSTimer * birdFlapTimer;
+    NSTimer * powerupFlashTimer;
+    NSTimer * birdFlashTimer;
     int fasterFlashCount;
     BOOL invalidateFaster;
     int timerCount;
