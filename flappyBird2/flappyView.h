@@ -58,21 +58,18 @@
     int modifier;
     BOOL flash;
     int flashCount;
+    int flapCount;
     
     //Gravity Variables
     float gravityConstant;
     BOOL gravityOn;
     
     //Timer Variables
-    NSTimer * tubeTimer;
-    NSTimer * fallTimer;
-    NSTimer * groundTimer;
-    NSTimer * gravityTimer;
-    NSTimer * birdFlapTimer;
     NSTimer * gameLoopTimer;
-    NSTimer * birdFlashTimer;
     NSTimer * fasterFlashTimer;
+    NSTimer * birdFlapTimer;
     NSTimer * powerupFlashTimer;
+    NSTimer * birdFlashTimer;
     int fasterFlashCount;
     BOOL invalidateFaster;
     int timerCount;
@@ -112,10 +109,6 @@
     
     //Miscellaneous Variables
     BOOL go;
-    BOOL startButtonDown;
-    
-    //Multiplier Variables
-    int multRand;
     
     //Sound Variables
     NSString * flapSound;
@@ -140,7 +133,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 
-@property (weak, nonatomic) IBOutlet UIImageView *ground2;
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
 @property (weak, nonatomic) IBOutlet UIButton *startButtonImage;
 - (IBAction)goPressed:(id)sender;

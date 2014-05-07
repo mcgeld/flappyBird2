@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [self loadPlist];
-  //  NSString * val= [_db getUser:0];
     [super viewDidLoad];
     [self setUpTubes];
     [self setUpCollisionObjects];
@@ -116,7 +115,7 @@
     [powerupsImageArray addObject:@"1upPowerup.png"];
     [powerupsImageArray addObject:@"coinpowerup.png"];
     [powerupsImageArray addObject:@"gravitypowerup.png"];
-    [powerupsImageArray addObject:@"speedpowerup.jpg"];
+    [powerupsImageArray addObject:@"speedpowerup.png"];
     _powerUpImage.hidden=YES;
     powerupRand=arc4random()%396;  //above ground
     
@@ -126,7 +125,7 @@
     startPowerupTwo=NO;
     powerupsBegan=NO;
     powerupWasHit=NO;
-    powerupFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
+    //powerupTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
     powModifier = -1;
     powFlash = NO;
 }
@@ -140,7 +139,7 @@
  ***********************************************/
 -(void)setUpTubes
 {
-    widthOfViewController=320;
+    widthOfViewController=self.view.frame.size.width;
     sizeBetweenTubes=150;
     tubeWidth=59;
     tubeHeight=256;
@@ -177,12 +176,10 @@
     [collisionObjectsArray addObject:_tubeBottomImage1];
     [collisionObjectsArray addObject:_tubeTopImage];
     [collisionObjectsArray addObject:_tubeTopImage1];
-    //[collisionObjectsArray addObject:_ground1];
-    //[collisionObjectsArray addObject:_ground2];
+
     
     deadCollisionObjectsArray = [[NSMutableArray alloc]init];
     [deadCollisionObjectsArray addObject:_ground1];
-    [deadCollisionObjectsArray addObject:_ground2];
 }
 
 /*****************setUpBackground****************
@@ -195,44 +192,11 @@
     _background1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     _ground1.frame = CGRectMake(0, self.view.frame.size.height - _ground1.frame.size.height, _ground1.frame.size.width, _ground1.frame.size.height);
-    _ground2.frame = CGRectMake(self.view.frame.size.width, self.view.frame.size.height - _ground2.frame.size.height, _ground2.frame.size.width, _ground2.frame.size.height);
     
     groundY = _movingBackground1.frame.origin.y;
     groundX = 0;
 }
 
--(void)setUpSmallScreen
-{
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
-        if ([[UIScreen mainScreen] scale] == 2.0) {
-            if([UIScreen mainScreen].bounds.size.height == 568){
-                
-                _coinCountLabel.frame=CGRectMake(34, 500, _coinCountLabel.frame.size.width, _coinCountLabel.frame.size.height);
-                _flappyLivesLabel.frame=CGRectMake(33, 472, _flappyLivesLabel.frame.size.width, _flappyLivesLabel.frame.size.height);
-                _tubeCountLabel.frame=CGRectMake(33, 536, _tubeCountLabel.frame.size.width, _tubeCountLabel.frame.size.height);
-                
-                _coinLabel.frame=CGRectMake(0, 501, _coinLabel.frame.size.width, _coinLabel.frame.size.height);
-                _handLabel.frame=CGRectMake(0, 473, _handLabel.frame.size.width, _handLabel.frame.size.height);
-                _tubeLabel.frame=CGRectMake(0, 529, _tubeLabel.frame.size.width, _tubeLabel.frame.size.height);
-                
-                
-            } else{
-                
-                _coinCountLabel.frame=CGRectMake(33, 149, _coinCountLabel.frame.size.width, _coinCountLabel.frame.size.height);
-                _flappyLivesLabel.frame=CGRectMake(33, 126, _flappyLivesLabel.frame.size.width, _flappyLivesLabel.frame.size.height);
-                _tubeCountLabel.frame=CGRectMake(33, 182, _tubeCountLabel.frame.size.width, _tubeCountLabel.frame.size.height);
-                
-                _coinLabel.frame=CGRectMake(0, 149, _coinLabel.frame.size.width, _coinLabel.frame.size.height);
-                _handLabel.frame=CGRectMake(0, 126, _handLabel.frame.size.width, _handLabel.frame.size.height);
-                _tubeLabel.frame=CGRectMake(0, 182, _tubeLabel.frame.size.width, _tubeLabel.frame.size.height);
-                
-                
-                
-            }
-        }
-    }
-    
-}
 
 /******************setUpBird**********************
  PARAMS: NONE
@@ -241,14 +205,11 @@
  ************************************************/
 -(void)setUpBird
 {
-    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 40, 30);
+    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 35, 26);
     flappyBirdLives=gameMode;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
     birdIsPassingTube=NO;
     birdPassingCounter=0;
     birdPics = [[NSMutableArray alloc]init];
-    /*[birdPics addObject:@"flappyBirdFlying1.png"];
-    [birdPics addObject:@"flappyBirdFlying2.png"];
-    [birdPics addObject:@"flappyBirdFlying3.png"];*/
     [birdPics addObject:@"hands1 copy.png"];
     [birdPics addObject:@"hands2 copy.png"];
     [birdPics addObject:@"hands3 copy.png"];
@@ -259,10 +220,9 @@
     [birdPics addObject:@"hands8 copy.png"];
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d",flappyBirdLives];
     birdY = _birdPicture.frame.origin.y;
-    birdPicNum = 0;
+    birdPicNum = 1;
     birdAccel = 0;
     birdAccelMax = -10;
-    wingsGoingUp = NO;
     dead = NO;
     flap = NO;
     flapMultiplier = -1;
@@ -270,6 +230,7 @@
     modifier = -1;
     flash = NO;
     flashCount = 0;
+    flapCount=0;
 }
 
 /*********************setUpGravity****************
@@ -298,9 +259,8 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    [gravityTimer invalidate];
-    [tubeTimer invalidate];
+    [gameLoopTimer invalidate];
+    [fasterFlashTimer invalidate];
 }
 
 /*************************************************
@@ -317,7 +277,7 @@
 {
     if(!dead)
     {
-         [self setUpSmallScreen];
+       
         [self updateTube];
         [self updateGravity];
         [self updateCoinMovement];
@@ -327,13 +287,11 @@
         if(timerCount == 10)
         {
             canStartPowerUp+=1;
-        
-            //[self updateFlaps];
             timerCount = 0;
         }
         if(timerCount % 2 == 0)
         {
-            [self updateGround];
+            [self updateBackground];
         }
         if(timerCount % 5 == 0)
         {
@@ -359,21 +317,9 @@
         if(birdIsPassingTube==YES)
         {
             birdPassingCounter+=1;
-            if(birdPassingCounter<50)
-            {
-                //_birdPicture.alpha=.4;
-            }
-            else if(birdPassingCounter<120)
-            {
-                //_birdPicture.alpha=1;
-            }
-            else if(birdPassingCounter<160)
-            {
-                //_birdPicture.alpha=.4;
-            }
+          
             if(birdPassingCounter==160)
             {
-                //_birdPicture.alpha=1;
                 birdIsPassingTube=NO;
                 birdPassingCounter=0;
             }
@@ -382,7 +328,6 @@
         if(powerupHit==YES)
         {
             powerupTimer+=1;
-            //NSLog(@"%d", powerupTimer);
             if(powerupTimer == 400)
             {
                 powFlash = YES;
@@ -512,10 +457,7 @@
                         AudioServicesPlaySystemSound(soundID);
                     }
                     flash = YES;
-                    //_birdPicture.alpha=.5;
                     flappyBirdLives-=1;
-                    
-                    
                     
                     birdIsPassingTube=YES;
                     
@@ -526,9 +468,7 @@
                         dead = YES;
                         
                         birdAccel = 0;
-                        
-                        //[self gameOver];
-                        
+
                     }
                     
                 }
@@ -555,8 +495,6 @@
                 
                 birdAccel = 0;
                 
-                //[self gameOver];
-                
             }
             
         }
@@ -577,12 +515,12 @@
                 
                 UIImageView * coinPicture=coinCollisionArray[j];
                 
-                if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
+                if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame)&&canStartPowerUp>15)
                     
                 {
                     if(soundFX)
                     {
-                        coinSound = @"smw_coin";
+                        coinSound = @"coin";
                         soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) coinSound, CFSTR ("wav"), NULL);
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
@@ -620,7 +558,7 @@
                     {
                         if(soundFX)
                         {
-                            powerupSound = @"here_we_go";
+                            powerupSound = @"floop";
                             soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                             AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                             AudioServicesPlaySystemSound(soundID);
@@ -631,8 +569,6 @@
                         powerupPicture.hidden=YES;
                     
                         powerupWasHit=YES;
-                        
-                        //gravityConstant *= 2;
                         
                         [gameLoopTimer invalidate];
                         
@@ -651,7 +587,7 @@
                         {
                             if(soundFX)
                             {
-                                powerupSound = @"smw_power_up";
+                                powerupSound = @"jump";
                                 soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                                 AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                                 AudioServicesPlaySystemSound(soundID);
@@ -673,7 +609,7 @@
                     {
                         if(soundFX)
                         {
-                            powerupSound = @"score_mult";
+                            powerupSound = @"bloop_x";
                             soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                             AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                             AudioServicesPlaySystemSound(soundID);
@@ -754,7 +690,7 @@
 
 
 
--(void)updateGround
+-(void)updateBackground
 {
     [UIView animateWithDuration:0.01
                      animations:^(void)
@@ -792,9 +728,6 @@
         if(birdPicNum == [birdPics count] - 1)
         {
             birdPicNum = 0;
-            //birdPicNum = [birdPics count] - 2;
-            //flapMultiplier *= -1;
-            //wingsGoingUp = YES;
             if(soundFX)
                 AudioServicesPlaySystemSound(soundID);
         }
@@ -802,7 +735,7 @@
         {
             birdPicNum = 1;
             flap = NO;
-            //wingsGoingUp = NO;
+            
         }
         else
         {
@@ -847,7 +780,6 @@
         _coinPicture1.image= newImage;
     }completion:^(BOOL finished){}];
     coinPicNum += 1;
-    //NSLog([NSString stringWithFormat:@"%d", coinPicNum]);
     if(coinPicNum == [coinPics count])
     {
         coinPicNum = 0;
@@ -861,8 +793,6 @@
  ***********************************************/
 -(void)updateTube
 {
-    
-    
     
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d", flappyBirdLives];
     _tubeCountLabel.text=[NSString stringWithFormat:@"%d",tubeCounter];
@@ -938,7 +868,7 @@
  ***********************************************/
 -(void)updateCoinMovement
 {
-    if(coinCounter>=10)      //if they get 5 coins, they recieve and extra life
+    if(coinCounter>=10)      //if they get 10 coins, they recieve an extra life
     {
         coinCounter-=10;
         _coinCountLabel.text=[NSString stringWithFormat:@"%i",coinCounter];
@@ -1074,114 +1004,20 @@
     
 }
 
-/*- (void)goPressed
-{
-    if(musicOn)
-    {
-        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"gameLoop" ofType:@"wav"]];
-    
-        NSError *error;
-        _bgMusic = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        _bgMusic.numberOfLoops = -1;
-    
-        if (error)
-        {
-            NSLog(@"Error in audioPlayer: %@",[error description]);
-        }
-        else {
-            [_bgMusic play];
-        }
-    }
-    
-    if(!go)
-    {
-  
-        gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
-
-        birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
-        
-        
-        _coinPicture.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
-        _coinPicture.hidden=NO;
-        _coinPicture1.frame=CGRectMake(tubeBottomX, coinRand, _coinPicture.frame.size.width, _coinPicture.frame.size.height);
-        _coinPicture1.hidden=NO;
-        
-        _tubeBottomImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage.frame.size.width, _tubeBottomImage.frame.size.height);
-        _tubeBottomImage1.frame=CGRectMake(tubeBottomX, tubeBottomY, _tubeBottomImage1.frame.size.width, _tubeBottomImage1.frame.size.height);
-        _tubeTopImage.frame=CGRectMake(tubeTopX, tubeTopY, _tubeTopImage.frame.size.width, _tubeTopImage.frame.size.height);
-        _tubeTopImage1.frame=CGRectMake(tubeTopX, tubeTopY, _tubeTopImage1.frame.size.width, _tubeTopImage1.frame.size.height);
-        _tubeBottomImage1.hidden=NO;
-        _tubeBottomImage.hidden=NO;
-        _tubeTopImage1.hidden=NO;
-        _tubeTopImage.hidden=NO;
-        
-        _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
-        
-        go = YES;
-        
-    }
-    else
-    {
-        [tubeTimer invalidate];
-        [groundTimer invalidate];
-        [birdFlapTimer invalidate];
-        go = NO;
-        
-    }
-}*/
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if(!dead)
     {
-        UITouch * curTouch = [touches anyObject];
-        CGPoint curTouchPoint = [curTouch locationInView:self.view];
-        if(CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
-        {
-            [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
-            startButtonDown = YES;
-        }
-        else
-        {
-            flap = YES;
-            flapMultiplier = 1;
-            birdAccel = 4.7;
-        }
+        flapCount+=1;
+        flap = YES;
+        flapMultiplier = 1;
+        birdAccel = 4.7;
+        
     }
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    /*if(!dead)
-    {
-        UITouch * curTouch = [touches anyObject];
-        CGPoint curTouchPoint = [curTouch locationInView:self.view];
-        if(startButtonDown && CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
-        {
-            _startButtonImage.hidden=YES;
-            [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
-            startButtonDown = NO;
-            [self goPressed];
-            //  [self gravityPressed:event];
-        }
-    }*/
-}
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch * curTouch = [touches anyObject];
-    CGPoint curTouchPoint = [curTouch locationInView:self.view];
-    if(startButtonDown && !CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
-    {
-        [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y - 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
-        startButtonDown = NO;
-    }
-    else if(!startButtonDown && CGRectContainsPoint(_startButtonImage.frame, curTouchPoint))
-    {
-        [_startButtonImage setFrame:CGRectMake(_startButtonImage.frame.origin.x, _startButtonImage.frame.origin.y + 2, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height)];
-        startButtonDown = YES;
-    }
-}
 
 -(void)makeBirdFlash
 {
@@ -1209,41 +1045,6 @@
     }
 }
 
--(void)makeBirdFall
-{
-   
-    [UIView animateWithDuration:0.01
-                     animations:^(void)
-     {
-         _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, birdFall, _birdPicture.frame.size.width, _birdPicture.frame.size.height);
-     }
-                     completion:^(BOOL finished){}];
-    if(_birdPicture.frame.origin.y + _birdPicture.frame.size.height >= _ground1.frame.origin.y)
-    {
-        [self finish];
-    }
-    birdFall -= birdAccel;
-}
-
--(void)dropBird
-{
-    
-    birdFall = _birdPicture.frame.origin.y;
-    fallTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateGravity) userInfo:nil repeats:YES];
-}
-
--(void)gameOver
-{
-  
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:2];
-    _birdPicture.center=CGPointMake(_birdPicture.center.x, _birdPicture.center.y);
-    _birdPicture.transform = CGAffineTransformMakeRotation(234 * (M_PI / 180));
-    [UIView commitAnimations];
-    sleep(1.9);
-    //[self dropBird];
-    [self finish];
-}
 
 -(void)showScore
 {
@@ -1284,7 +1085,6 @@
     
    
     [_db savePlist:[_db getDB]];
-    //  NSString * coinCountStr = [NSString stringWithFormat:@"%d", coinCounter];
     _scoreLabel.text = tubeCountStr;
     
     _highScoreLabel.hidden=NO;
@@ -1300,16 +1100,8 @@
 
 -(void)finish
 {
-    [fallTimer invalidate];
-    [gravityTimer invalidate];
-    [groundTimer invalidate];
-    [tubeTimer invalidate];
     [gameLoopTimer invalidate];
     [fasterFlashTimer invalidate];
-    fallTimer=nil;
-    gravityTimer=nil;
-    groundTimer=nil;
-    tubeTimer=nil;
     gameLoopTimer=nil;
     fasterFlashTimer=nil;
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -1324,12 +1116,8 @@
 -(void)enterUser:(NSString *)sender
 {
  
-        [_db addUser:sender];
-    
-   // NSLog(sender);
-        [_db savePlist:[_db getDB]];
-    
-    
+    [_db addUser:sender];
+    [_db savePlist:[_db getDB]];
 }
 
 
@@ -1346,12 +1134,6 @@
     NSPropertyListFormat format;
     
     _db = [[database alloc] initWithArray:(NSMutableArray *)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc]];
-}
-
--(void)loadBinary
-{
-    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"database.db"];
-    _db = [[database alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
 }
 
 
@@ -1396,15 +1178,12 @@
         _tubeTopImage.hidden=NO;
         
         _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
-        
+        _startButtonImage.hidden=YES;
         go = YES;
         
     }
     else
     {
-        [tubeTimer invalidate];
-        [groundTimer invalidate];
-        [birdFlapTimer invalidate];
         go = NO;
         
     }
