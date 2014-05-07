@@ -125,7 +125,7 @@
     startPowerupTwo=NO;
     powerupsBegan=NO;
     powerupWasHit=NO;
-    powerupFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
+    //powerupTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
     powModifier = -1;
     powFlash = NO;
 }
@@ -220,7 +220,7 @@
     [birdPics addObject:@"hands8 copy.png"];
     _flappyLivesLabel.text=[NSString stringWithFormat:@"%d",flappyBirdLives];
     birdY = _birdPicture.frame.origin.y;
-    birdPicNum = 0;
+    birdPicNum = 1;
     birdAccel = 0;
     birdAccelMax = -10;
     dead = NO;
@@ -230,6 +230,7 @@
     modifier = -1;
     flash = NO;
     flashCount = 0;
+    flapCount=0;
 }
 
 /*********************setUpGravity****************
@@ -276,7 +277,7 @@
 {
     if(!dead)
     {
-        [self setUpSmallScreen];
+       
         [self updateTube];
         [self updateGravity];
         [self updateCoinMovement];
@@ -548,7 +549,7 @@
                 
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
               
-                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
+                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame)&&canStartPowerUp>15)
                     
                 {
                     
@@ -734,6 +735,7 @@
         {
             birdPicNum = 1;
             flap = NO;
+            
         }
         else
         {
@@ -1007,7 +1009,7 @@
 {
     if(!dead)
     {
-        
+        flapCount+=1;
         flap = YES;
         flapMultiplier = 1;
         birdAccel = 4.7;

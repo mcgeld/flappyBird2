@@ -58,6 +58,7 @@
     int modifier;
     BOOL flash;
     int flashCount;
+    int flapCount;
     
     //Gravity Variables
     float gravityConstant;
