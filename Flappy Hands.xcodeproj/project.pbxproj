@@ -111,9 +111,14 @@
 		7FF95D261907FAA50031B710 /* icon50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF95D1F1907FAA50031B710 /* icon50.png */; };
 		AC76043E18F61F930081EA16 /* scoreboard.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76043D18F61F930081EA16 /* scoreboard.png */; };
 		AC76044218F620AE0081EA16 /* okButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AC76044118F620AE0081EA16 /* okButton.png */; };
+		ACA4A778191734160073A06A /* bloop_x.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACA4A777191734160073A06A /* bloop_x.wav */; };
+		ACA4A77A1917350B0073A06A /* floop.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACA4A7791917350B0073A06A /* floop.wav */; };
+		ACA4A77C191738BF0073A06A /* coinSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACA4A77B191738BF0073A06A /* coinSound.wav */; };
+		ACA4A77E19173A9C0073A06A /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACA4A77D19173A9C0073A06A /* jump.wav */; };
 		ACA6FEC618FC9CEF00B51909 /* scoreMultiplier.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */; };
 		ACA6FEC818FC9D1E00B51909 /* oneUpMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */; };
 		ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA6FEC918FCA39F00B51909 /* dash.jpg */; };
+		ACC6B37C1919B30A0026730E /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC6B37B1919B30A0026730E /* coin.wav */; };
 		ACC9886A190245DF00BE1660 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC98869190245DF00BE1660 /* AudioToolbox.framework */; };
 		ACC9886C1902471300BE1660 /* sfx_die.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9886B1902471300BE1660 /* sfx_die.wav */; };
 		ACC988701902484100BE1660 /* sfx_wing.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9886F1902484100BE1660 /* sfx_wing.wav */; };
@@ -251,9 +256,14 @@
 		7FF95D1F1907FAA50031B710 /* icon50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon50.png; sourceTree = "<group>"; };
 		AC76043D18F61F930081EA16 /* scoreboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreboard.png; sourceTree = "<group>"; };
 		AC76044118F620AE0081EA16 /* okButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okButton.png; sourceTree = "<group>"; };
+		ACA4A777191734160073A06A /* bloop_x.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bloop_x.wav; sourceTree = "<group>"; };
+		ACA4A7791917350B0073A06A /* floop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = floop.wav; sourceTree = "<group>"; };
+		ACA4A77B191738BF0073A06A /* coinSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coinSound.wav; sourceTree = "<group>"; };
+		ACA4A77D19173A9C0073A06A /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		ACA6FEC518FC9CEF00B51909 /* scoreMultiplier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreMultiplier.png; sourceTree = "<group>"; };
 		ACA6FEC718FC9D1E00B51909 /* oneUpMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oneUpMedal.png; sourceTree = "<group>"; };
 		ACA6FEC918FCA39F00B51909 /* dash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dash.jpg; sourceTree = "<group>"; };
+		ACC6B37B1919B30A0026730E /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
 		ACC98869190245DF00BE1660 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		ACC9886B1902471300BE1660 /* sfx_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_die.wav; sourceTree = "<group>"; };
 		ACC9886F1902484100BE1660 /* sfx_wing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_wing.wav; sourceTree = "<group>"; };
@@ -352,6 +362,11 @@
 		7F4F20F018BEB753002675F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACC6B37B1919B30A0026730E /* coin.wav */,
+				ACA4A77D19173A9C0073A06A /* jump.wav */,
+				ACA4A77B191738BF0073A06A /* coinSound.wav */,
+				ACA4A7791917350B0073A06A /* floop.wav */,
+				ACA4A777191734160073A06A /* bloop_x.wav */,
 				7FF95D191907FAA50031B710 /* icon152.png */,
 				7FF95D1A1907FAA50031B710 /* icon76.png */,
 				7FF95D1B1907FAA50031B710 /* icon144.png */,
@@ -563,6 +578,7 @@
 				7FF95D221907FAA50031B710 /* icon144.png in Resources */,
 				7F4BC02619074E910026F078 /* coin9.png in Resources */,
 				7FF95D0C1907815D0031B710 /* icon.png in Resources */,
+				ACA4A77A1917350B0073A06A /* floop.wav in Resources */,
 				7F4BC02419074E910026F078 /* coin11.png in Resources */,
 				7F4BC01C19074E910026F078 /* coinpowerup.png in Resources */,
 				7FF95D201907FAA50031B710 /* icon152.png in Resources */,
@@ -572,6 +588,7 @@
 				7FF95D181907F96B0031B710 /* icon114.png in Resources */,
 				7FF95D261907FAA50031B710 /* icon50.png in Resources */,
 				7F4BC02719074E910026F078 /* coin8.png in Resources */,
+				ACA4A778191734160073A06A /* bloop_x.wav in Resources */,
 				ACA6FECA18FCA39F00B51909 /* dash.jpg in Resources */,
 				7FCEC18618F622C600A97A6A /* arrow.png in Resources */,
 				ADC3F9FD18C031AC0011D68A /* topTube.png in Resources */,
@@ -585,6 +602,7 @@
 				AC76043E18F61F930081EA16 /* scoreboard.png in Resources */,
 				ACC9887419024AC900BE1660 /* smw_coin.wav in Resources */,
 				7FBF99AC1905DE18000163A0 /* Faster.png in Resources */,
+				ACC6B37C1919B30A0026730E /* coin.wav in Resources */,
 				7FBF99B719060B44000163A0 /* animatedHands8.png in Resources */,
 				7F4BC01D19074E910026F078 /* coin19.png in Resources */,
 				7F4BC02D19074E910026F078 /* coin1.png in Resources */,
@@ -605,6 +623,7 @@
 				7F4BC03F19075F180026F078 /* medium.png in Resources */,
 				7FF95D0E190784040031B710 /* icon29.png in Resources */,
 				7F4BC031190754930026F078 /* groundImage.png in Resources */,
+				ACA4A77C191738BF0073A06A /* coinSound.wav in Resources */,
 				7FB3BBB918C1BF01001B558D /* flappyBirdCoin2.png in Resources */,
 				7F4BC0451907628C0026F078 /* scoreboard2.png in Resources */,
 				7F4BC02319074E910026F078 /* coin12.png in Resources */,
@@ -630,6 +649,7 @@
 				ACC9886C1902471300BE1660 /* sfx_die.wav in Resources */,
 				7F4F212518BF36B5002675F6 /* flappyBirdStartButtonDown.png in Resources */,
 				7FBF99C21906DCA9000163A0 /* collisionGround.png in Resources */,
+				ACA4A77E19173A9C0073A06A /* jump.wav in Resources */,
 				7F4F212718BF36BE002675F6 /* flappyBirdStartButtonUp.png in Resources */,
 				7FB3BBB518C1BF01001B558D /* flappyBirdCoin6.png in Resources */,
 				7F4BBFF319073CED0026F078 /* PIPE.png in Resources */,
@@ -815,7 +835,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flappyBird2/Flappy Hands-Prefix.pch";
 				INFOPLIST_FILE = "flappyBird2/Flappy Hands-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Flappy Hands";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -830,7 +850,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flappyBird2/Flappy Hands-Prefix.pch";
 				INFOPLIST_FILE = "flappyBird2/Flappy Hands-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Flappy Hands";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

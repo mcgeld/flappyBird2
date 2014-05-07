@@ -549,7 +549,7 @@
                 {
                     if(soundFX)
                     {
-                        coinSound = @"smw_coin";
+                        coinSound = @"coin";
                         soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) coinSound, CFSTR ("wav"), NULL);
                         AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                         AudioServicesPlaySystemSound(soundID);
@@ -587,7 +587,7 @@
                     {
                         if(soundFX)
                         {
-                            powerupSound = @"here_we_go";
+                            powerupSound = @"floop";
                             soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                             AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                             AudioServicesPlaySystemSound(soundID);
@@ -618,7 +618,7 @@
                         {
                             if(soundFX)
                             {
-                                powerupSound = @"smw_power_up";
+                                powerupSound = @"jump";
                                 soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                                 AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                                 AudioServicesPlaySystemSound(soundID);
@@ -640,7 +640,7 @@
                     {
                         if(soundFX)
                         {
-                            powerupSound = @"score_mult";
+                            powerupSound = @"bloop_x";
                             soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (__bridge CFStringRef) powerupSound, CFSTR ("wav"), NULL);
                             AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                             AudioServicesPlaySystemSound(soundID);
