@@ -98,7 +98,6 @@
                 _titlePicture.frame = CGRectMake(_titlePicture.frame.origin.x, _titlePicture.frame.origin.y - birdAccel, _titlePicture.frame.size.width, _titlePicture.frame.size.height);
             }
             completion:^(BOOL finished){}];
-    float temp =(self.view.frame.size.height);
     if(_titlePicture.frame.origin.y > 75)
     {
         _titlePicture.frame = CGRectMake(_titlePicture.frame.origin.x, 75, _titlePicture.frame.size.width, _titlePicture.frame.size.height);
@@ -157,19 +156,6 @@
         musicOn = true;
     else
         musicOn = false;
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-}
-
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
 }
 
 @end

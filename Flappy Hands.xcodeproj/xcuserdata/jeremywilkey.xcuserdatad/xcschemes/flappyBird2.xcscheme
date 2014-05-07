@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7F4F20E518BEB753002675F6"
-               BuildableName = "flappyBird2.app"
+               BuildableName = "Flappy Hands.app"
                BlueprintName = "Flappy Hands"
                ReferencedContainer = "container:Flappy Hands.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7F4F210618BEB753002675F6"
-               BuildableName = "flappyBird2Tests.xctest"
+               BuildableName = "Flappy HandsTests.xctest"
                BlueprintName = "Flappy HandsTests"
                ReferencedContainer = "container:Flappy Hands.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F4F20E518BEB753002675F6"
-            BuildableName = "flappyBird2.app"
+            BuildableName = "Flappy Hands.app"
             BlueprintName = "Flappy Hands"
             ReferencedContainer = "container:Flappy Hands.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F4F20E518BEB753002675F6"
-            BuildableName = "flappyBird2.app"
+            BuildableName = "Flappy Hands.app"
             BlueprintName = "Flappy Hands"
             ReferencedContainer = "container:Flappy Hands.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F4F20E518BEB753002675F6"
-            BuildableName = "flappyBird2.app"
+            BuildableName = "Flappy Hands.app"
             BlueprintName = "Flappy Hands"
             ReferencedContainer = "container:Flappy Hands.xcodeproj">
          </BuildableReference>
