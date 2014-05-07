@@ -344,7 +344,6 @@
             gameSpeed -= 0.001f;
             if(gameSpeed > 0.0009)
             {
-                NSLog([NSString stringWithFormat:@"%f", gameSpeed]);
                 [gameLoopTimer invalidate];
                 gameLoopTimer=nil;
                 gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:gameSpeed target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
