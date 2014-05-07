@@ -13,7 +13,7 @@
 @interface ViewController : UIViewController
 {
   
-    
+    bool buttonsMoved;
     
     NSTimer * gameLoopTimer;
     NSTimer * groundTimer;
@@ -39,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ground1;
 @property (weak, nonatomic) IBOutlet UIImageView *birdPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *titlePicture;
+@property (weak, nonatomic) IBOutlet UIButton *easyButtonView;
+@property (weak, nonatomic) IBOutlet UIButton *mediumButtonView;
+@property (weak, nonatomic) IBOutlet UIButton *hardButtonView;
 
 - (IBAction)easyMode:(id)sender;
 - (IBAction)mediumMode:(id)sender;

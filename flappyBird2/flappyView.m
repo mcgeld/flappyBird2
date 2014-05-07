@@ -50,7 +50,7 @@
     invalidateFaster = NO;
     gameSpeed = 0.009;
     makeFaster = YES;
-    
+
     
 }
 
@@ -141,7 +141,7 @@
 -(void)setUpTubes
 {
     widthOfViewController=320;
-    sizeBetweenTubes=160;
+    sizeBetweenTubes=150;
     tubeWidth=59;
     tubeHeight=256;
     tubeBottomY=356;
@@ -201,6 +201,39 @@
     groundX = 0;
 }
 
+-(void)setUpSmallScreen
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        if ([[UIScreen mainScreen] scale] == 2.0) {
+            if([UIScreen mainScreen].bounds.size.height == 568){
+                
+                _coinCountLabel.frame=CGRectMake(34, 500, _coinCountLabel.frame.size.width, _coinCountLabel.frame.size.height);
+                _flappyLivesLabel.frame=CGRectMake(33, 472, _flappyLivesLabel.frame.size.width, _flappyLivesLabel.frame.size.height);
+                _tubeCountLabel.frame=CGRectMake(33, 536, _tubeCountLabel.frame.size.width, _tubeCountLabel.frame.size.height);
+                
+                _coinLabel.frame=CGRectMake(0, 501, _coinLabel.frame.size.width, _coinLabel.frame.size.height);
+                _handLabel.frame=CGRectMake(0, 473, _handLabel.frame.size.width, _handLabel.frame.size.height);
+                _tubeLabel.frame=CGRectMake(0, 529, _tubeLabel.frame.size.width, _tubeLabel.frame.size.height);
+                
+                
+            } else{
+                
+                _coinCountLabel.frame=CGRectMake(33, 149, _coinCountLabel.frame.size.width, _coinCountLabel.frame.size.height);
+                _flappyLivesLabel.frame=CGRectMake(33, 126, _flappyLivesLabel.frame.size.width, _flappyLivesLabel.frame.size.height);
+                _tubeCountLabel.frame=CGRectMake(33, 182, _tubeCountLabel.frame.size.width, _tubeCountLabel.frame.size.height);
+                
+                _coinLabel.frame=CGRectMake(0, 149, _coinLabel.frame.size.width, _coinLabel.frame.size.height);
+                _handLabel.frame=CGRectMake(0, 126, _handLabel.frame.size.width, _handLabel.frame.size.height);
+                _tubeLabel.frame=CGRectMake(0, 182, _tubeLabel.frame.size.width, _tubeLabel.frame.size.height);
+                
+                
+                
+            }
+        }
+    }
+    
+}
+
 /******************setUpBird**********************
  PARAMS: NONE
  RETURNS: NONE
@@ -208,7 +241,7 @@
  ************************************************/
 -(void)setUpBird
 {
-    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 34, 24);
+    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 40, 30);
     flappyBirdLives=gameMode;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
     birdIsPassingTube=NO;
     birdPassingCounter=0;
@@ -284,6 +317,7 @@
 {
     if(!dead)
     {
+         [self setUpSmallScreen];
         [self updateTube];
         [self updateGravity];
         [self updateCoinMovement];
@@ -1062,6 +1096,7 @@
     
     if(!go)
     {
+  
         gameLoopTimer = [NSTimer scheduledTimerWithTimeInterval:0.009 target:self selector:@selector(gameLoop) userInfo:nil repeats:YES];
 
         birdFlapTimer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(updateFlaps) userInfo:nil repeats:YES];
@@ -1272,6 +1307,12 @@
     [tubeTimer invalidate];
     [gameLoopTimer invalidate];
     [fasterFlashTimer invalidate];
+    fallTimer=nil;
+    gravityTimer=nil;
+    groundTimer=nil;
+    tubeTimer=nil;
+    gameLoopTimer=nil;
+    fasterFlashTimer=nil;
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
@@ -1356,7 +1397,7 @@
         _tubeTopImage.hidden=NO;
         
         _startButtonImage.frame=CGRectMake(tubeBottomX, tubeBottomY, _startButtonImage.frame.size.width, _startButtonImage.frame.size.height);
-        
+        _startButtonImage.hidden=YES;
         go = YES;
         
     }

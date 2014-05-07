@@ -312,6 +312,7 @@
 		7F4F20DD18BEB753002675F6 = {
 			isa = PBXGroup;
 			children = (
+				ADD6B1D119082C910029BBAE /* iPad */,
 				7F4F20EF18BEB753002675F6 /* flappyBird2 */,
 				7F4F210E18BEB753002675F6 /* flappyBird2Tests */,
 				7F4F20E818BEB753002675F6 /* Frameworks */,
@@ -495,6 +496,13 @@
 				7F4F211118BEB753002675F6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADD6B1D119082C910029BBAE /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

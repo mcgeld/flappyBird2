@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+   
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _background1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -40,6 +41,9 @@
         soundFX = true;
     if(_musicSwitchOutlet.on)
         musicOn = true;
+    buttonsMoved=NO;
+
+ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,9 +53,29 @@
     [gravityTimer invalidate];
     [gameLoopTimer invalidate];
 }
-
+-(void)setUpSmallScreen
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        if ([[UIScreen mainScreen] scale] == 2.0) {
+            if([UIScreen mainScreen].bounds.size.height == 568){
+              
+                _easyButtonView.frame=CGRectMake(20, 502, _easyButtonView.frame.size.width, _easyButtonView.frame.size.height);
+            _mediumButtonView.frame=CGRectMake(120, 502, _mediumButtonView.frame.size.width, _mediumButtonView.frame.size.height);
+            _hardButtonView.frame=CGRectMake(220, 502, _hardButtonView.frame.size.width, _hardButtonView.frame.size.height);
+            } else{
+            
+             
+               _easyButtonView.frame=CGRectMake(20, 323, _easyButtonView.frame.size.width, _easyButtonView.frame.size.height);
+               _mediumButtonView.frame=CGRectMake(120, 411, _mediumButtonView.frame.size.width, _mediumButtonView.frame.size.height);
+                _hardButtonView.frame=CGRectMake(220, 323, _hardButtonView.frame.size.width, _hardButtonView.frame.size.height);
+            }
+        }
+    }
+    
+}
 -(void)updateFlaps
 {
+
     [UIView animateWithDuration:0.1
             animations:^(void)
             {
@@ -67,6 +91,7 @@
 
 -(void)updateGravity
 {
+    
     [UIView animateWithDuration:0.01
             animations:^(void)
             {
@@ -88,6 +113,10 @@
 
 -(void)gameLoop
 {
+  
+        [self setUpSmallScreen];
+    
+   
     [self updateGravity];
     if(timerCount == 13)
     {
