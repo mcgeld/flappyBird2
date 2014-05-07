@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [self loadPlist];
-  //  NSString * val= [_db getUser:0];
     [super viewDidLoad];
     [self setUpTubes];
     [self setUpCollisionObjects];
@@ -177,8 +176,7 @@
     [collisionObjectsArray addObject:_tubeBottomImage1];
     [collisionObjectsArray addObject:_tubeTopImage];
     [collisionObjectsArray addObject:_tubeTopImage1];
-    //[collisionObjectsArray addObject:_ground1];
-    //[collisionObjectsArray addObject:_ground2];
+
     
     deadCollisionObjectsArray = [[NSMutableArray alloc]init];
     [deadCollisionObjectsArray addObject:_ground1];
@@ -201,38 +199,6 @@
     groundX = 0;
 }
 
--(void)setUpSmallScreen
-{
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
-        if ([[UIScreen mainScreen] scale] == 2.0) {
-            if([UIScreen mainScreen].bounds.size.height == 568){
-                
-                _coinCountLabel.frame=CGRectMake(34, 500, _coinCountLabel.frame.size.width, _coinCountLabel.frame.size.height);
-                _flappyLivesLabel.frame=CGRectMake(33, 472, _flappyLivesLabel.frame.size.width, _flappyLivesLabel.frame.size.height);
-                _tubeCountLabel.frame=CGRectMake(33, 536, _tubeCountLabel.frame.size.width, _tubeCountLabel.frame.size.height);
-                
-                _coinLabel.frame=CGRectMake(0, 501, _coinLabel.frame.size.width, _coinLabel.frame.size.height);
-                _handLabel.frame=CGRectMake(0, 473, _handLabel.frame.size.width, _handLabel.frame.size.height);
-                _tubeLabel.frame=CGRectMake(0, 529, _tubeLabel.frame.size.width, _tubeLabel.frame.size.height);
-                
-                
-            } else{
-                
-                _coinCountLabel.frame=CGRectMake(33, 149, _coinCountLabel.frame.size.width, _coinCountLabel.frame.size.height);
-                _flappyLivesLabel.frame=CGRectMake(33, 126, _flappyLivesLabel.frame.size.width, _flappyLivesLabel.frame.size.height);
-                _tubeCountLabel.frame=CGRectMake(33, 182, _tubeCountLabel.frame.size.width, _tubeCountLabel.frame.size.height);
-                
-                _coinLabel.frame=CGRectMake(0, 149, _coinLabel.frame.size.width, _coinLabel.frame.size.height);
-                _handLabel.frame=CGRectMake(0, 126, _handLabel.frame.size.width, _handLabel.frame.size.height);
-                _tubeLabel.frame=CGRectMake(0, 182, _tubeLabel.frame.size.width, _tubeLabel.frame.size.height);
-                
-                
-                
-            }
-        }
-    }
-    
-}
 
 /******************setUpBird**********************
  PARAMS: NONE
@@ -241,7 +207,7 @@
  ************************************************/
 -(void)setUpBird
 {
-    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 40, 30);
+    _birdPicture.frame = CGRectMake(_birdPicture.frame.origin.x, _birdPicture.frame.origin.y, 35, 26);
     flappyBirdLives=gameMode;   //gamemode gives 1 life for hard, 2 lives medium, and 3 easy.
     birdIsPassingTube=NO;
     birdPassingCounter=0;
@@ -317,7 +283,6 @@
 {
     if(!dead)
     {
-         [self setUpSmallScreen];
         [self updateTube];
         [self updateGravity];
         [self updateCoinMovement];
@@ -513,7 +478,6 @@
                         AudioServicesPlaySystemSound(soundID);
                     }
                     flash = YES;
-                    //_birdPicture.alpha=.5;
                     flappyBirdLives-=1;
                     
                     
@@ -528,7 +492,7 @@
                         
                         birdAccel = 0;
                         
-                        //[self gameOver];
+       
                         
                     }
                     
@@ -556,8 +520,6 @@
                 
                 birdAccel = 0;
                 
-                //[self gameOver];
-                
             }
             
         }
@@ -578,7 +540,7 @@
                 
                 UIImageView * coinPicture=coinCollisionArray[j];
                 
-                if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame))
+                if(CGRectIntersectsRect(coinPicture.frame, _birdPicture.frame)&&canStartPowerUp>15)
                     
                 {
                     if(soundFX)
@@ -612,7 +574,7 @@
                 
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
               
-                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame)&&canStartPowerUp>15)
+                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame))
                     
                 {
                     
@@ -1347,12 +1309,6 @@
     NSPropertyListFormat format;
     
     _db = [[database alloc] initWithArray:(NSMutableArray *)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc]];
-}
-
--(void)loadBinary
-{
-    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"database.db"];
-    _db = [[database alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
 }
 
 
