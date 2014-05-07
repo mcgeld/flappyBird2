@@ -276,6 +276,7 @@
 {
     if(!dead)
     {
+        [self setUpSmallScreen];
         [self updateTube];
         [self updateGravity];
         [self updateCoinMovement];
@@ -466,9 +467,7 @@
                         dead = YES;
                         
                         birdAccel = 0;
-                        
-       
-                        
+
                     }
                     
                 }
