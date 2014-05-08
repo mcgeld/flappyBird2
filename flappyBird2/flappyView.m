@@ -125,7 +125,7 @@
     startPowerupTwo=NO;
     powerupsBegan=NO;
     powerupWasHit=NO;
-    //powerupTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
+    powerupFlashTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(makePowerupNotificationFlash) userInfo:nil repeats:YES];
     powModifier = -1;
     powFlash = NO;
 }
@@ -230,7 +230,7 @@
     modifier = -1;
     flash = NO;
     flashCount = 0;
-    flapCount=0;
+   
 }
 
 /*********************setUpGravity****************
@@ -284,9 +284,11 @@
         [self updatePowerupMovement];
         [self collisionChecking];
         [self updateRandomNumbers];
+         canStartPowerUp+=1;
+       
         if(timerCount == 10)
         {
-            canStartPowerUp+=1;
+            
             timerCount = 0;
         }
         if(timerCount % 2 == 0)
@@ -361,6 +363,7 @@
             timerCount = 0;
         }
     }
+   
     timerCount += 1;
     if(invalidateFaster)
     {
@@ -548,8 +551,8 @@
             {
                 
                 UIImageView * powerupPicture=powerupsCollisionArray[j];
-              
-                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame)&&canStartPowerUp>15)
+                                                                            //keeps the power ups from starting for 1 sec
+                if(CGRectIntersectsRect(powerupPicture.frame, _birdPicture.frame)&&canStartPowerUp>200)
                     
                 {
                     
@@ -1009,7 +1012,6 @@
 {
     if(!dead)
     {
-        flapCount+=1;
         flap = YES;
         flapMultiplier = 1;
         birdAccel = 4.7;
@@ -1134,6 +1136,10 @@
     NSPropertyListFormat format;
     
     _db = [[database alloc] initWithArray:(NSMutableArray *)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc]];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 

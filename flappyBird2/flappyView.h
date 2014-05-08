@@ -58,7 +58,7 @@
     int modifier;
     BOOL flash;
     int flashCount;
-    int flapCount;
+    
     
     //Gravity Variables
     float gravityConstant;
@@ -101,10 +101,10 @@
     bool startPowerupTwo;
     bool powerupWasHit;
     bool powerupHit;
-    int canStartPowerUp;
     int powModifier;
     BOOL powFlash;
     int powFlashCount;
+    int canStartPowerUp;
     
     
     //Miscellaneous Variables
