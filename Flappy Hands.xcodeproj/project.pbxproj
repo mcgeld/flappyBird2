@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3314CB1919FA77001ED0D1 /* sfx_hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7F3314C91919FA77001ED0D1 /* sfx_hit.wav */; };
+		7F3314CC1919FA77001ED0D1 /* sfx_wing.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7F3314CA1919FA77001ED0D1 /* sfx_wing.wav */; };
 		7F4AE360191565B10045FD62 /* gameLoop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7F4AE35F191565B10045FD62 /* gameLoop.wav */; };
 		7F4BBFF319073CED0026F078 /* PIPE.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF219073CED0026F078 /* PIPE.png */; };
 		7F4BBFF519073D450026F078 /* PIPE_Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4BBFF419073D450026F078 /* PIPE_Down.png */; };
@@ -87,8 +89,8 @@
 		ACA4A77E19173A9C0073A06A /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACA4A77D19173A9C0073A06A /* jump.wav */; };
 		ACC6B37E1919B53D0026730E /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC6B37D1919B53D0026730E /* coin.wav */; };
 		ACC9886A190245DF00BE1660 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC98869190245DF00BE1660 /* AudioToolbox.framework */; };
-		ACC988701902484100BE1660 /* sfx_wing.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9886F1902484100BE1660 /* sfx_wing.wav */; };
-		ACC98872190248ED00BE1660 /* sfx_hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC98871190248ED00BE1660 /* sfx_hit.wav */; };
+		ACC988701902484100BE1660 /* sfx_wing_old.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9886F1902484100BE1660 /* sfx_wing_old.wav */; };
+		ACC98872190248ED00BE1660 /* sfx_hit_old.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC98871190248ED00BE1660 /* sfx_hit_old.wav */; };
 		ACC9887C190250B300BE1660 /* blip.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACC9887B190250B300BE1660 /* blip.wav */; };
 		ACFFE316190725B3000BA013 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE315190725B3000BA013 /* AVFoundation.framework */; };
 		ADC3FA0318C0EC940011D68A /* flappyView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC3FA0218C0EC940011D68A /* flappyView.m */; };
@@ -106,6 +108,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F3314C91919FA77001ED0D1 /* sfx_hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_hit.wav; sourceTree = "<group>"; };
+		7F3314CA1919FA77001ED0D1 /* sfx_wing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_wing.wav; sourceTree = "<group>"; };
 		7F4AE35F191565B10045FD62 /* gameLoop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameLoop.wav; sourceTree = "<group>"; };
 		7F4BBFF219073CED0026F078 /* PIPE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIPE.png; sourceTree = "<group>"; };
 		7F4BBFF419073D450026F078 /* PIPE_Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIPE_Down.png; sourceTree = "<group>"; };
@@ -191,8 +195,8 @@
 		ACA4A77D19173A9C0073A06A /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		ACC6B37D1919B53D0026730E /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
 		ACC98869190245DF00BE1660 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		ACC9886F1902484100BE1660 /* sfx_wing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_wing.wav; sourceTree = "<group>"; };
-		ACC98871190248ED00BE1660 /* sfx_hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_hit.wav; sourceTree = "<group>"; };
+		ACC9886F1902484100BE1660 /* sfx_wing_old.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_wing_old.wav; sourceTree = "<group>"; };
+		ACC98871190248ED00BE1660 /* sfx_hit_old.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_hit_old.wav; sourceTree = "<group>"; };
 		ACC9887B190250B300BE1660 /* blip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blip.wav; sourceTree = "<group>"; };
 		ACFFE315190725B3000BA013 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ADC3FA0118C0EC940011D68A /* flappyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flappyView.h; sourceTree = "<group>"; };
@@ -346,9 +350,11 @@
 				7FBF99C31906DCB3000163A0 /* movingBackground.png */,
 				7FBF99C11906DCA9000163A0 /* collisionGround.png */,
 				7FBF99AB1905DE18000163A0 /* Faster.png */,
+				7F3314C91919FA77001ED0D1 /* sfx_hit.wav */,
+				7F3314CA1919FA77001ED0D1 /* sfx_wing.wav */,
 				ACC9887B190250B300BE1660 /* blip.wav */,
-				ACC98871190248ED00BE1660 /* sfx_hit.wav */,
-				ACC9886F1902484100BE1660 /* sfx_wing.wav */,
+				ACC98871190248ED00BE1660 /* sfx_hit_old.wav */,
+				ACC9886F1902484100BE1660 /* sfx_wing_old.wav */,
 				7F4F20F118BEB753002675F6 /* Flappy Hands-Info.plist */,
 				7F4F20F218BEB753002675F6 /* InfoPlist.strings */,
 				7F4F20F518BEB753002675F6 /* main.m */,
@@ -482,11 +488,13 @@
 				7F4BC02D19074E910026F078 /* coin1.png in Resources */,
 				7F4BC01919074E910026F078 /* hands2 copy.png in Resources */,
 				7FF95D121907F8B20031B710 /* icon40.png in Resources */,
+				7F3314CB1919FA77001ED0D1 /* sfx_hit.wav in Resources */,
 				7F4BC01419074E910026F078 /* hands7 copy.png in Resources */,
 				7F4BC04119075F200026F078 /* hard.png in Resources */,
 				7F4BC02019074E910026F078 /* coin15.png in Resources */,
 				7F4BC02519074E910026F078 /* coin10.png in Resources */,
 				7F4BC02A19074E910026F078 /* coin5.png in Resources */,
+				7F3314CC1919FA77001ED0D1 /* sfx_wing.wav in Resources */,
 				7F4BC035190758AF0026F078 /* coin18.png in Resources */,
 				7F4BC03919075CB20026F078 /* start.png in Resources */,
 				7F4BC02F19074E910026F078 /* speedpowerup.png in Resources */,
@@ -503,8 +511,8 @@
 				7FF95D10190784580031B710 /* icon58.png in Resources */,
 				7F4BC02B19074E910026F078 /* coin4.png in Resources */,
 				7F4AE360191565B10045FD62 /* gameLoop.wav in Resources */,
-				ACC98872190248ED00BE1660 /* sfx_hit.wav in Resources */,
-				ACC988701902484100BE1660 /* sfx_wing.wav in Resources */,
+				ACC98872190248ED00BE1660 /* sfx_hit_old.wav in Resources */,
+				ACC988701902484100BE1660 /* sfx_wing_old.wav in Resources */,
 				7F4BC02219074E910026F078 /* coin13.png in Resources */,
 				7FBF99C21906DCA9000163A0 /* collisionGround.png in Resources */,
 				ACA4A77E19173A9C0073A06A /* jump.wav in Resources */,

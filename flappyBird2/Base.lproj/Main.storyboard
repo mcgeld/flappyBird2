@@ -159,6 +159,10 @@
                                 <rect key="frame" x="0.0" y="454" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="collisionGround.png" translatesAutoresizingMaskIntoConstraints="NO" id="UoX-xI-VSw">
+                                <rect key="frame" x="40" y="454" width="320" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PIPE_Down.png" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-YR-9aX">
                                 <rect key="frame" x="50" y="-107" width="59" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

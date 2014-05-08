@@ -42,8 +42,6 @@
     if(_musicSwitchOutlet.on)
         musicOn = true;
     buttonsMoved=NO;
-
- 
 }
 
 - (void)didReceiveMemoryWarning
